@@ -211,6 +211,28 @@ a:hover {
   opacity: 1;
 }
 
+.ag-logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222;
+  text-decoration: none;
+  background: rgba(193, 223, 240, 0.85);
+  padding: 8px 12px;
+  border-radius: 8px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.ag-logo:hover {
+  background: rgba(159, 255, 203, 0.85);
+  color: #00A5CF;
+  transform: scale(1.05);
+}
+
 @media (max-width: 900px) {
   .container {
     flex-direction: column;
