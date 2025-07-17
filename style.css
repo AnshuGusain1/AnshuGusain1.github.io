@@ -6,7 +6,40 @@ body, html {
   padding: 0;
   height: 100%;
   font-family: 'Fira Code', monospace;
-  background: #25A18E; /* About panel color for full background */
+  background: #CFE795; /* About panel color for full background */
+  color: #111;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #111;
+}
+
+a, .panel-link, .panel-link .panel, .panel-link .panel h1, .panel-link .panel p {
+  color: #111;
+}
+
+.panel {
+  color: #111;
+}
+
+.panel-link:hover .panel {
+  color: #fff !important;
+}
+
+.emoji {
+  color: #111;
+}
+
+.about-center-text, .about-img, .concert-caption, .concert-img-wrapper, .content-page, .photo-flex-row, .music-flex-row, .award-organization, .project-header h3, .award-header h3, .skill-tile h3 {
+  color: #111;
+}
+
+.ag-logo {
+  color: #111;
+}
+
+.ag-logo:hover {
+  color: #00A5CF;
 }
 
 .container {
@@ -54,16 +87,16 @@ body, html {
 
 /* Colors for each section */
 .blog {
-  background-color: #00A5CF;
+  background-color: #F97068;
 }
 
 .work {
-  background-color: #9FFFCB;
+  background-color: #C1DFF0;
   color: #000; /* Dark text for light background */
 }
 
 .about {
-  background-color: #25A18E;
+  background-color: #CFE795;
 }
 
 .home-button {
@@ -275,3 +308,4 @@ a:hover {
     align-items: stretch;
   }
 }
+

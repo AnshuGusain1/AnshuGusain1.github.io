@@ -33,3 +33,15 @@
   </div>
 </body>
 </html>
+
+<script>
+  const panelLinks = document.querySelectorAll('.panel-link');
+  panelLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      document.body.classList.add('panel-hover');
+    });
+    link.addEventListener('mouseleave', () => {
+      document.body.classList.remove('panel-hover');
+    });
+  });
+</script>
