@@ -10,29 +10,13 @@
 
 body {
     font-family: 'Fira Code', monospace;
-    background: #9FFFCB;
+    background: #C1DFF0;
     color: #111;
     line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: #111;
-}
-
-/* Navigation matching main site */
-.navigation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: rgba(37, 161, 142, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .ag-logo {
@@ -561,4 +545,36 @@ h2 {
 .awards-list li.visible {
   opacity: 1;
   transform: none;
+}
+
+.contact-links {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #111;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  gap: 0.5em;
+}
+
+.contact-link:hover {
+  opacity: 0.7;
+}
+
+.contact-icon {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.fade-tile, .project-tile, .skill-tile, .award-tile {
+  background: #C8F0C1 !important;
 }
