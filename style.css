@@ -1,0 +1,236 @@
+/* Monospace clean font */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Fira Code', monospace;
+  background: #25A18E; /* About panel color for full background */
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  gap: 0;
+}
+
+.panel {
+  flex: 1;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.panel h1 {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+
+.panel p {
+  font-size: 1.2rem;
+  max-width: 300px;
+}
+
+.emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.panel img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Colors for each section */
+.blog {
+  background-color: #00A5CF;
+}
+
+.work {
+  background-color: #9FFFCB;
+  color: #000; /* Dark text for light background */
+}
+
+.about {
+  background-color: #25A18E;
+}
+
+.home-button {
+  position: fixed; /* stays in the top-left */
+  top: 80px;
+  left: 80px;
+  font-style: italic; /* italic text */
+  text-decoration: underline; /* underscored */
+  font-size: 1.5rem;
+  color: white; /* color of text */
+  text-decoration-thickness: 2px; /* thicker underline */
+  z-index: 1000; /* 👈 THIS keeps it above other elements */
+}
+
+.home-button:hover {
+  color: white; /* hover color */
+  cursor: pointer;
+}
+
+
+/* Links (optional) */
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+a:hover {
+  border-color: #fff;
+}
+
+.panel-link {
+  flex: 1 1 0;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.panel-link .panel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.35s cubic-bezier(0.4, 0.2, 0.2, 1),
+              transform 0.35s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.panel-link:hover .panel {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 3px 12px rgba(0,0,0,0.18);
+  z-index: 1;
+  position: relative;
+  transform: scale(0.97) translateY(8px);
+}
+
+.content-page {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  margin: 0;
+  padding: 40px 0 0 0;
+  background: transparent;
+  color: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.content-page h1, .content-page h2, .content-page p, .content-page ul, .content-page section {
+  max-width: none;
+  margin-left: 40px;
+  margin-right: 40px;
+  text-align: left;
+}
+
+.content-page section {
+  margin-bottom: 2rem;
+}
+
+.content-page p, .content-page ul {
+  max-width: 700px;
+}
+
+.photo-flex-row {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.photo-flex-row > div:last-child {
+  min-width: 320px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.music-flex-row {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.music-flex-row > div:last-child {
+  min-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.concert-img-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.concert-img {
+  width: 320px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  display: block;
+}
+.concert-caption {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+.concert-img-wrapper:hover .concert-caption {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  .panel-link {
+    min-height: 33vh;
+  }
+  .photo-flex-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+  .music-flex-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+  .music-flex-row > div:last-child {
+    align-items: stretch;
+  }
+}
