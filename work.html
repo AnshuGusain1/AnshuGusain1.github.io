@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Your Name</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="work.css">
 </head>
 <body>
@@ -55,61 +56,99 @@
       </div>
     </div>
     <h2 style="color: black;">Projects & Work Experience</h2>
-    <div class="tile-grid">
+    <div class="tile-row single-column">
       <div class="fade-tile project-tile">
         <div class="project-header">
-          <h3>E-Commerce Platform</h3>
-          <span class="project-date">2024</span>
+          <h3>MiteOut, Precision Technologies</h3>
+          <span class="project-date">2025</span>
         </div>
-        <p class="project-description">
-          Built a full-stack e-commerce platform using React, Node.js, and PostgreSQL. 
-          Implemented user authentication, payment processing, and inventory management.
+        <p class="project-description" style="color: black">
+          Lead Engineer in AgTech Startup focused on apiary management through data collection, and precise dosing patterns.
         </p>
         <div class="project-tech">
-          <span class="tech-tag">React</span>
-          <span class="tech-tag">Node.js</span>
-          <span class="tech-tag">PostgreSQL</span>
-          <span class="tech-tag">Stripe API</span>
+          <span class="tech-tag">Product-Field Deployment</span>
+          <span class="tech-tag">KiCAD PCB design</span>
+          <span class="tech-tag">PlatformIO</span>
+          <span class="tech-tag">ESP32 Power Management</span>
+          <span class="tech-tag">I2C, SPI Sensor Data Management</span>
         </div>
         <div class="project-links">
-          <a href="#" class="project-link">🔗 Live Demo</a>
-          <a href="#" class="project-link">📁 GitHub</a>
+          <a href="https://miteouttech.com" class="project-link" target="_blank" rel="noopener">🔗 Website</a>
         </div>
       </div>
       <div class="fade-tile project-tile">
         <div class="project-header">
-          <h3>Task Management App</h3>
-          <span class="project-date">2023</span>
+          <h3>CloudCage Software/Hardware Intern</h3>
+          <span class="project-date">Summer 2025</span>
         </div>
-        <p class="project-description">
-          Developed a collaborative task management application with real-time updates, 
-          drag-and-drop functionality, and team collaboration features.
+        <p class="project-description" style="color: black">
+          Developed CRM integration software to manage users and potential customers. Developed Kernel-based Virtual Machines for network development. Assisted with development of network fabric hardware. Utilized JetKVM hardware to integrate with end-user server-management experience. Developed FPGA-based networking hardware for software-client matching.
         </p>
         <div class="project-tech">
-          <span class="tech-tag">Next.js</span>
-          <span class="tech-tag">TypeScript</span>
-          <span class="tech-tag">Socket.io</span>
-          <span class="tech-tag">MongoDB</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">🔗 Live Demo</a>
-          <a href="#" class="project-link">📁 GitHub</a>
+          <span class="tech-tag">ZoomInfo</span>
+          <span class="tech-tag">State Machines</span>
+          <span class="tech-tag">JetKVM</span>
+          <span class="tech-tag">Altium</span>
         </div>
       </div>
       <div class="fade-tile project-tile">
         <div class="project-header">
-          <h3>Software Engineer Intern</h3>
-          <span class="project-date">Summer 2023</span>
+          <h3>Additive Manufacturing Researcher</h3>
+          <span class="project-date">2025</span>
         </div>
-        <p class="project-description">
-          Worked at TechCorp Inc. developing microservices for their main platform. 
-          Improved API response times by 40% and implemented automated testing.
+        <p class="project-description" style="color: black">
+          Built test control frameworks for multi-axis robotic control software using Python, ROS, and CAN bus. Configured and debugged robotic print systems, including OS setup, and hardware
+          integration. Collaborated with hardware engineers to define software requirements and maintain system validation logs.
         </p>
         <div class="project-tech">
+          <span class="tech-tag">ROS</span>
+          <span class="tech-tag">Controller Area Network</span>
           <span class="tech-tag">Python</span>
-          <span class="tech-tag">Django</span>
-          <span class="tech-tag">Docker</span>
-          <span class="tech-tag">AWS</span>
+          <span class="tech-tag">Electronics Framework Design</span>
+        </div>
+        <div style="display: flex; gap: 24px; justify-content: center; align-items: center; margin-top: 24px; flex-wrap: wrap;">
+          <video src="Assets/ASME.MOV" autoplay loop muted playsinline style="width:100%;max-width:320px;min-width:180px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.10);"></video>
+          <img src="Assets/GIF.gif" alt="Additive Manufacturing GIF" style="width:100%;max-width:320px;min-width:180px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.10);" />
+        </div>
+      </div>
+      <div class="fade-tile project-tile">
+        <div class="project-header">
+          <h3>BioInformatics Researcher</h3>
+          <span class="project-date">2022-2024</span>
+        </div>
+        <p class="project-description" style="color: black">
+          Developed deep learning pipeline using UNET architecture and TensorFlow for hyperspectral nuclei segmentation, achieving 85% accuracy. Optimized data pipelines using Python and TensorFlow; worked under Dr. Lalit K. Mestha. Lead author on IEEE paper; presenting at ISBI-IEEE. Received Honorable Mention at IEEE Systems Council Student Conference
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Tensorflow</span>
+          <span class="tech-tag">Keras</span>
+          <span class="tech-tag">Hyperspectral Imaging</span>
+          <span class="tech-tag">Spectral Python Package</span>
+          <span class="tech-tag">Matlab Hyperspectral Imaging Package</span>
+        </div>
+        <div class="project-links">
+          <a href="Assets/Nuclei Segmentation Using Deep Learning and Hyperspectral Imaging for High Accuracy.pdf" class="project-link" target="_blank" rel="noopener">📄 Research Paper</a>
+        </div>
+        <div style="margin-top: 32px;">
+          <h4 style="color: black; margin-bottom: 16px;">Nuclei Segmentation Results</h4>
+          <div class="project-images grid-2-col">
+            <div class="image-item">
+              <img src="Assets/Nuclei1.png" alt="Nuclei Segmentation 1" class="project-image">
+              <p class="image-caption">Sample 1</p>
+            </div>
+            <div class="image-item">
+              <img src="Assets/Nuclei 5.png" alt="Nuclei Segmentation 2" class="project-image">
+              <p class="image-caption">Sample 2</p>
+            </div>
+            <div class="image-item">
+              <img src="Assets/Nuclei3.png" alt="Nuclei Segmentation 3" class="project-image">
+              <p class="image-caption">Sample 3</p>
+            </div>
+            <div class="image-item">
+              <img src="Assets/Nuclei4.png" alt="Nuclei Segmentation 4" class="project-image">
+              <p class="image-caption">Sample 4</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
