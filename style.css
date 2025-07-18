@@ -1,12 +1,24 @@
 /* Monospace clean font */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
+html, body {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background: #939388;
+}
+
+/* About page specific background */
+body.about-page {
+  background: #CFE795 !important;
+}
+
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'Fira Code', monospace;
-  background: #CFE795; /* About panel color for full background */
   color: #111;
 }
 
@@ -101,8 +113,8 @@ a, .panel-link, .panel-link .panel, .panel-link .panel h1, .panel-link .panel p 
 
 .home-button {
   position: fixed; /* stays in the top-left */
-  top: 80px;
-  left: 80px;
+  top: 300px;
+  left: 300px;
   font-style: italic; /* italic text */
   text-decoration: underline; /* underscored */
   font-size: 1.5rem;
@@ -179,6 +191,12 @@ a:hover {
   text-align: left;
 }
 
+.content-page h1 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .content-page section {
   margin-bottom: 2rem;
 }
@@ -248,21 +266,28 @@ a:hover {
   position: fixed;
   top: 20px;
   left: 20px;
-  font-size: 1.5rem;
+  width: 72px;
+  height: 72px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 2.4rem;
   font-weight: bold;
-  color: #222;
+  color: #111;
   text-decoration: none;
-  background: rgba(193, 223, 240, 0.85);
-  padding: 8px 12px;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
   z-index: 1000;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 0;
 }
 
 .ag-logo:hover {
-  background: rgba(159, 255, 203, 0.85);
-  color: #00A5CF;
+  background: rgba(255,255,255,0.3);
+  color: #25A18E;
   transform: scale(1.05);
 }
 
