@@ -31,7 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function onScroll() {
     const currentScrollY = window.scrollY;
-    if (currentScrollY > lastScrollY + 5 && logoVisible) {
+    if (currentScrollY === 0) {
+      // Always show at the top
+      logo.style.opacity = '1';
+      logo.style.pointerEvents = '';
+      logo.style.transform = 'translateY(0)';
+      logoVisible = true;
+    } else if (currentScrollY > lastScrollY + 5 && logoVisible) {
       // Scrolling down
       logo.style.opacity = '0';
       logo.style.pointerEvents = 'none';
