@@ -5,80 +5,324 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Me - Hridaanshu Gusain</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    .about-page {
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .hero-section {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .hero-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .about-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 1rem 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .hero-section .about-img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .about-center-text {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    
+    .sections-grid {
+      display: grid;
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    
+    section {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .photo-flex-row {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-top: 1rem;
+    }
+    
+    .photo-flex-row > div {
+      flex: 1;
+    }
+    
+    .music-content {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-top: 1rem;
+    }
+    
+    .music-text {
+      flex: 1;
+    }
+    
+    .music-albums {
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    
+    .music-albums ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .music-albums li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .music-albums li:last-child {
+      border-bottom: none;
+    }
+    
+    .now-playing {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(255, 0, 0, 0.1);
+      border-radius: 8px;
+      border-left: 4px solid red;
+    }
+    
+    .now-playing h3 {
+      color: red;
+      margin: 0 0 1rem 0;
+      font-size: 1.1rem;
+    }
+    
+    .concert-img-wrapper {
+      position: relative;
+      text-align: center;
+    }
+    
+    .concert-img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .concert-caption {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #666;
+      font-style: italic;
+    }
+    
+    .fitness-section, .f1-section {
+      text-align: center;
+    }
+    
+    .fitness-section p, .f1-section p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: black !important;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-top: 3rem;
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .back-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+      
+      .about-img {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .photo-flex-row, .music-content {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .concert-img-wrapper iframe {
+        width: 100%;
+        max-width: 320px;
+      }
+      
+      section {
+        padding: 1.5rem;
+      }
+      
+      section h2 {
+        font-size: 1.5rem;
+      }
+      
+      .container {
+        padding: 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-section h1 {
+        font-size: 1.8rem;
+      }
+      
+      .about-img {
+        width: 120px;
+        height: 120px;
+      }
+      
+      section {
+        padding: 1rem;
+      }
+      
+      .now-playing iframe {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+  </style>
 </head>
 <body class="about-page">
   <a href="index.html" class="ag-logo">AG.</a>
+  
   <div class="container content-page">
-    <h1>About Me</h1>
-    <img src="Assets/About.jpeg" alt="Hridaanshu Gusain" class="about-img" />
-    <div class="about-center-text">
-      <p>Hi! My name is Hridaanshu, or Anshu for short. I'm an Electrical Engineering student at UIUC, passionate about FPGAs, GPUs, and ML hardware. I am also passionate in computer science, and am pursuing a minor in CS.</p>
+    <div class="hero-section">
+      <img src="Assets/About.jpeg" alt="Hridaanshu Gusain" class="about-img" />
+      <h1>About Me</h1>
+      <div class="about-center-text">
+        <p>Hi! My name is Hridaanshu, or Anshu for short. I'm an Electrical Engineering student at UIUC, passionate about FPGAs, GPUs, and ML hardware. I am also passionate in computer science, and am pursuing a minor in CS.</p>
+      </div>
     </div>
-    <section>
-      <h2>📸 Photography & Videography</h2>
-      <div class="photo-flex-row">
-        <div style="flex: 1;">
-          <p>I absolutely love capturing nature's beauty through my lens. You'll never catch me outside without my trusty Nikon camera! Exploring new places and documenting them is one of my greatest joys. I have been to almost all the US National Parks, and many conutries. 🇺🇸🇮🇳🇫🇷🇳🇱🇬🇧🇪🇸🇵🇷🇩🇪🇵🇹</p>
-        </div>
-        <div style="flex: 1;">
-          <iframe src="https://www.instagram.com/anshu.photos/embed" width="320" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h2>🎵 Music Lover</h2>
-      <div class="photo-flex-row">
-        <div style="flex: 1;">
-          <p>Music is a huge part of my life. Here are some of my favorite albums:</p>
-          <ul>
-            <li>The Weeknd – Hurry Up Tomorrow</li>
-            <li>The Weeknd – Starboy</li>
-            <li>Travis Scott – Utopia</li>
-            <li>Drake – Views</li>
-            <li>Don Toliver – Hardstone Psycho</li>
-          </ul>
-          <h3 style="margin-top:1.5rem; color:red;">Live Now Playing</h3>
-<iframe 
-  src="https://nowplaying.aidenwallis.co.uk/6878827d5582e164574df644" 
-  width="340" 
-  height="100" 
-  style="border:none; border-radius:8px; overflow:hidden;" 
-  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-  loading="lazy">
-</iframe>
 
-        </div>
-        <div style="flex: 1;">
-          <div class="concert-img-wrapper">
-            <img src="Assets/Concert.jpeg" alt="Weeknd Concert" class="concert-img" />
-            <span class="concert-caption">Weeknd After Hours Til' Dawn Concert</span>
+    <div class="sections-grid">
+      <section>
+        <h2>📸 Photography & Videography</h2>
+        <div class="photo-flex-row">
+          <div>
+            <p>I absolutely love capturing nature's beauty through my lens. You'll never catch me outside without my trusty Nikon camera! Exploring new places and documenting them is one of my greatest joys. I have been to almost all the US National Parks, and many conutries. 🇺🇸🇮🇳🇫🇷🇳🇱🇬🇧🇪🇸🇵🇷🇩🇪🇵🇹</p>
+          </div>
+          <div>
+            <iframe src="https://www.instagram.com/anshu.photos/embed" width="320" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
           </div>
         </div>
-      </div>
-    </section>
-    <section>
-      <h2>🌲 Growing Up in Nature</h2>
-      <div class="photo-flex-row">
-        <div style="flex: 1;">
-          <p>I'm from Upstate New York, where I grew up surrounded by forests, lakes, and mountains. Hiking with my family every summer weekend is a tradition that I cherish deeply, and it's given me a deep appreciation for the outdoors. I appreciate the beauty of nature, and all the life inside it!</p>
-        </div>
-        <div style="flex: 1;">
-          <div class="concert-img-wrapper">
-            <img src="Assets/Nature.jpeg" alt="Lake Minnewaska" class="concert-img" />
-            <span class="concert-caption">Lake Minnewaska, NY</span>
+      </section>
+
+      <section>
+        <h2>🎵 Music Lover</h2>
+        <div class="music-content">
+          <div class="music-text">
+            <p style="color:black;">Music is a huge part of my life. Here are some of my favorite albums:</p>
+            <div style = "color:black;"class="music-albums">
+              <ul>
+                <li>The Weeknd – Hurry Up Tomorrow</li>
+                <li>The Weeknd – Starboy</li>
+                <li>Travis Scott – Utopia</li>
+                <li>Drake – Views</li>
+                <li>Don Toliver – Hardstone Psycho</li>
+              </ul>
+            </div>
+            <div class="now-playing">
+              <h3>Live Now Playing</h3>
+              <iframe 
+                src="https://nowplaying.aidenwallis.co.uk/6878827d5582e164574df644" 
+                width="340" 
+                height="100" 
+                style="border:none; border-radius:8px; overflow:hidden;" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+          <div>
+            <div class="concert-img-wrapper">
+              <img src="Assets/Concert.jpeg" alt="Weeknd Concert" class="concert-img" />
+              <span class="concert-caption">Weeknd After Hours Til' Dawn Concert</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section>
-      <h2>🏋️‍♂️ Gym & Fitness Journey</h2>
-      <p style="color : black">I've become absolutely addicted to the gym over the past couple of years. Through consistent training and dedication, I've gained 20 pounds in two years and have completely transformed my body. Fitness has become a huge part of my life, and I'm proud of the progress I've made!</p>
-    </section>
-    <section>
-      <h2>🏎️ Formula One Fan</h2>
-      <p: style = "color:black">I love watching Formula One, and my favorite driver is Lewis Hamilton. Race weekends are always great.</p>
-    </section>
-    <a href="index.html">&larr; Back to Home</a>
+      </section>
+
+      <section>
+        <h2>🌲 Growing Up in Nature</h2>
+        <div class="photo-flex-row">
+          <div>
+            <p>I'm from Upstate New York, where I grew up surrounded by forests, lakes, and mountains. Hiking with my family every summer weekend is a tradition that I cherish deeply, and it's given me a deep appreciation for the outdoors. I appreciate the beauty of nature, and all the life inside it!</p>
+          </div>
+          <div>
+            <div class="concert-img-wrapper">
+              <img src="Assets/Nature.jpeg" alt="Lake Minnewaska" class="concert-img" />
+              <span class="concert-caption">Lake Minnewaska, NY</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="fitness-section">
+        <h2>🏋️‍♂️ Gym & Fitness Journey</h2>
+        <p>I've become absolutely addicted to the gym over the past couple of years. Through consistent training and dedication, I've gained 20 pounds in two years and have completely transformed my body. Fitness has become a huge part of my life, and I'm proud of the progress I've made!</p>
+      </section>
+
+      <section class="f1-section">
+        <h2>🏎️ Formula One Fan</h2>
+        <p>I love watching Formula One, and my favorite driver is Lewis Hamilton. Race weekends are always great.</p>
+      </section>
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
   </div>
 </body>
-</html> 
+</html>

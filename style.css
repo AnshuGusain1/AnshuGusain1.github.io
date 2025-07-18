@@ -48,6 +48,7 @@ a, .panel-link, .panel-link .panel, .panel-link .panel h1, .panel-link .panel p 
 
 .ag-logo {
   color: #111;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif !important;
 }
 
 .ag-logo:hover {
@@ -266,12 +267,12 @@ a:hover {
   position: fixed;
   top: 20px;
   left: 20px;
-  width: 72px;
-  height: 72px;
+  width: 120px;
+  height: 120px;
   background: rgba(255,255,255,0.2);
   border-radius: 50%;
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 2.4rem;
+  font-size: 3.2rem;
   font-weight: bold;
   color: #111;
   text-decoration: none;
@@ -283,6 +284,29 @@ a:hover {
   z-index: 1000;
   transition: all 0.3s ease;
   padding: 0;
+  overflow: visible;
+}
+
+/* Clock effect using a rotating border */
+.ag-logo::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top: 4px solid #25A18E;
+  border-right: 4px solid #25A18E;
+  box-sizing: border-box;
+  z-index: -1;
+  animation: ag-clock-spin 4s linear infinite;
+}
+
+@keyframes ag-clock-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .ag-logo:hover {
