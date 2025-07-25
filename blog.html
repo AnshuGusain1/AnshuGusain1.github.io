@@ -5,6 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog - Hridaanshu Gusain</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+      color: #000000 !important;
+    }
+    
+    body.blog * {
+      color: #000000 !important;
+    }
+    
+    a {
+      color: #000000 !important;
+    }
+    
+    a:hover {
+      color: #333333 !important;
+    }
+    
+    .ag-logo {
+      color: #000000 !important;
+    }
+  </style>
 </head>
 <body class="blog">
   <a href="index.html" class="ag-logo">AG.</a>
@@ -15,26 +37,26 @@
         display: inline-block;
         padding: 12px 24px;
         background: rgba(255, 255, 255, 0.2);
-        color: #fff;
+        color: #000000 !important;
         text-decoration: none;
         border-radius: 8px;
         font-size: 1.1rem;
         transition: all 0.3s ease;
         border: 2px solid rgba(255, 255, 255, 0.3);
-      " onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">
+      " onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'; this.style.color='#000000'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'; this.style.color='#000000'">
         ← Back to Home
       </a>
       <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; margin-top: 2rem; backdrop-filter: blur(8px); max-width: 800px;">
-        <h2 style="color: #fff; margin-bottom: 1rem; font-size: 2rem;">Stereo Vision & Depth Estimation</h2>
-        <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); line-height: 1.6;">
+        <h2 style="color: #000000 !important; margin-bottom: 1rem; font-size: 2rem;">Stereo Vision & Depth Estimation</h2>
+        <p style="font-size: 1.2rem; color: #000000 !important; line-height: 1.6;">
           I'm currently working on a project focused on disparity mapping and 3D depth estimation using stereo vision systems. This involves calibrating stereo camera pairs, rectifying images, and using block matching algorithms to extract depth maps in real time. I'm exploring OpenCV for baseline implementation. This project has applications in robotics, autonomous navigation, and real-world 3D reconstruction.
           I have started my implementation with these cameras, because they are affordable on amazon. 
-          <a href="https://www.amazon.com/dp/B0DZH6ZGQJ?ref=ppx_yo2ov_dt_b_fed_asin_title" target="_blank" style="color:#ffd700; text-decoration:underline; display:inline-flex; align-items:center;">
+          <a href="https://www.amazon.com/dp/B0DZH6ZGQJ?ref=ppx_yo2ov_dt_b_fed_asin_title" target="_blank" style="color:#000000 !important; text-decoration:underline; display:inline-flex; align-items:center;">
             see on Amazon
           </a>
         </p>
         <img src = "Assets/Cameras.png" alt="Stereo Cameras" style="width:10%; height:auto; border-radius:12px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-        <p>I am trying different algorithms to achieve accurate disparity maps and depth estimation : StereoSBM, and StereoSGBM. My goal is to create an experimental setup that can be used for navigation and mapping tasks in autonomous drones and cars. I am using the Middlebury 2001 stereo dataset to setup a baseline algorithm.</p>
+        <p style="color: #000000 !important;">I am trying different algorithms to achieve accurate disparity maps and depth estimation : StereoSBM, and StereoSGBM. My goal is to create an experimental setup that can be used for navigation and mapping tasks in autonomous drones and cars. I am using the Middlebury 2001 stereo dataset to setup a baseline algorithm.</p>
         
         <!-- Middlebury dataset images side by side -->
         <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
@@ -53,7 +75,7 @@
           <img src="Assets/teslaCV.jpg" alt="teslaCV stereo image data" style="width: 50%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
         </div>
 
-         <p>These cameras suck becasue they have a lot of noise, which makes the SGBM and SBM algorithms struggle a lot with even slightly less than optimal conditions. I have to tune and calibrate the hell out of these cameras, and I even designed a 3D print to house them at a theoretically perfectly horizontally leveled position. So far, they are still a few pixels off, which seemingly still throws off the entire algorithm. <br> I am currently in the phase of stereo calibration of both cameras, to hopefully figure out the Intrinsic and Extrinsic parameters involved.</p>
+         <p style="color: #000000 !important;">These cameras suck becasue they have a lot of noise, which makes the SGBM and SBM algorithms struggle a lot with even slightly less than optimal conditions. I have to tune and calibrate the hell out of these cameras, and I even designed a 3D print to house them at a theoretically perfectly horizontally leveled position. So far, they are still a few pixels off, which seemingly still throws off the entire algorithm. <br> I am currently in the phase of stereo calibration of both cameras, to hopefully figure out the Intrinsic and Extrinsic parameters involved.</p>
       </div>
      
     </section>
