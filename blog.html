@@ -11,21 +11,6 @@
   
   <div class="content-page">
     <section style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-      <div class="emoji" style="font-size: 6rem; margin-bottom: 2rem;">🚀</div>
-      <h1 style="font-size: 3rem; margin-bottom: 1rem; color: #fff;">Blog Coming Soon</h1>
-      <p style="font-size: 1.4rem; max-width: 600px; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.9);">
-        I'm working on some exciting content about FPGAs, GPU programming, ML hardware, and my engineering adventures at UIUC.
-      </p>
-      <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 12px; margin-bottom: 3rem; backdrop-filter: blur(10px);">
-        <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1.5rem;">What's Coming:</h3>
-        <ul style="list-style: none; padding: 0; color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; line-height: 1.8;">
-          <li style="margin-bottom: 0.5rem;">⚡ FPGA Design Tutorials</li>
-          <li style="margin-bottom: 0.5rem;">🔧 GPU Programming Deep Dives</li>
-          <li style="margin-bottom: 0.5rem;">🤖 ML Hardware Insights</li>
-          <li style="margin-bottom: 0.5rem;">📚 Engineering Student Life</li>
-          <li style="margin-bottom: 0.5rem;">💡 Project Build Logs</li>
-        </ul>
-      </div>
       <a href="index.html" style="
         display: inline-block;
         padding: 12px 24px;
@@ -39,6 +24,38 @@
       " onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">
         ← Back to Home
       </a>
+      <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; margin-top: 2rem; backdrop-filter: blur(8px); max-width: 800px;">
+        <h2 style="color: #fff; margin-bottom: 1rem; font-size: 2rem;">Stereo Vision & Depth Estimation</h2>
+        <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); line-height: 1.6;">
+          I'm currently working on a project focused on disparity mapping and 3D depth estimation using stereo vision systems. This involves calibrating stereo camera pairs, rectifying images, and using block matching algorithms to extract depth maps in real time. I'm exploring OpenCV for baseline implementation. This project has applications in robotics, autonomous navigation, and real-world 3D reconstruction.
+          I have started my implementation with these cameras, because they are affordable on amazon. 
+          <a href="https://www.amazon.com/dp/B0DZH6ZGQJ?ref=ppx_yo2ov_dt_b_fed_asin_title" target="_blank" style="color:#ffd700; text-decoration:underline; display:inline-flex; align-items:center;">
+            see on Amazon
+          </a>
+        </p>
+        <img src = "Assets/Cameras.png" alt="Stereo Cameras" style="width:10%; height:auto; border-radius:12px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <p>I am trying different algorithms to achieve accurate disparity maps and depth estimation : StereoSBM, and StereoSGBM. My goal is to create an experimental setup that can be used for navigation and mapping tasks in autonomous drones and cars. I am using the Middlebury 2001 stereo dataset to setup a baseline algorithm.</p>
+        
+        <!-- Middlebury dataset images side by side -->
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+          <img src="Assets/tsukuba.gif" alt="tsukuba stereo image data" style="width: 48%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+          <img src="Assets/tsukuba_GT.jpg" alt="tsukuba disparity map" style="width: 48%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        </div>
+        
+        <!-- img2l and img2r images side by side -->
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+          <img src="Assets/img2l.png" alt="img2l left image" style="width: 48%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+          <img src="Assets/img2r.png" alt="img2r right image" style="width: 48%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        </div>
+        
+        <!-- Tesla image centered below -->
+        <div style="display: flex; justify-content: center; margin-top: 1rem;">
+          <img src="Assets/teslaCV.jpg" alt="teslaCV stereo image data" style="width: 50%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        </div>
+
+         <p>These cameras suck becasue they have a lot of noise, which makes the SGBM and SBM algorithms struggle a lot with even slightly less than optimal conditions. I have to tune and calibrate the hell out of these cameras, and I even designed a 3D print to house them at a theoretically perfectly horizontally leveled position. So far, they are still a few pixels off, which seemingly still throws off the entire algorithm. <br> I am currently in the phase of stereo calibration of both cameras, to hopefully figure out the Intrinsic and Extrinsic parameters involved.</p>
+      </div>
+     
     </section>
   </div>
   <script src="script.js"></script>
