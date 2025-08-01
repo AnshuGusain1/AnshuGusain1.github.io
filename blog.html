@@ -83,6 +83,35 @@
           <img src="Assets/DisparityMap.png" alt="Example depth map" style="width: 60%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
         </div>
       </div>
+
+      <!-- Drone Project Section -->
+      <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; margin-top: 2rem; backdrop-filter: blur(8px); max-width: 800px;">
+        <h2 style="color: #000000 !important; margin-bottom: 1rem; font-size: 2rem;">Autonomous Drone Navigation</h2>
+        <p style="font-size: 1.2rem; color: #000000 !important; line-height: 1.6;">
+          I am currently working on an autonomous drone that combines computer vision, path planning, and real-time control algorithms for autonomous navigation. The project focuses on creating a drone capable of navigating complex environments using the stereo vision system I'm working on, along with additional sensors for obstacle detection and localization. We have designed the majority of this drone from scratch, such as the flight controller, and the body. Components such as the motors and ESC are off-the-shelf. We have designed the entire body in Onshape and Autodesk inventor, and the PCB was made in KiCAD. 
+        </p>
+        
+        <!-- Drone image -->
+        <div style="display: flex; justify-content: center; margin-top: 1rem;">
+          <img src="Assets/Drone.png" alt="Autonomous drone" style="width: 50%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        </div>
+
+        <p style="color: #000000 !important;">In our current stage of development, we have completed the flight controller, and have began assembling it with components such as the ESP32 for real-time sensor data collection, the Raspberry PI for processes such as computer vision and object avoidance, and sensors such as the MPU 9250, GPS and Barometer.</p>
+        
+        <p style="color: #000000 !important; margin-top: 1rem;">
+          The drone project integrates multiple technologies including:
+        </p>
+        <ul style="color: #000000 !important; margin-left: 2rem; line-height: 1.6;">
+          <li>Stereo vision for depth perception and obstacle detection</li>
+          <li>PID control loops for stable flight and precise positioning</li>
+          <li>SLAM (Simultaneous Localization and Mapping) algorithms</li>
+          <li>Path planning using A* and RRT algorithms</li>
+          <li>Real-time sensor fusion for robust navigation</li>
+        </ul>
+        
+        <p style="color: #000000 !important; margin-top: 1rem;">
+          We are currently integrating all the components of the drone to begin PID tuning to hopefully get it off the ground. We are planning on using noise filtering algorithms such as the Kalman Filter to improve the accuracy of the sensors and to reduce vibration noise.
+      </div>
      
     </section>
   </div>
