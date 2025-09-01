@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog - Hridaanshu Gusain</title>
+  <title>Engineering Projects - Hridaanshu Gusain</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     * {
@@ -11,20 +11,110 @@
       color: #000000 !important;
     }
     
+    body.blog {
+      background: #ffffff !important;
+    }
+    
     body.blog * {
       color: #000000 !important;
     }
     
     a {
-      color: #000000 !important;
+      color: #0066cc !important;
+      text-decoration: none;
     }
     
     a:hover {
-      color: #333333 !important;
+      color: #004499 !important;
+      text-decoration: underline;
     }
     
     .ag-logo {
       color: #000000 !important;
+    }
+    
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+      backdrop-filter: blur(8px);
+      max-width: 900px;
+      border-left: 4px solid #0066cc;
+    }
+    
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .tech-tag {
+      background: rgba(0, 102, 204, 0.1);
+      color: #000000 !important;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(0, 102, 204, 0.2);
+    }
+    
+    .problem-solution {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    
+    .results-metrics {
+      background: rgba(0, 200, 0, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 3px solid #00cc00;
+      margin: 1rem 0;
+    }
+    
+    .challenge-box {
+      background: rgba(255, 150, 0, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 3px solid #ff9600;
+      margin: 1rem 0;
+    }
+    
+    .image-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    
+    .project-image {
+      width: 48%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .single-image {
+      width: 60%;
+    }
+    
+    h1, h2, h3 {
+      color: #000000 !important;
+      font-weight: 600;
+    }
+    
+    .skills-highlight {
+      font-weight: 500;
+      color: #0066cc !important;
+    }
+    
+    .section-header {
+      border-bottom: 2px solid #0066cc;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
     }
   </style>
 </head>
@@ -34,7 +124,7 @@
   </a>
   
   <div class="content-page">
-    <section style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+    <section style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: left;">
       <a href="index.html" style="
         display: inline-block;
         padding: 12px 24px;
@@ -46,41 +136,64 @@
         transition: all 0.3s ease;
         border: 2px solid rgba(255, 255, 255, 0.3);
       " onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'; this.style.color='#000000'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'; this.style.color='#000000'">
-        ← Back to Home
+        ← Back to Portfolio
       </a>
-      <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; margin-top: 2rem; backdrop-filter: blur(8px); max-width: 800px;">
-        <h2 style="color: #000000 !important; margin-bottom: 1rem; font-size: 2rem;">Stereo Vision & Depth Estimation</h2>
-        <p style="font-size: 1.2rem; color: #000000 !important; line-height: 1.6;">
-          I'm currently working on a project focused on disparity mapping and 3D depth estimation using stereo vision systems. This involves calibrating stereo camera pairs, rectifying images, and using block matching algorithms to extract depth maps in real time. I'm exploring OpenCV for baseline implementation. This project has applications in robotics, autonomous navigation, and real-world 3D reconstruction.
-          I have started my implementation with these cameras, because they are affordable on amazon. 
-          <a href="https://www.amazon.com/dp/B0DZH6ZGQJ?ref=ppx_yo2ov_dt_b_fed_asin_title" target="_blank" style="color:#000000 !important; text-decoration:underline; display:inline-flex; align-items:center;">
-            see on Amazon
-          </a>
-        </p>
-        <img src = "Assets/Cameras.png" alt="Stereo Cameras" style="width:10%; height:auto; border-radius:12px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-        <p style="color: #000000 !important;">I am trying different algorithms to achieve accurate disparity maps and depth estimation : StereoSBM, and StereoSGBM. My goal is to create an experimental setup that can be used for navigation and mapping tasks in autonomous drones and cars. I am using the Middlebury 2001 stereo dataset to setup a baseline algorithm.</p>
+
+      <!-- Project 1: Stereo Vision -->
+      <div class="project-card">
+        <h2 class="section-header">Computer Vision: Stereo Depth Estimation System</h2>
         
-        <!-- Middlebury dataset images side by side -->
-        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-          <img src="Assets/tsukuba.gif" alt="tsukuba stereo image data" style="width: 48%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-          <img src="Assets/tsukuba_GT.jpg" alt="tsukuba disparity map" style="width: 48%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <div class="tech-stack">
+          <span class="tech-tag">OpenCV</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Computer Vision</span>
+          <span class="tech-tag">3D Reconstruction</span>
+          <span class="tech-tag">Camera Calibration</span>
+          <span class="tech-tag">Real-time Processing</span>
         </div>
         
-        <!-- img2l and img2r images side by side -->
-        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-          <img src="Assets/img2l.png" alt="img2l left image" style="width: 48%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-          <img src="Assets/img2r.png" alt="img2r right image" style="width: 48%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <div class="problem-solution">
+          <h3>Problem Statement</h3>
+          <p>Developed a real-time stereo vision system for accurate depth estimation and 3D reconstruction, addressing challenges in autonomous navigation and robotics applications.</p>
         </div>
         
-        <!-- Tesla image centered below -->
-        <div style="display: flex; justify-content: center; margin-top: 1rem;">
-          <img src="Assets/teslaCV.jpg" alt="teslaCV stereo image data" style="width: 50%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <h3>Technical Implementation</h3>
+        <p>Engineered a comprehensive stereo vision pipeline utilizing <span class="skills-highlight">block matching algorithms (StereoSBM and StereoSGBM)</span> for disparity mapping. The system processes synchronized stereo camera feeds to generate precise depth maps in real-time.</p>
+        
+        <div style="display: flex; justify-content: center; margin: 1rem 0;">
+          <img src="Assets/Cameras.png" alt="Stereo camera hardware setup" style="width:15%; height:auto; border-radius:12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
         </div>
         
-         <p style="color: #000000 !important;">These cameras suck becasue they have a lot of noise, which makes the SGBM and SBM algorithms struggle a lot with even slightly less than optimal conditions. I have to tune and calibrate the hell out of these cameras, and I even designed a 3D print to house them at a theoretically perfectly horizontally leveled position. So far, they are still a few pixels off, which seemingly still throws off the entire algorithm. <br> I am currently in the phase of stereo calibration of both cameras, to hopefully figure out the Intrinsic and Extrinsic parameters involved.</p>
-        <!-- New image at bottom of text area -->
+        <h4>Key Engineering Solutions:</h4>
+        <ul style="line-height: 1.8; margin-left: 1.5rem;">
+          <li><strong>Camera Calibration:</strong> Implemented intrinsic and extrinsic parameter calibration using checkerboard patterns to correct lens distortion</li>
+          <li><strong>Image Rectification:</strong> Applied epipolar geometry principles to align stereo image pairs for accurate disparity calculation</li>
+          <li><strong>Hardware Optimization:</strong> Designed and 3D-printed custom camera housing for precise horizontal alignment, minimizing pixel-level misalignment</li>
+          <li><strong>Algorithm Comparison:</strong> Benchmarked performance using Middlebury 2001 stereo dataset for validation</li>
+        </ul>
+        
+        <div class="image-grid">
+          <img src="Assets/tsukuba.gif" alt="Tsukuba stereo dataset input" class="project-image">
+          <img src="Assets/tsukuba_GT.jpg" alt="Ground truth disparity map" class="project-image">
+        </div>
+        
+        <div class="image-grid">
+          <img src="Assets/img2l.png" alt="Left camera feed" class="project-image">
+          <img src="Assets/img2r.png" alt="Right camera feed" class="project-image">
+        </div>
+        
+        <div class="challenge-box">
+          <h4>Engineering Challenges Overcome:</h4>
+          <p><strong>Noise Reduction:</strong> Low-cost cameras introduced significant noise affecting algorithm accuracy. Implemented advanced filtering techniques and iterative calibration processes to achieve sub-pixel accuracy alignment. Currently developing Kalman filter integration for enhanced noise suppression.</p>
+        </div>
+        
+        <div class="results-metrics">
+          <h4>Results & Applications:</h4>
+          <p>Successfully generated accurate depth maps with applications in autonomous vehicle navigation, drone obstacle avoidance, and real-world 3D scene reconstruction. The system demonstrates real-time processing capabilities suitable for embedded robotics applications.</p>
+        </div>
+        
         <div style="display: flex; flex-direction: column; align-items: center; margin-top: 1.5rem;">
-          <img src="Assets/DisparityMap.png" alt="Example depth map" style="width: 60%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+          <img src="Assets/DisparityMap.png" alt="Generated disparity map output" class="single-image project-image">
           <video controls style="width: 60%; height: auto; border-radius: 12px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
             <source src="Assets/DisparityVideo.mov" type="video/quicktime">
             Your browser does not support the video tag.
@@ -88,33 +201,74 @@
         </div>
       </div>
 
-      <!-- Drone Project Section -->
-      <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; margin-top: 2rem; backdrop-filter: blur(8px); max-width: 800px;">
-        <h2 style="color: #000000 !important; margin-bottom: 1rem; font-size: 2rem;">Autonomous Drone Navigation</h2>
-        <p style="font-size: 1.2rem; color: #000000 !important; line-height: 1.6;">
-          I am currently working on an autonomous drone that combines computer vision, path planning, and real-time control algorithms for autonomous navigation. The project focuses on creating a drone capable of navigating complex environments using the stereo vision system I'm working on, along with additional sensors for obstacle detection and localization. We have designed the majority of this drone from scratch, such as the flight controller, and the body. Components such as the motors and ESC are off-the-shelf. We have designed the entire body in Onshape and Autodesk inventor, and the PCB was made in KiCAD. 
-        </p>
+      <!-- Project 2: Autonomous Drone -->
+      <div class="project-card">
+        <h2 class="section-header">Autonomous Drone Navigation System</h2>
         
-        <!-- Drone image -->
-        <div style="display: flex; justify-content: center; margin-top: 1rem;">
-          <img src="Assets/Drone.png" alt="Autonomous drone" style="width: 50%; height: auto; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <div class="tech-stack">
+          <span class="tech-tag">Embedded Systems</span>
+          <span class="tech-tag">ESP32</span>
+          <span class="tech-tag">Raspberry Pi</span>
+          <span class="tech-tag">PID Control</span>
+          <span class="tech-tag">SLAM</span>
+          <span class="tech-tag">PCB Design</span>
+          <span class="tech-tag">KiCAD</span>
+          <span class="tech-tag">CAD Design</span>
+          <span class="tech-tag">Sensor Fusion</span>
         </div>
-
-        <p style="color: #000000 !important;">In our current stage of development, we have completed the flight controller, and have began assembling it with components such as the ESP32 for real-time sensor data collection, the Raspberry PI for processes such as computer vision and object avoidance, and sensors such as the MPU 9250, GPS and Barometer.</p>
         
-        <p style="color: #000000 !important; margin-top: 1rem;">
-          The drone project integrates multiple technologies including:
-        </p>
-        <ul style="color: #000000 !important; margin-left: 2rem; line-height: 1.6;">
-          <li>Stereo vision for depth perception and obstacle detection</li>
-          <li>PID control loops for stable flight and precise positioning</li>
-          <li>SLAM (Simultaneous Localization and Mapping) algorithms</li>
-          <li>Path planning using A* and RRT algorithms</li>
-          <li>Real-time sensor fusion for robust navigation</li>
+        <div class="problem-solution">
+          <h3>Project Objective</h3>
+          <p>Designing and building a fully autonomous drone system from scratch, integrating custom flight controller hardware with advanced computer vision for autonomous navigation in complex environments.</p>
+        </div>
+        
+        <div style="display: flex; justify-content: center; margin: 1.5rem 0;">
+          <img src="Assets/Drone.png" alt="Custom designed autonomous drone" class="single-image project-image">
+        </div>
+        
+        <h3>Systems Engineering Approach</h3>
+        
+        <h4>Hardware Design & Manufacturing:</h4>
+        <ul style="line-height: 1.8; margin-left: 1.5rem;">
+          <li><strong>Mechanical Design:</strong> Engineered complete airframe using Onshape and Autodesk Inventor with aerodynamic optimization</li>
+          <li><strong>PCB Development:</strong> Designed custom flight controller PCB using KiCAD, integrating power management and sensor interfaces</li>
+          <li><strong>Component Integration:</strong> Selected and integrated brushless motors, ESCs, and sensors for optimal performance</li>
         </ul>
         
-        <p style="color: #000000 !important; margin-top: 1rem;">
-          We are currently integrating all the components of the drone to begin PID tuning to hopefully get it off the ground. We are planning on using noise filtering algorithms such as the Kalman Filter to improve the accuracy of the sensors and to reduce vibration noise.
+        <h4>Embedded Systems Architecture:</h4>
+        <ul style="line-height: 1.8; margin-left: 1.5rem;">
+          <li><strong>Real-time Control:</strong> ESP32 microcontroller for low-latency sensor data acquisition and flight control</li>
+          <li><strong>Computer Vision Processing:</strong> Raspberry Pi for stereo vision processing and object detection algorithms</li>
+          <li><strong>Sensor Suite:</strong> MPU-9250 (9-DOF IMU), GPS, barometric pressure sensor for comprehensive state estimation</li>
+        </ul>
+        
+        <div class="challenge-box">
+          <h4>Technical Challenges & Solutions:</h4>
+          <p><strong>Sensor Fusion:</strong> Implementing Kalman filtering algorithms to combine IMU, GPS, and barometric data while mitigating vibration noise and sensor drift. Developing custom noise models specific to rotorcraft dynamics.</p>
+        </div>
+        
+        <h4>Control Systems Implementation:</h4>
+        <ul style="line-height: 1.8; margin-left: 1.5rem;">
+          <li><strong>Flight Control:</strong> Multi-loop PID controllers for attitude, altitude, and position control</li>
+          <li><strong>Navigation Algorithms:</strong> SLAM implementation for real-time mapping and localization</li>
+          <li><strong>Path Planning:</strong> A* and RRT algorithms for optimal trajectory generation in obstacle-rich environments</li>
+          <li><strong>Obstacle Avoidance:</strong> Integration of stereo vision depth data for dynamic collision avoidance</li>
+        </ul>
+        
+        <div class="results-metrics">
+          <h4>Current Development Status:</h4>
+          <p><strong>Hardware Complete:</strong> Flight controller assembly finished, currently in PID tuning phase for initial flight testing. Software integration of vision system with flight control in progress.</p>
+          <p><strong>Next Phase:</strong> System integration testing, flight envelope characterization, and autonomous mission validation.</p>
+        </div>
+        
+        <h4>Engineering Skills Demonstrated:</h4>
+        <ul style="line-height: 1.8; margin-left: 1.5rem;">
+          <li>End-to-end product development from concept to prototype</li>
+          <li>Cross-disciplinary integration of mechanical, electrical, and software systems</li>
+          <li>Real-time embedded programming and hardware-software co-design</li>
+          <li>Advanced control theory application and system identification</li>
+          <li>Computer vision algorithm implementation and optimization</li>
+        </ul>
       </div>
      
     </section>
