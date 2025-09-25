@@ -38,6 +38,7 @@
             font-weight: 500;
         }
     </style>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
 </head>
 <body>
   <a href="index.html" class="ag-logo">
@@ -47,6 +48,45 @@
     <h1>My Work Experience!</h1>
     <h2 style="color: black;">Projects & Work Experience</h2>
     <div class="tile-row single-column">
+      <div class="fade-tile project-tile">
+    <div class="project-header">
+      <h3>Mechatronics Engineer, Blink Robotics Systems</h3>
+      <span class="project-date">2025 — Present</span>
+    </div>
+    <p class="project-description" style="color: black">
+      Designed and validated embedded mechatronic systems for med‑tech robotics: brought up STM32/ESP32 boards, wrote motor and sensor drivers (SPI/I2C/UART/CAN), integrated ROS2 nodes for motion and telemetry, and implemented safety‑critical control (PID and state machines) with HIL bench testing. Collaborated cross‑functionally on requirements, DFM, and system bring‑up; maintained system validation logs and test procedures.
+    </p>
+    <div class="project-tech">
+      <span class="tech-tag">STM32</span>
+      <span class="tech-tag">ESP32</span>
+      <span class="tech-tag">FreeRTOS</span>
+      <span class="tech-tag">ROS2</span>
+      <span class="tech-tag">CAN bus</span>
+      <span class="tech-tag">C/C++</span>
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">KiCAD</span>
+      <span class="tech-tag">Altium</span>
+      <span class="tech-tag">DFM</span>
+      <span class="tech-tag">HIL Testing</span>
+    </div>
+    <div class="project-embed" style="display:flex;justify-content:center;margin:1.25rem 0;">
+      <model-viewer
+        src="Assets/ARM.gltf"
+        alt="Blink Robotics mechatronics design — interactive 3D"
+        camera-controls
+        auto-rotate
+        ar
+        environment-image="https://modelviewer.dev/shared-assets/environments/neutral.hdr"
+        exposure="1.2"
+        shadow-intensity="1"
+        shadow-softness="0.9"
+        style="width:100%;max-width:840px;height:520px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+      </model-viewer>
+    </div>
+    <noscript>
+      <p style="text-align:center;color:#444;">3D viewer requires JavaScript. Here is a <a href="Assets/Drone_final.png">static image</a> instead.</p>
+    </noscript>
+  </div>
       <div class="fade-tile project-tile">
         <div class="project-header">
           <h3>MiteOut, Precision Technologies</h3>
@@ -163,9 +203,10 @@
         </div>
         <div style="margin-top: 24px; display: flex; justify-content: center;">
           <div style="position:relative;width:100%;max-width:400px;aspect-ratio:16/9;">
-
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/n2mT7Hs8ijE" title="FRC Vision Positioning Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.10);"></iframe>
           </div>
         </div>
+        <p style="margin-top: 8px; text-align: center; color: black;">Demo of Fidual-ID-Based Vision positioning system</p>
       </div>
 
 

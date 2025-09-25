@@ -117,6 +117,7 @@
       margin-bottom: 1.5rem;
     }
   </style>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
 </head>
 <body class="blog">
   <a href="index.html" class="ag-logo">
@@ -215,6 +216,10 @@
           <h3>Experimental Direction</h3>
           <p>I'm actively exploring a multi-lens, multi–focal length camera arrangement to replicate the perception system used in Tesla's vision-only self-driving stack. The goal is to combine overlapping fields of view at different focal lengths to improve long-range object detection while maintaining accurate short-range depth through stereo disparity. This includes synchronized capture, cross-camera calibration, and fusion strategies to align outputs across lenses with different intrinsics.</p>
         </div>
+        <div class="results-metrics" style="margin-top: 1rem;">
+          <h4>Source Code:</h4>
+          <p>View the complete implementation and documentation on GitHub: <a href="https://github.com/AnshuGusain1/StereoDepth" target="_blank" rel="noopener">Stereo Vision Depth Estimation Repository</a></p>
+        </div>
       </div>
 
       <!-- Project 2: Autonomous Drone -->
@@ -239,7 +244,16 @@
         </div>
         
         <div style="display: flex; justify-content: center; margin: 1.5rem 0;">
-          <img src="Assets/Drone.png" alt="Custom designed autonomous drone" class="single-image project-image">
+          <model-viewer
+  src="Assets/DroneBody.gltf"
+  alt="3D model of my autonomous drone"
+  camera-controls auto-rotate ar
+  shadow-intensity="1"
+  environment-image="https://modelviewer.dev/shared-assets/environments/neutral.hdr"
+  exposure="1.2"
+  shadow-softness="0.9"
+  style="width: 100%; max-width: 800px; height: 500px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+</model-viewer>
         </div>
         <div style="display: flex; justify-content: center; margin: 0 0 1.5rem 0;">
           <img src="Assets/PCB.png" alt="Custom flight controller PCB" class="single-image project-image">
@@ -269,7 +283,7 @@
         
         <h4>Embedded Systems Architecture:</h4>
         <ul style="line-height: 1.8; margin-left: 1.5rem;">
-          <li><strong>Real-time Control:</strong> ESP32 microcontroller for low-latency sensor data acquisition and flight control</li>
+          <li><strong>Real-time Control:</strong> ESP32 microcontroller with freeRTOS for low-latency sensor data acquisition and flight control. Built custom libraries to collect/manage data throughput from sensors to give priorities to critical sensors such as IMU.</li>
           <li><strong>Computer Vision Processing:</strong> Raspberry Pi for stereo vision processing and object detection algorithms</li>
           <li><strong>Sensor Suite:</strong> MPU-9250 (9-DOF IMU), GPS, barometric pressure sensor for comprehensive state estimation</li>
         </ul>
