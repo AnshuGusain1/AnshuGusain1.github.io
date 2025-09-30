@@ -2,346 +2,240 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engineering Projects - Hridaanshu Gusain</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects – Hridaanshu (Anshu) Gusain</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    * {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
-      color: #000000 !important;
-    }
-    
-    body.blog {
-      background: #ffffff !important;
-    }
-    
-    body.blog * {
-      color: #000000 !important;
-    }
-    
-    a {
-      color: #0066cc !important;
-      text-decoration: none;
-    }
-    
-    a:hover {
-      color: #004499 !important;
-      text-decoration: underline;
-    }
-    
-    .ag-logo {
-      color: #000000 !important;
-    }
-    
-    .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem;
-      border-radius: 12px;
-      margin-top: 2rem;
-      backdrop-filter: blur(8px);
-      max-width: 900px;
-      border-left: 4px solid #0066cc;
-    }
-    
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
-    
-    .tech-tag {
-      background: rgba(0, 102, 204, 0.1);
-      color: #000000 !important;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      border: 1px solid rgba(0, 102, 204, 0.2);
-    }
-    
-    .problem-solution {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin: 1rem 0;
-    }
-    
-    .results-metrics {
-      background: rgba(0, 200, 0, 0.05);
-      padding: 1rem;
-      border-radius: 8px;
-      border-left: 3px solid #00cc00;
-      margin: 1rem 0;
-    }
-    
-    .challenge-box {
-      background: rgba(255, 150, 0, 0.05);
-      padding: 1rem;
-      border-radius: 8px;
-      border-left: 3px solid #ff9600;
-      margin: 1rem 0;
-    }
-    
-    .image-grid {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin: 1.5rem 0;
-    }
-    
-    .project-image {
-      width: 48%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
-    .single-image {
-      width: 60%;
-    }
-    
-    h1, h2, h3 {
-      color: #000000 !important;
-      font-weight: 600;
-    }
-    
-    .skills-highlight {
-      font-weight: 500;
-      color: #0066cc !important;
-    }
-    
-    .section-header {
-      border-bottom: 2px solid #0066cc;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-  </style>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+  <style>
+    :root{
+      --ink:#0a0a0a;--muted:#4b5563;--brand:#0b63ce;--bg:#ffffff;--card:#f8fafc;--ring:#cbd5e1;
+      --maxw:1200px;--radius:14px
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    a{color:var(--brand);text-underline-offset:2px}
+    a:focus{outline:2px solid var(--brand);outline-offset:2px}
+    img,video{max-width:100%;height:auto}
+
+    /* Layout */
+    header{
+      width:100%;border-bottom:1px solid var(--ring);background:#fff;position:sticky;top:0;z-index:10
+    }
+    .bar{max-width:var(--maxw);margin:auto;padding:16px 20px;display:flex;gap:16px;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{width:40px;height:40px}
+    .title{font-size:18px;font-weight:600;margin:0}
+    nav{display:flex;gap:14px;flex-wrap:wrap}
+    nav a{padding:8px 10px;border:1px solid var(--ring);border-radius:999px;color:var(--muted);text-decoration:none}
+    nav a:hover,nav a:focus{border-color:var(--brand);color:var(--brand)}
+
+    main{width:100%;}
+    .section{max-width:var(--maxw);margin:0 auto;padding:28px 20px}
+
+    /* Section headings */
+    .section h2{margin:0 0 14px;font-size:24px}
+    .section p.lead{color:var(--muted);margin:0 0 20px}
+
+    /* Project card */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .project{grid-column:1/-1;background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);padding:18px}
+    @media (min-width:900px){
+      .project{display:grid;grid-template-columns:5fr 7fr;align-items:start}
+    }
+    .proj-media{position:relative;border-radius:10px;overflow:hidden}
+    .proj-media img,.proj-media model-viewer,.proj-media iframe{display:block;width:100%;border:0}
+
+    .proj-head{margin-bottom:10px}
+    .proj-title{margin:0;font-size:20px;line-height:1.3}
+    .meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+    .badge{border:1px solid var(--ring);padding:4px 10px;border-radius:999px;font-size:13px;color:#111;background:#fff}
+
+    .cols{display:grid;gap:10px}
+    @media (min-width:700px){.cols{grid-template-columns:repeat(3,1fr)}}
+    .col{background:#fff;border:1px solid var(--ring);border-radius:10px;padding:12px}
+    .col h4{margin:0 0 6px;font-size:15px}
+    .col ul{margin:0;padding-left:18px}
+    .col li{margin:4px 0}
+
+    .impact{border-left:4px solid #10b981}
+    .role{border-left:4px solid #8b5cf6}
+    .tech{border-left:4px solid #0ea5e9}
+
+    .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--brand);color:#fff;background:var(--brand);padding:8px 10px;border-radius:8px;text-decoration:none}
+    .btn.ghost{background:#fff;color:var(--brand)}
+
+    /* Utilities */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
 </head>
-<body class="blog">
-  <a href="index.html" class="ag-logo">
-    <img src="Assets/logo1.png" alt="AG Logo">
-  </a>
-  
-  <div class="content-page">
-    <section style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: left;">
-      <a href="index.html" style="
-        display: inline-block;
-        padding: 12px 24px;
-        background: rgba(255, 255, 255, 0.2);
-        color: #000000 !important;
-        text-decoration: none;
-        border-radius: 8px;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-      " onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'; this.style.color='#000000'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'; this.style.color='#000000'">
-        ← Back to Portfolio
-      </a>
-
-      <!-- Project 1: Stereo Vision -->
-      <div class="project-card">
-        <h2 class="section-header">Computer Vision: Stereo Depth Estimation System</h2>
-        
-        <div class="tech-stack">
-          <span class="tech-tag">OpenCV</span>
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">Computer Vision</span>
-          <span class="tech-tag">3D Reconstruction</span>
-          <span class="tech-tag">Camera Calibration</span>
-          <span class="tech-tag">Real-time Processing</span>
-        </div>
-        
-        <div class="problem-solution">
-          <h3>Problem Statement</h3>
-          <p>Developed a real-time stereo vision system for accurate depth estimation and 3D reconstruction, addressing challenges in autonomous navigation and robotics applications.</p>
-        </div>
-        
-        <h3>Technical Implementation</h3>
-        <p>Engineered a comprehensive stereo vision pipeline utilizing <span class="skills-highlight">block matching algorithms (StereoSBM and StereoSGBM)</span> for disparity mapping. The system processes synchronized stereo camera feeds to generate precise depth maps in real-time.</p>
-        
-        <div style="display: flex; justify-content: center; margin: 1rem 0;">
-          <img src="Assets/Cameras.png" alt="Stereo camera hardware setup" style="width:15%; height:auto; border-radius:12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-        </div>
-        
-        <h4>Key Engineering Solutions:</h4>
-        <ul style="line-height: 1.8; margin-left: 1.5rem;">
-          <li><strong>Camera Calibration:</strong> Implemented intrinsic and extrinsic parameter calibration using checkerboard patterns to correct lens distortion</li>
-          <li><strong>Image Rectification:</strong> Applied epipolar geometry principles to align stereo image pairs for accurate disparity calculation</li>
-          <li><strong>Hardware Optimization:</strong> Designed and 3D-printed custom camera housing for precise horizontal alignment, minimizing pixel-level misalignment</li>
-          <li><strong>Algorithm Comparison:</strong> Benchmarked performance using Middlebury 2001 stereo dataset for validation</li>
-        </ul>
-        
-        <div class="image-grid">
-          <img src="Assets/tsukuba.gif" alt="Tsukuba stereo dataset input" class="project-image">
-          <img src="Assets/tsukuba_GT.jpg" alt="Ground truth disparity map" class="project-image">
-        </div>
-        
-        <div class="image-grid">
-          <img src="Assets/img2l.png" alt="Left camera feed" class="project-image">
-          <img src="Assets/img2r.png" alt="Right camera feed" class="project-image">
-        </div>
-        
-        <div class="challenge-box">
-          <h4>Engineering Challenges Overcome:</h4>
-          <p><strong>Noise Reduction:</strong> Low-cost cameras introduced significant noise affecting algorithm accuracy. Implemented advanced filtering techniques and iterative calibration processes to achieve sub-pixel accuracy alignment. Currently developing Kalman filter integration for enhanced noise suppression.</p>
-        </div>
-        
-        <div class="results-metrics">
-          <h4>Results & Applications:</h4>
-          <p>Successfully generated accurate depth maps with applications in autonomous vehicle navigation, drone obstacle avoidance, and real-world 3D scene reconstruction. The system demonstrates real-time processing capabilities suitable for embedded robotics applications.</p>
-        </div>
-        
-        <div style="display: flex; flex-direction: column; align-items: center; margin-top: 1.5rem;">
-          <img src="Assets/DisparityMap.png" alt="Generated disparity map output" class="single-image project-image">
-          <iframe
-            style="width: 60%; aspect-ratio: 16 / 9; border: none; border-radius: 12px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"
-            src="https://www.youtube.com/embed/IXDvm_5vyfE" 
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-          <iframe
-            style="width: 60%; aspect-ratio: 16 / 9; border: none; border-radius: 12px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"
-            src="https://www.youtube.com/embed/znuV-1GgTZ0"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="problem-solution" style="margin-top: 1rem;">
-          <h3>Experimental Direction</h3>
-          <p>I'm actively exploring a multi-lens, multi–focal length camera arrangement to replicate the perception system used in Tesla's vision-only self-driving stack. The goal is to combine overlapping fields of view at different focal lengths to improve long-range object detection while maintaining accurate short-range depth through stereo disparity. This includes synchronized capture, cross-camera calibration, and fusion strategies to align outputs across lenses with different intrinsics.</p>
-        </div>
-        <div class="results-metrics" style="margin-top: 1rem;">
-          <h4>Source Code:</h4>
-          <p>View the complete implementation and documentation on GitHub: <a href="https://github.com/AnshuGusain1/StereoDepth" target="_blank" rel="noopener">Stereo Vision Depth Estimation Repository</a></p>
-        </div>
+<body>
+  <a class="sr-only" href="#content">Skip to content</a>
+  <header>
+    <div class="bar" role="navigation" aria-label="Top">
+      <div class="brand">
+        <a href="index.html" aria-label="Back to portfolio"><img src="Assets/logo1.png" alt="AG logo"></a>
+        <h1 class="title">Projects – Hridaanshu (Anshu) Gusain</h1>
       </div>
+      <nav aria-label="Quick filters">
+        <a href="#stereo-vision">Stereo Vision</a>
+        <a href="#autonomous-drone">Autonomous Drone</a>
+        <a href="#parking-assistant">Parking Assistant</a>
+        <a href="index.html">Back to Portfolio</a>
+      </nav>
+    </div>
+  </header>
 
-      <!-- Project 2: Autonomous Drone -->
-      <div class="project-card">
-        <h2 class="section-header">Autonomous Drone Navigation System</h2>
-        
-        <div class="tech-stack">
-          <span class="tech-tag">Embedded Systems</span>
-          <span class="tech-tag">ESP32</span>
-          <span class="tech-tag">Raspberry Pi</span>
-          <span class="tech-tag">PID Control</span>
-          <span class="tech-tag">SLAM</span>
-          <span class="tech-tag">PCB Design</span>
-          <span class="tech-tag">KiCAD</span>
-          <span class="tech-tag">CAD Design</span>
-          <span class="tech-tag">Sensor Fusion</span>
-        </div>
-        
-        <div class="problem-solution">
-          <h3>Project Objective</h3>
-          <p>Designing and building a fully autonomous drone system from scratch, integrating custom flight controller hardware with advanced computer vision for autonomous navigation in complex environments.</p>
-        </div>
-        
-        <div style="display: flex; justify-content: center; margin: 1.5rem 0;">
-          <model-viewer
-  src="Assets/DroneBody.gltf"
-  alt="3D model of my autonomous drone"
-  camera-controls auto-rotate ar
-  shadow-intensity="1"
-  environment-image="https://modelviewer.dev/shared-assets/environments/neutral.hdr"
-  exposure="1.2"
-  shadow-softness="0.9"
-  style="width: 100%; max-width: 800px; height: 500px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-</model-viewer>
-        </div>
-        <div style="display: flex; justify-content: center; margin: 0 0 1.5rem 0;">
-          <img src="Assets/PCB.png" alt="Custom flight controller PCB" class="single-image project-image">
-        </div>
-        <div style="display: flex; justify-content: center; margin: 0 0 1.5rem 0;">
-          <img src="Assets/Drone_final.png" alt="Final build of custom autonomous drone" class="single-image project-image">
-        </div>
-        <div style="display: flex; justify-content: center; margin: 0 0 1.5rem 0;">
-          <iframe
-            style="width: 60%; aspect-ratio: 16 / 9; border: none; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"
-            src="https://www.youtube.com/embed/b3v5LJ1JiA8"
-            title="Autonomous Drone Navigation Demo"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-        
-        <h3>Systems Engineering Approach</h3>
-        
-        <h4>Hardware Design & Manufacturing:</h4>
-        <ul style="line-height: 1.8; margin-left: 1.5rem;">
-          <li><strong>Mechanical Design:</strong> Engineered complete airframe using Onshape and Autodesk Inventor with aerodynamic optimization</li>
-          <li><strong>PCB Development:</strong> Designed custom flight controller PCB using KiCAD, integrating power management and sensor interfaces</li>
-          <li><strong>Component Integration:</strong> Selected and integrated brushless motors, ESCs, and sensors for optimal performance</li>
-        </ul>
-        
-        <h4>Embedded Systems Architecture:</h4>
-        <ul style="line-height: 1.8; margin-left: 1.5rem;">
-          <li><strong>Real-time Control:</strong> ESP32 microcontroller with freeRTOS for low-latency sensor data acquisition and flight control. Built custom libraries to collect/manage data throughput from sensors to give priorities to critical sensors such as IMU.</li>
-          <li><strong>Computer Vision Processing:</strong> Raspberry Pi for stereo vision processing and object detection algorithms</li>
-          <li><strong>Sensor Suite:</strong> MPU-9250 (9-DOF IMU), GPS, barometric pressure sensor for comprehensive state estimation</li>
-        </ul>
-        
-        <div class="challenge-box">
-          <h4>Technical Challenges & Solutions:</h4>
-          <p><strong>Sensor Fusion:</strong> Implementing Kalman filtering algorithms to combine IMU, GPS, and barometric data while mitigating vibration noise and sensor drift. Developing custom noise models specific to rotorcraft dynamics.</p>
-        </div>
-        
-        <h4>Control Systems Implementation:</h4>
-        <ul style="line-height: 1.8; margin-left: 1.5rem;">
-          <li><strong>Flight Control:</strong> Multi-loop PID controllers for attitude, altitude, and position control</li>
-          <li><strong>Navigation Algorithms:</strong> SLAM implementation for real-time mapping and localization</li>
-          <li><strong>Path Planning:</strong> A* and RRT algorithms for optimal trajectory generation in obstacle-rich environments</li>
-          <li><strong>Obstacle Avoidance:</strong> Integration of stereo vision depth data for dynamic collision avoidance</li>
-        </ul>
-        
-        <div class="results-metrics">
-          <h4>Current Development Status:</h4>
-          <p><strong>Hardware Complete:</strong> Flight controller assembly finished, currently in PID tuning phase for initial flight testing. Software integration of vision system with flight control in progress.</p>
-          <p><strong>Next Phase:</strong> System integration testing, flight envelope characterization, and autonomous mission validation.</p>
-        </div>
-        
-        <h4>Engineering Skills Demonstrated:</h4>
-        <ul style="line-height: 1.8; margin-left: 1.5rem;">
-          <li>End-to-end product development from concept to prototype</li>
-          <li>Cross-disciplinary integration of mechanical, electrical, and software systems</li>
-          <li>Real-time embedded programming and hardware-software co-design</li>
-          <li>Advanced control theory application and system identification</li>
-          <li>Computer vision algorithm implementation and optimization</li>
-        </ul>
-      </div>
-     
-      <!-- Project 3: Garage Parking Assistant -->
-      <div class="project-card">
-        <h2 class="section-header">Garage Parking Assistant</h2>
-        
-        <div class="tech-stack">
-          <span class="tech-tag">Arduino</span>
-          <span class="tech-tag">Ultrasonic Sensors</span>
-          <span class="tech-tag">Real-Time Feedback</span>
-          <span class="tech-tag">Embedded Systems</span>
-        </div>
-        
-        <div class="problem-solution">
-          <h3>Project Overview</h3>
-          <p>Developed a smart garage parking assistant using sensors and real-time feedback to help drivers park safely and efficiently.</p>
-        </div>
-        
-        <div style="display: flex; flex-direction: column; align-items: center; margin-top: 1.5rem;">
-          <div style="position:relative;width:100%;max-width:600px;aspect-ratio:16/9;">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/4wEf0kxFmKY" title="Garage Parking Assistant Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.10);"></iframe>
+  <main id="content" tabindex="-1">
+
+    <!-- Stereo Vision -->
+    <section class="section" id="stereo-vision" aria-labelledby="sv-h">
+      <h2 id="sv-h">Computer Vision: Real‑Time Stereo Depth Estimation</h2>
+      <article class="project" aria-labelledby="sv-title">
+        <div class="proj-media" aria-hidden="true">
+          <div class="grid">
+            <div class="proj-media" style="grid-column:1/-1">
+              <img src="Assets/DisparityMap.png" alt="Generated disparity map from stereo pipeline"/>
+            </div>
           </div>
         </div>
-      </div>
-     
+        <div style="padding:0 6px">
+          <div class="proj-head">
+            <h3 id="sv-title" class="proj-title">Depth pipeline using StereoSGBM/SBM with calibration & rectification</h3>
+            <div class="meta"><span>Role: Solo developer</span><span>Timeline: May-August 2025</span></div>
+            <div class="badges">
+              <span class="badge">OpenCV</span><span class="badge">Python</span><span class="badge">Camera Calibration</span><span class="badge">3D Reconstruction</span><span class="badge">Real‑time</span>
+            </div>
+          </div>
+          <div class="cols">
+            <div class="col role">
+              <h4>Problem → Approach</h4>
+              <ul>
+                <li>Needed accurate, real‑time depth for robotics navigation on low‑cost sensors.</li>
+                <li>Built full pipeline: intrinsic/extrinsic calibration, rectification, SGBM disparity, post‑filtering.</li>
+                <li>Designed 3D‑printed stereo mount to ensure pixel‑level horizontal alignment.</li>
+              </ul>
+            </div>
+            <div class="col tech">
+              <h4>Key Engineering</h4>
+              <ul>
+                <li>Checkerboard calibration & lens distortion correction.</li>
+                <li>Epipolar rectification and disparity benchmarking (Middlebury dataset).</li>
+                <li>Planned Kalman filtering for temporal noise suppression.</li>
+              </ul>
+            </div>
+            <div class="col impact">
+              <h4>Impact</h4>
+              <ul>
+                <li>Reliable depth maps suitable for embedded navigation & obstacle avoidance.</li>
+                <li>Validated with public datasets and live camera feeds.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://github.com/AnshuGusain1/StereoDepth" target="_blank" rel="noopener">Source on GitHub</a>
+            <a class="btn ghost" href="https://www.youtube.com/watch?v=IXDvm_5vyfE" target="_blank" rel="noopener">Live demo</a>
+            <a class="btn ghost" href="https://www.youtube.com/watch?v=znuV-1GgTZ0" target="_blank" rel="noopener">Processing video</a>
+          </div>
+          <div class="grid" style="margin-top:14px">
+            <img src="Assets/tsukuba.gif" alt="Tsukuba stereo input pair" style="grid-column:1/7;border-radius:10px">
+            <img src="Assets/tsukuba_GT.jpg" alt="Ground truth disparity" style="grid-column:7/13;border-radius:10px">
+            <img src="Assets/img2l.png" alt="Left camera feed" style="grid-column:1/7;border-radius:10px">
+            <img src="Assets/img2r.png" alt="Right camera feed" style="grid-column:7/13;border-radius:10px">
+          </div>
+        </div>
+      </article>
     </section>
-  </div>
-  <script src="script.js"></script>
+
+    <!-- Autonomous Drone -->
+    <section class="section" id="autonomous-drone" aria-labelledby="drone-h">
+      <h2 id="drone-h">Autonomous Drone Navigation System</h2>
+      <article class="project" aria-labelledby="drone-title">
+        <div class="proj-media">
+          <model-viewer src="Assets/DroneBody.gltf" alt="3D model of custom drone" camera-controls auto-rotate ar shadow-intensity="1" exposure="1.2" style="height:420px"></model-viewer>
+        </div>
+        <div style="padding:0 6px">
+          <div class="proj-head">
+            <h3 id="drone-title" class="proj-title">Custom flight‑controller hardware + CV stack for autonomous flight</h3>
+            <div class="meta"><span>Role: Systems & firmware</span><span>Status: In flight‑tuning</span></div>
+            <div class="badges">
+              <span class="badge">ESP32</span><span class="badge">freeRTOS</span><span class="badge">Raspberry Pi</span><span class="badge">SLAM</span><span class="badge">PID Control</span><span class="badge">KiCAD</span>
+            </div>
+          </div>
+          <div class="cols">
+            <div class="col role">
+              <h4>Architecture</h4>
+              <ul>
+                <li>Custom PCB with power, sensor, and motor control; prioritized IMU pipeline on freeRTOS.</li>
+                <li>Pi handles vision: stereo depth & object detection feeding obstacle avoidance.</li>
+                <li>Multi‑loop PID for attitude/altitude; A*/RRT for path planning.</li>
+              </ul>
+            </div>
+            <div class="col tech">
+              <h4>Hardware & Software</h4>
+              <ul>
+                <li>MPU‑9250 IMU, GPS, barometer; Kalman‑based fusion and vibration mitigation.</li>
+                <li>SLAM for localization; mission execution via waypoint planner.</li>
+              </ul>
+            </div>
+            <div class="col impact">
+              <h4>Current Results</h4>
+              <ul>
+                <li>Hardware complete; PID tuning in progress for first autonomous missions.</li>
+                <li>Vision stack integrated; next phase is flight envelope characterization.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid" style="margin-top:14px">
+            <img src="Assets/PCB.png" alt="Custom flight controller PCB" style="grid-column:1/7;border-radius:10px">
+            <img src="Assets/Drone_final.png" alt="Final custom drone build" style="grid-column:7/13;border-radius:10px">
+          </div>
+          <div class="links">
+            <a class="btn ghost" href="https://www.youtube.com/watch?v=b3v5LJ1JiA8" target="_blank" rel="noopener">Short demo</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Garage Parking Assistant -->
+    <section class="section" id="parking-assistant" aria-labelledby="gp-h">
+      <h2 id="gp-h">Garage Parking Assistant</h2>
+      <article class="project" aria-labelledby="gp-title">
+        <div class="proj-media">
+          <iframe style="width:100%;aspect-ratio:16/9;border:0" src="https://www.youtube.com/embed/4wEf0kxFmKY" title="Garage Parking Assistant Demo" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div style="padding:0 6px">
+          <div class="proj-head">
+            <h3 id="gp-title" class="proj-title">Ultrasonic‑guided parking with real‑time distance feedback</h3>
+            <div class="meta"><span>Role: Embedded developer</span></div>
+            <div class="badges"><span class="badge">Arduino</span><span class="badge">Ultrasonic Sensors</span><span class="badge">Embedded</span></div>
+          </div>
+          <div class="cols">
+            <div class="col tech">
+              <h4>Implementation</h4>
+              <ul>
+                <li>Sensor polling with debounced readings; smoothing filter for stable output.</li>
+                <li>Simple UI cues for driver attention and safety.</li>
+              </ul>
+            </div>
+            <div class="col impact">
+              <h4>Impact</h4>
+              <ul>
+                <li>Improved parking consistency; prevents front‑bumper contact in tight spaces.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" aria-labelledby="contact-h">
+      <h2 id="contact-h">Contact</h2>
+      <p class="lead">Open to internships/co-ops in robotics, embedded systems, and computer vision. <a href="mailto:hgusain2@illinois.edu">Email me</a> • <a href="https://github.com/AnshuGusain1" target="_blank" rel="noopener">GitHub</a> • <a href="index.html">Home</a></p>
+    </section>
+  </main>
 </body>
 </html>

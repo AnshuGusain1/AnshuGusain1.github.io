@@ -1,308 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work+Experiences - Hridaanshu</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="work.css">
-    <style>
-        /* Apply Apple San Francisco font to all text elements */
-        * {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif !important;
-        }
-        
-        /* Ensure proper font weights for San Francisco */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif !important;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif !important;
-            font-weight: 600;
-        }
-        
-        p, span, a, div {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif !important;
-        }
-        
-        .skill-tag, .tech-tag {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif !important;
-            font-weight: 500;
-        }
-        
-        .project-link, .contact-link {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif !important;
-            font-weight: 500;
-        }
-    </style>
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Work Experience – Hridaanshu (Anshu) Gusain</title>
+  <style>
+    :root{
+      --ink:#1a2332;
+      --muted:#5a6b82;
+      --bg:#f8fafc;
+      --surface:#ffffff;
+      --border:#e2e8f0;
+      --accent:#2563eb;
+      --accent-light:#3b82f6;
+      --accent-bg:#eff6ff;
+      --secondary:#8b5cf6;
+      --secondary-light:#a78bfa;
+      --success:#10b981;
+      --success-bg:#d1fae5;
+      --orange:#f59e0b;
+      --orange-bg:#fef3c7;
+      --maxw:1200px;
+    }
+    
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    
+    body{
+      background:linear-gradient(135deg,#f0f9ff 0%,#faf5ff 50%,#fef3c7 100%);
+      color:var(--ink);
+      font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;
+      min-height:100vh;
+    }
+    
+    a{color:var(--accent);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--accent-light)}
+    a:focus{outline:2px solid var(--accent);outline-offset:3px}
+    
+    img,video{max-width:100%;height:auto;border-radius:8px}
+    /* ensure custom element is block-level */
+    model-viewer{display:block}
+
+    /* Header */
+    header{background:var(--surface);border-bottom:2px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.05);position:sticky;top:0;z-index:100}
+    .bar{max-width:var(--maxw);margin:auto;padding:20px 24px;display:flex;align-items:center;gap:16px}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
+    .brand img{width:48px;height:48px;border-radius:12px;border:2px solid var(--border)}
+    .title{font-size:24px;font-weight:700;color:var(--ink);letter-spacing:-.3px}
+
+    main{max-width:var(--maxw);margin:0 auto;padding:40px 24px 80px}
+
+    /* Hero */
+    .hero{background:linear-gradient(135deg,var(--accent-bg) 0%,#faf5ff 100%);border:2px solid var(--border);border-radius:16px;padding:32px;margin-bottom:40px;box-shadow:0 4px 6px rgba(0,0,0,.05)}
+    .hero h2{font-size:28px;color:var(--ink);margin-bottom:16px;font-weight:700}
+    .hero-subtitle{color:var(--muted);font-size:18px;margin-bottom:24px}
+
+    /* Skills */
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:24px}
+    .skill-category{background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:16px}
+    .skill-category h3{font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+    .skill-tag{display:inline-block;padding:6px 12px;background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent);border-radius:6px;font-size:13px;font-weight:600}
+
+    /* Awards */
+    .awards{background:var(--success-bg);border:2px solid var(--success);border-radius:12px;padding:20px;margin:24px 0}
+    .awards h3{font-size:16px;color:var(--success);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .award-list{display:flex;flex-wrap:wrap;gap:12px}
+    .award-item{background:var(--surface);padding:8px 14px;border-radius:8px;border:1px solid var(--success);font-size:14px;color:var(--ink)}
+
+    /* Timeline */
+    .timeline{position:relative;margin-top:40px}
+    .timeline:before{content:"";position:absolute;left:24px;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--secondary))}
+    @media (min-width:900px){.timeline:before{left:50%}}
+
+    .experience-item{position:relative;margin:40px 0;display:grid;grid-template-columns:1fr;gap:24px;padding-left:60px}
+    @media (min-width:900px){
+      .experience-item{grid-template-columns:1fr 1fr;padding-left:0}
+      .experience-item:nth-child(odd) .exp-card{grid-column:1}
+      .experience-item:nth-child(odd) .exp-media{grid-column:2}
+      .experience-item:nth-child(even){direction:rtl}
+      .experience-item:nth-child(even) .exp-card,.experience-item:nth-child(even) .exp-media{direction:ltr}
+    }
+
+    .timeline-node{position:absolute;left:16px;top:20px;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--secondary));border:3px solid var(--surface);box-shadow:0 2px 8px rgba(37,99,235,.3);z-index:2}
+    @media (min-width:900px){.timeline-node{left:calc(50% - 10px)}}
+
+    .exp-card{background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s}
+    .exp-card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,.1)}
+    .exp-card h3{font-size:20px;color:var(--ink);margin-bottom:8px;font-weight:700;line-height:1.3}
+    .exp-subtitle{color:var(--muted);font-size:14px;margin-bottom:16px;font-weight:500}
+    .exp-card ul{margin:0;padding-left:20px;line-height:1.7}
+    .exp-card li{margin-bottom:8px;color:var(--ink)}
+
+    .tech-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .tech-pill{display:inline-block;padding:5px 10px;background:#f1f5f9;color:var(--accent);border:1px solid var(--border);border-radius:6px;font-size:12px;font-weight:600}
+
+    .exp-media{display:flex;flex-direction:column;gap:16px}
+    .exp-media img,.exp-media video{width:100%;border:2px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.08);border-radius:8px}
+    .exp-media iframe{width:100%;aspect-ratio:16/9;border:2px solid var(--border);border-radius:8px}
+
+    .link-btn{display:inline-block;padding:10px 16px;background:var(--accent);color:white;border-radius:8px;font-weight:600;font-size:14px;transition:background .2s}
+    .link-btn:hover{background:var(--accent-light);color:white}
+
+    @media (max-width:768px){
+      .title{font-size:18px}
+      .hero h2{font-size:24px}
+      .skills-grid{grid-template-columns:1fr}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{animation:none!important;transition:none!important}
+      html{scroll-behavior:auto}
+    }
+  </style>
 </head>
 <body>
-  <a href="index.html" class="ag-logo">
-    <img src="Assets/logo1.png" alt="AG Logo">
-  </a>
-  <div class="container content-page">
-    <h1>My Work Experience!</h1>
-    <h2 style="color: black;">Projects & Work Experience</h2>
-    <div class="tile-row single-column">
-      <div class="fade-tile project-tile">
-    <div class="project-header">
-      <h3>Mechatronics Engineer, Blink Robotics Systems</h3>
-      <span class="project-date">2025 — Present</span>
+  <header>
+    <div class="bar">
+      <a href="index.html" class="brand">
+        <img src="Assets/logo1.png" alt="AG logo">
+        <h1 class="title">Work Experience – Hridaanshu (Anshu) Gusain</h1>
+      </a>
     </div>
-    <p class="project-description" style="color: black">
-      Designed and validated embedded mechatronic systems for med‑tech robotics: brought up STM32/ESP32 boards, wrote motor and sensor drivers (SPI/I2C/UART/CAN), integrated ROS2 nodes for motion and telemetry, and implemented safety‑critical control (PID and state machines) with HIL bench testing. Collaborated cross‑functionally on requirements, DFM, and system bring‑up; maintained system validation logs and test procedures.
-    </p>
-    <div class="project-tech">
-      <span class="tech-tag">STM32</span>
-      <span class="tech-tag">ESP32</span>
-      <span class="tech-tag">FreeRTOS</span>
-      <span class="tech-tag">ROS2</span>
-      <span class="tech-tag">CAN bus</span>
-      <span class="tech-tag">C/C++</span>
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">KiCAD</span>
-      <span class="tech-tag">Altium</span>
-      <span class="tech-tag">DFM</span>
-      <span class="tech-tag">HIL Testing</span>
-    </div>
-    <div class="project-embed" style="display:flex;justify-content:center;margin:1.25rem 0;">
-      <model-viewer
-        src="Assets/ARM.gltf"
-        alt="Blink Robotics mechatronics design — interactive 3D"
-        camera-controls
-        auto-rotate
-        ar
-        environment-image="https://modelviewer.dev/shared-assets/environments/neutral.hdr"
-        exposure="1.2"
-        shadow-intensity="1"
-        shadow-softness="0.9"
-        style="width:100%;max-width:840px;height:520px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
-      </model-viewer>
-    </div>
-    <noscript>
-      <p style="text-align:center;color:#444;">3D viewer requires JavaScript. Here is a <a href="Assets/Drone_final.png">static image</a> instead.</p>
-    </noscript>
-  </div>
-      <div class="fade-tile project-tile">
-        <div class="project-header">
-          <h3>MiteOut, Precision Technologies</h3>
-          <span class="project-date">2025</span>
-        </div>
-        <p class="project-description" style="color: black">
-          Lead Engineer in AgTech Startup focused on apiary management through data collection, and precise dosing patterns.
-        </p>
-        <div class="project-tech">
-          <span class="tech-tag">Product-Field Deployment</span>
-          <span class="tech-tag">KiCAD PCB design</span>
-          <span class="tech-tag">PlatformIO</span>
-          <span class="tech-tag">ESP32 Power Management</span>
-          <span class="tech-tag">I2C, SPI Sensor Data Management</span>
-        </div>
-        <div class="project-links">
-          <a href="https://miteouttech.com" class="project-link" target="_blank" rel="noopener">🔗 Website</a>
-        </div>
-      </div>
-      <div class="fade-tile project-tile">
-        <div class="project-header">
-          <h3>Additive Manufacturing Robotics Researcher Product Lead</h3>
-          <span class="project-date">2025</span>
-        </div>
-        <p class="project-description" style="color: black">
-          Built test control frameworks for multi-axis robotic control software using Python, ROS, and CAN bus. Configured and debugged robotic print systems, including OS setup, and hardware
-          integration. Collaborated with hardware engineers to define software requirements and maintain system validation logs.
-        </p>
-        <div class="project-tech">
-          <span class="tech-tag">ROS</span>
-          <span class="tech-tag">Controller Area Network</span>
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">Electronics Framework Design</span>
-        </div>
-        <div style="display: flex; gap: 24px; justify-content: center; align-items: center; margin-top: 24px; flex-wrap: wrap;">
-          <video src="Assets/ASME.mov" autoplay loop muted playsinline style="width:100%;max-width:320px;min-width:180px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.10);"></video>
-          <img src="Assets/GIF.gif" alt="Additive Manufacturing GIF" style="width:100%;max-width:320px;min-width:180px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.10);" />
-        </div>
-      </div>
-      <div class="fade-tile project-tile">
-        <div class="project-header">
-          <h3>CloudCage Software/Hardware Intern</h3>
-          <span class="project-date">Summer 2025</span>
-        </div>
-        <p class="project-description" style="color: black">
-          Developed CRM integration software to manage users and potential customers. Developed software-integration for Virtual Machines for network management. Utilized JetKVM hardware to integrate with end-user server-management experience.
-        </p>
-        <div class="project-tech">
-          <span class="tech-tag">ZoomInfo</span>
-          <span class="tech-tag">State Machines</span>
-          <span class="tech-tag">JetKVM</span>
-          <span class="tech-tag">Altium</span>
-        </div>
-      </div>
-      <div class="fade-tile project-tile">
-        <div class="project-header">
-          <h3>BioInformatics Researcher</h3>
-          <span class="project-date">2022-2024</span>
-        </div>
-        <p class="project-description" style="color: black">
-          Developed deep learning pipeline using UNET architecture and TensorFlow for hyperspectral nuclei segmentation, achieving 85% accuracy. Optimized data pipelines using Python and TensorFlow; worked under Dr. Lalit K. Mestha. Lead author on IEEE paper; presenting at ISBI-IEEE. Received Honorable Mention at IEEE Systems Council Student Conference
-        </p>
-        <div class="project-tech">
-          <span class="tech-tag">Tensorflow</span>
-          <span class="tech-tag">Keras</span>
-          <span class="tech-tag">Hyperspectral Imaging</span>
-          <span class="tech-tag">Spectral Python Package</span>
-          <span class="tech-tag">Matlab Hyperspectral Imaging Package</span>
-        </div>
-        <div class="project-links">
-          <a href="Assets/Nuclei Segmentation Using Deep Learning and Hyperspectral Imaging for High Accuracy.pdf" class="project-link" target="_blank" rel="noopener">View Technical Paper</a>
-        </div>
-        <div style="margin-top: 32px;">
-          <h4 style="color: black; margin-bottom: 16px;">Nuclei Segmentation Results</h4>
-          <div class="project-images grid-2-col">
-            <div class="image-item">
-              <img src="Assets/Nuclei1.png" alt="Nuclei Segmentation 1" class="project-image">
-              <p class="image-caption">Sample 1</p>
-            </div>
-            <div class="image-item">
-              <img src="Assets/Nuclei 5.png" alt="Nuclei Segmentation 2" class="project-image">
-              <p class="image-caption">Sample 2</p>
-            </div>
-            <div class="image-item">
-              <img src="Assets/Nuclei3.png" alt="Nuclei Segmentation 3" class="project-image">
-              <p class="image-caption">Sample 3</p>
-            </div>
-            <div class="image-item">
-              <img src="Assets/Nuclei4.png" alt="Nuclei Segmentation 4" class="project-image">
-              <p class="image-caption">Sample 4</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="fade-tile project-tile">
-        <div class="project-header">
-          <h3>Lead Programmer, FRC 2791</h3>
-          <span class="project-date">2020-2024</span>
-        </div>
-        <p class="project-description" style="color: black">
-        </p>
-        <div style="margin: 16px 0; display: flex; justify-content: center;">
-          <img src="Assets/swerve.jpg" alt="FRC 2791 Robot" style="width:100%;max-width:320px;min-width:180px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.10);" />
-        </div>
-        <div class="project-tech">
-          Developed omnidirectional drivetrain technology using inverse kinematics. Utilized Kalman Motion Algorithm to compute pose estimation using fiducial markers. Developed ball targeting algorithm using fiducial markers and linear regression for distance estimation. Utilized Proportional, Integral, Derivative (PID) feedback loop, and PIDf (feed-forward) loops to implement Actuation components on robot for smooth, and precise motion.
-          <span class="tech-tag">Computer Vision</span>
-          <span class="tech-tag">Motion Planning</span>
-          <span class="tech-tag">Position Estimation</span>
-          <span class="tech-tag">Trajectory Planning</span>
-          <span class="tech-tag">Feedback Loop Control Theory</span>
-          <span class="tech-tag">Targeting Algorithms</span>
-          <span class="tech-tag">Linear Regression</span>
-        </div>
-        <div style="margin-top: 24px; display: flex; justify-content: center;">
-          <div style="position:relative;width:100%;max-width:400px;aspect-ratio:16/9;">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/n2mT7Hs8ijE" title="FRC Vision Positioning Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.10);"></iframe>
-          </div>
-        </div>
-        <p style="margin-top: 8px; text-align: center; color: black;">Demo of Fidual-ID-Based Vision positioning system</p>
-      </div>
+  </header>
 
-
-      
-
-
-    </div>
-    <h2 style="color: black;">Awards</h2>
-    <p style="color:black;" class="awards-list">
-      🏆 Honorable Mention Best Paper - Nuclei Segmentation Using Deep Learning and Hyperspectral Imaging for High Accuracy. IEEE Systems Council 2024<br>
-      🏆 Distinguished Technology 2025 - MultiExtruder Robotic 3D Printing. UIUC Engineering Open House 2025<br>
-      🏆 Honors - Nuclei Segmentation - Using Deep Learning and Hyperspectral Imaging for High Accuracy. STANYS 2024<br>
-      🏆 Second Honorable Mention - Using Deep Learning and Hyperspectral Imaging for High Accuracy. GRCSEF 2024<br>
-      🏆 Programming Award - First Robotics Competition Team 2791 2024<br>
-      🏆 New York State Seal of Civic Readiness
-    </p>
-    <h2 style="color: black;">Skills</h2>
-    <div class="tile-row">
-      <div class="fade-tile skill-tile">
-        <h3>Programming Languages</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Java</span>
-          <span class="skill-tag">C++</span>
-        </div>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <h2>Mechatronics & Robotics Engineer</h2>
+      <p class="hero-subtitle">Embedded Systems • Computer Vision • Real-time Control • PCB Design</p>
+      <div class="skills-grid">
+        <div class="skill-category"><h3>Programming</h3><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">C/C++</span><span class="skill-tag">Java</span></div></div>
+        <div class="skill-category"><h3>Embedded & RTOS</h3><div class="skill-tags"><span class="skill-tag">STM32</span><span class="skill-tag">ESP32</span><span class="skill-tag">FreeRTOS</span></div></div>
+        <div class="skill-category"><h3>Robotics</h3><div class="skill-tags"><span class="skill-tag">ROS/ROS2</span><span class="skill-tag">SLAM</span><span class="skill-tag">Kinematics</span></div></div>
+        <div class="skill-category"><h3>Hardware</h3><div class="skill-tags"><span class="skill-tag">KiCAD</span><span class="skill-tag">Altium</span><span class="skill-tag">PCB Design</span></div></div>
+        <div class="skill-category"><h3>Protocols</h3><div class="skill-tags"><span class="skill-tag">CAN</span><span class="skill-tag">SPI/I2C</span><span class="skill-tag">UART</span></div></div>
+        <div class="skill-category"><h3>Vision & ML</h3><div class="skill-tags"><span class="skill-tag">OpenCV</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span></div></div>
       </div>
-      <div class="fade-tile skill-tile">
-        <h3>Robotics</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Robotics Operating System</span>
-          <span class="skill-tag">Controller Area Network</span>
-          <span class="skill-tag">Vector-Based Path Planning</span>
-          <span class="skill-tag">Feedback loop Algorithm tuning (PID, KPID)</span>
-        </div>
-      </div>
-      <div class="fade-tile skill-tile">
-        <h3>Machine Learning</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Tensorflow</span>
-          <span class="skill-tag">Keras</span>
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">Spectral</span>
-          <span class="skill-tag">Patchify</span>
-          <span class="skill-tag">Sci-Kit Learn</span>
-        </div>
-      </div>
-      <div class="fade-tile skill-tile">
-        <h3>Tools & Technologies</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">PlatformIO</span>
-          <span class="skill-tag">Adobe Suit (Photoshop, Lightroom, Premier)</span>
-          <span class="skill-tag">Mathworks Matlab Spectral Package</span>
-          <span class="skill-tag">ImageJ</span>
-          <span class="skill-tag">KiCAD</span>
-          <span class="skill-tag">Altium</span>
-          <span class="skill-tag">Cura, PrusaSlicer</span>
-        </div>
+    </section>
+
+    <!-- Awards -->
+    <div class="awards">
+      <h3>🏆 Awards & Recognition</h3>
+      <div class="award-list">
+        <span class="award-item">IEEE Systems Council – Best Paper Honorable Mention (2024)</span>
+        <span class="award-item">UIUC EOH – Distinguished Technology (2025)</span>
+        <span class="award-item">FRC 2791 – Programming Award (2024)</span>
+        <span class="award-item">STANYS – Honors (2024)</span>
+        <span class="award-item">GRCSEF – Honorable Mention (2024)</span>
       </div>
     </div>
-    <h2 style="color: black;">Let's Connect</h2>
-    <footer class="footer-connect">
-      <p>I'm always interested in new opportunities and collaborations.</p>
-      <div class="contact-links">
-        <a href="mailto:hridaanshu@gmail.com" class="contact-link" title="Email">
-          <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Z" stroke="#111" stroke-width="2" fill="#C1DFF0"/>
-            <path d="M3 7l9 7 9-7" stroke="#111" stroke-width="2" fill="none"/>
-          </svg>
-          Email
-        </a>
-        <a href="https://www.linkedin.com/in/anshu-gusain-7b8978281/" class="contact-link" title="LinkedIn" target="_blank" rel="noopener">
-          <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#C1DFF0"/><path d="M7.75 8.5a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5ZM6.5 10h2.5v7H6.5v-7ZM12 10h2.25v1.01h.03c.31-.59 1.07-1.21 2.2-1.21 2.36 0 2.8 1.55 2.8 3.57V17h-2.5v-3.13c0-.75-.01-1.71-1.04-1.71-1.04 0-1.2.81-1.2 1.65V17H12v-7Z" fill="#111"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://github.com/AnshuGusain1" class="contact-link" title="GitHub" target="_blank" rel="noopener">
-          <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#C1DFF0"/><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.48 2.87 8.28 6.84 9.63.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .27.18.58.69.48C19.13 20.54 22 16.74 22 12.26 22 6.58 17.52 2 12 2Z" fill="#111"/></svg>
-          GitHub
-        </a>
-      </div>
-    </footer>
-    <script src="script.js"></script>
-    <script>
-      function onScrollFadeTiles() {
-        const tiles = document.querySelectorAll('.fade-tile');
-        const trigger = window.innerHeight * 0.92;
-        tiles.forEach(tile => {
-          const rect = tile.getBoundingClientRect();
-          if (rect.top < trigger) {
-            tile.classList.add('visible');
-          }
-        });
-      }
-      window.addEventListener('scroll', onScrollFadeTiles);
-      window.addEventListener('resize', onScrollFadeTiles);
-      window.addEventListener('DOMContentLoaded', onScrollFadeTiles);
-    </script>
-  </body>
+
+    <!-- Timeline -->
+    <section class="timeline">
+
+      <!-- Blink -->
+      <article id="blink" class="experience-item">
+        <span class="timeline-node"></span>
+        <div class="exp-card">
+          <h3>Mechatronics Engineer – Blink Robotics Systems</h3>
+          <p class="exp-subtitle">Champaign, IL · 2025 – Present</p>
+          <ul>
+            <li>Designed and validated full embedded stack for 4-DOF robotic arm (STM32/ESP32, ROS2, motor & sensor drivers).</li>
+            <li>Integrated depth camera with NVIDIA Orin to improve mapping & state estimation accuracy.</li>
+            <li>Implemented safety-critical PID/state machine control with watchdog timers, reducing bench faults.</li>
+            <li>Built URDF + Gazebo simulation loop, accelerating motion-planning experiments by ~40%.</li>
+          </ul>
+          <div class="tech-pills"><span class="tech-pill">STM32</span><span class="tech-pill">ESP32</span><span class="tech-pill">FreeRTOS</span><span class="tech-pill">ROS2</span><span class="tech-pill">CAN</span><span class="tech-pill">C/C++</span><span class="tech-pill">Python</span><span class="tech-pill">KiCAD</span></div>
+        </div>
+        <div class="exp-media">
+          <model-viewer src="Assets/ARM.gltf"
+                        alt="Blink 3D arm"
+                        camera-controls
+                        auto-rotate
+                        style="height:340px;border:2px solid var(--border);border-radius:8px">
+          </model-viewer>
+        </div>
+      </article>
+
+      <!-- MiteOut -->
+      <article id="miteout" class="experience-item">
+        <span class="timeline-node"></span>
+        <div class="exp-card">
+          <h3>Co-Founder & Embedded Systems Engineer – MiteOut Precision Technologies</h3>
+          <p class="exp-subtitle">AgTech · 2024 – Present</p>
+          <ul>
+            <li>Co-founded AgTech startup focused on precision beekeeping hardware.</li>
+            <li>Designed 4-layer mixed-signal PCBs with robust power stages and calibrated sensor pipelines.</li>
+            <li>Developed FreeRTOS-based firmware for real-time scheduling and wireless data collection.</li>
+            <li>Extended field uptime via low-power modes and accelerated pilot revisions with drop-in board spins.</li>
+          </ul>
+          <div class="tech-pills"><span class="tech-pill">Power Mgmt</span><span class="tech-pill">I2C/SPI</span><span class="tech-pill">FreeRTOS</span><span class="tech-pill">PlatformIO</span><span class="tech-pill">KiCAD/Altium</span></div>
+        </div>
+        <div class="exp-media">
+          <img src="Assets/PCB.png" alt="Custom PCB"/>
+          <a class="link-btn" href="https://miteouttech.com" target="_blank" rel="noopener">Visit Website →</a>
+        </div>
+      </article>
+
+      <!-- ASME -->
+      <article id="asme" class="experience-item">
+        <span class="timeline-node"></span>
+        <div class="exp-card">
+          <h3>Additive Manufacturing Researcher / Product Lead – ASME</h3>
+          <p class="exp-subtitle">Robotic 3D printing · 6-DOF control · CAN</p>
+          <ul>
+            <li>Directed development of a 6-DOF robotic 3D printer with ROS-based multi-axis control.</li>
+            <li>Built custom control boards and synchronized CAN bus networks for accurate toolpath execution.</li>
+            <li>Implemented non-planar toolpaths with feedback, enabling angled and curved prints.</li>
+            <li>Led product demonstrations, showcasing novel robotic additive manufacturing capabilities.</li>
+          </ul>
+          <div class="tech-pills"><span class="tech-pill">ROS</span><span class="tech-pill">CAN</span><span class="tech-pill">Kinematics</span><span class="tech-pill">Custom Boards</span></div>
+        </div>
+        <div class="exp-media">
+          <video src="Assets/ASME.mov" autoplay loop muted playsinline></video>
+          <img src="Assets/GIF.gif" alt="Robotic printing demo"/>
+        </div>
+      </article>
+
+      <!-- CloudCage -->
+      <article id="cloudcage" class="experience-item">
+        <span class="timeline-node"></span>
+        <div class="exp-card">
+          <h3>Software/Hardware Intern – CloudCage</h3>
+          <p class="exp-subtitle">Summer 2025</p>
+          <ul>
+            <li>Automated CRM workflow integrations and internal platform syncs with Python.</li>
+            <li>Assisted server management and validation of Linux-based infrastructure.</li>
+            <li>Built and validated JetKVM remote access hardware, reducing manual tickets and speeding field setup.</li>
+          </ul>
+          <div class="tech-pills"><span class="tech-pill">Python</span><span class="tech-pill">Linux</span><span class="tech-pill">Automation</span><span class="tech-pill">Servers</span></div>
+        </div>
+      </article>
+
+      <!-- Bioinformatics -->
+      <article id="bioinfo" class="experience-item">
+        <span class="timeline-node"></span>
+        <div class="exp-card">
+          <h3>Bioinformatics Researcher – Deep Learning for Nuclei Segmentation</h3>
+          <p class="exp-subtitle">Lead author · IEEE paper · 2022–2024</p>
+          <ul>
+            <li>Designed and trained U-Net deep learning models for hyperspectral nuclei segmentation.</li>
+            <li>Led dataset preprocessing, experiment tracking, and publication as IEEE paper lead author.</li>
+            <li>Awarded Best Paper Honorable Mention by IEEE Systems Council (2024).</li>
+          </ul>
+          <div class="tech-pills"><span class="tech-pill">TensorFlow</span><span class="tech-pill">Keras</span><span class="tech-pill">Image Analysis</span></div>
+        </div>
+        <div class="exp-media">
+          <img src="Assets/Nuclei1.png" alt="Segmentation 1"/>
+          <img src="Assets/Nuclei 5.png" alt="Segmentation 2"/>
+          <img src="Assets/Nuclei3.png" alt="Segmentation 3"/>
+          <img src="Assets/Nuclei4.png" alt="Segmentation 4"/>
+          <a class="link-btn" href="Assets/Nuclei Segmentation Using Deep Learning and Hyperspectral Imaging for High Accuracy.pdf" target="_blank" rel="noopener">Read Paper →</a>
+        </div>
+      </article>
+
+      <!-- FRC -->
+      <article id="frc" class="experience-item">
+        <span class="timeline-node"></span>
+        <div class="exp-card">
+          <h3>Lead Programmer – FRC Team 2791</h3>
+          <p class="exp-subtitle">Control • Vision • Motion Planning · 2020–2024</p>
+          <ul>
+            <li>Led software development for competitive robotics (Java/C++), covering drivetrain, vision, and autonomous subsystems.</li>
+            <li>Implemented motion profiling and real-time PID/PIDf tuning for stable autonomous behavior.</li>
+            <li>Integrated fiducial markers for pose estimation, improving autonomous scoring reliability.</li>
+          </ul>
+          <div class="tech-pills"><span class="tech-pill">C++/Java</span><span class="tech-pill">Control</span><span class="tech-pill">Vision</span></div>
+        </div>
+        <div class="exp-media">
+          <img src="Assets/swerve.jpg" alt="FRC robot"/>
+          <iframe src="https://www.youtube.com/embed/n2mT7Hs8ijE" title="FRC Vision Positioning Demo" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- IMPORTANT: model-viewer import -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+</body>
 </html>
