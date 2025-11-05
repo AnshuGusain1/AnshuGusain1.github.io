@@ -91,10 +91,10 @@ a, .panel-link, .panel-link .panel, .panel-link .panel h1, .panel-link .panel p 
 }
 
 .panel img {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 12px;
   margin-bottom: 1rem;
   display: block;
 }

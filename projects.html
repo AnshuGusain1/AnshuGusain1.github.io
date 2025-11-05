@@ -81,8 +81,8 @@
         <h1 class="title">Projects – Hridaanshu (Anshu) Gusain</h1>
       </div>
       <nav aria-label="Quick filters">
-        <a href="#stereo-vision">Stereo Vision</a>
         <a href="#autonomous-drone">Autonomous Drone</a>
+        <a href="#stereo-vision">Stereo Vision</a>
         <a href="#parking-assistant">Parking Assistant</a>
         <a href="index.html">Back to Portfolio</a>
       </nav>
@@ -90,6 +90,59 @@
   </header>
 
   <main id="content" tabindex="-1">
+
+    <!-- Autonomous Drone -->
+    <section class="section" id="autonomous-drone" aria-labelledby="drone-h">
+      <h2 id="drone-h">Autonomous Drone Navigation System</h2>
+      <article class="project" aria-labelledby="drone-title">
+        <div class="proj-media">
+          <model-viewer src="Assets/DroneBody.gltf" alt="3D model of custom drone" camera-controls auto-rotate ar shadow-intensity="1" exposure="1.2" style="height:420px"></model-viewer>
+        </div>
+        <div style="padding:0 6px">
+          <div class="proj-head">
+            <h3 id="drone-title" class="proj-title">Custom flight‑controller hardware + CV stack for autonomous flight</h3>
+            <div class="meta"><span>Role: Systems & firmware</span><span>Status: In flight‑tuning</span></div>
+            <div class="badges">
+              <span class="badge">ESP32</span><span class="badge">freeRTOS</span><span class="badge">Raspberry Pi</span><span class="badge">SLAM</span><span class="badge">PID Control</span><span class="badge">KiCAD</span>
+            </div>
+          </div>
+          <div class="cols">
+            <div class="col role">
+              <h4>Architecture</h4>
+              <ul>
+                <li>Designed custom flight controller PCB from scratch using ESP32, integrating power management, sensor interfaces, and motor control circuitry.</li>
+                <li>Prioritized IMU data pipeline on freeRTOS for real-time attitude estimation and control.</li>
+                <li>Pi handles vision: stereo depth & object detection feeding obstacle avoidance.</li>
+                <li>Multi‑loop PID for attitude/altitude; A*/RRT for path planning.</li>
+              </ul>
+            </div>
+            <div class="col tech">
+              <h4>Hardware & Software</h4>
+              <ul>
+                <li>Designed and built custom flight controller PCB using ESP32 microcontroller as the core processor.</li>
+                <li>Integrated MPU‑9250 IMU, GPS, and barometer sensors; implemented Kalman‑based sensor fusion and vibration mitigation.</li>
+                <li>Developed custom firmware on freeRTOS for real-time control loops and sensor data processing.</li>
+                <li>SLAM for localization; mission execution via waypoint planner.</li>
+              </ul>
+            </div>
+            <div class="col impact">
+              <h4>Current Results</h4>
+              <ul>
+                <li>Hardware complete; PID tuning in progress for first autonomous missions.</li>
+                <li>Vision stack integrated; next phase is flight envelope characterization.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid" style="margin-top:14px">
+            <img src="Assets/PCB.png" alt="Custom flight controller PCB" style="grid-column:1/7;border-radius:10px">
+            <img src="Assets/Drone_final.png" alt="Final custom drone build" style="grid-column:7/13;border-radius:10px">
+          </div>
+          <div class="links">
+            <a class="btn ghost" href="https://www.youtube.com/watch?v=b3v5LJ1JiA8" target="_blank" rel="noopener">Short pre-flight demo</a>
+          </div>
+        </div>
+      </article>
+    </section>
 
     <!-- Stereo Vision -->
     <section class="section" id="stereo-vision" aria-labelledby="sv-h">
@@ -145,56 +198,6 @@
             <img src="Assets/tsukuba_GT.jpg" alt="Ground truth disparity" style="grid-column:7/13;border-radius:10px">
             <img src="Assets/img2l.png" alt="Left camera feed" style="grid-column:1/7;border-radius:10px">
             <img src="Assets/img2r.png" alt="Right camera feed" style="grid-column:7/13;border-radius:10px">
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <!-- Autonomous Drone -->
-    <section class="section" id="autonomous-drone" aria-labelledby="drone-h">
-      <h2 id="drone-h">Autonomous Drone Navigation System</h2>
-      <article class="project" aria-labelledby="drone-title">
-        <div class="proj-media">
-          <model-viewer src="Assets/DroneBody.gltf" alt="3D model of custom drone" camera-controls auto-rotate ar shadow-intensity="1" exposure="1.2" style="height:420px"></model-viewer>
-        </div>
-        <div style="padding:0 6px">
-          <div class="proj-head">
-            <h3 id="drone-title" class="proj-title">Custom flight‑controller hardware + CV stack for autonomous flight</h3>
-            <div class="meta"><span>Role: Systems & firmware</span><span>Status: In flight‑tuning</span></div>
-            <div class="badges">
-              <span class="badge">ESP32</span><span class="badge">freeRTOS</span><span class="badge">Raspberry Pi</span><span class="badge">SLAM</span><span class="badge">PID Control</span><span class="badge">KiCAD</span>
-            </div>
-          </div>
-          <div class="cols">
-            <div class="col role">
-              <h4>Architecture</h4>
-              <ul>
-                <li>Custom PCB with power, sensor, and motor control; prioritized IMU pipeline on freeRTOS.</li>
-                <li>Pi handles vision: stereo depth & object detection feeding obstacle avoidance.</li>
-                <li>Multi‑loop PID for attitude/altitude; A*/RRT for path planning.</li>
-              </ul>
-            </div>
-            <div class="col tech">
-              <h4>Hardware & Software</h4>
-              <ul>
-                <li>MPU‑9250 IMU, GPS, barometer; Kalman‑based fusion and vibration mitigation.</li>
-                <li>SLAM for localization; mission execution via waypoint planner.</li>
-              </ul>
-            </div>
-            <div class="col impact">
-              <h4>Current Results</h4>
-              <ul>
-                <li>Hardware complete; PID tuning in progress for first autonomous missions.</li>
-                <li>Vision stack integrated; next phase is flight envelope characterization.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="grid" style="margin-top:14px">
-            <img src="Assets/PCB.png" alt="Custom flight controller PCB" style="grid-column:1/7;border-radius:10px">
-            <img src="Assets/Drone_final.png" alt="Final custom drone build" style="grid-column:7/13;border-radius:10px">
-          </div>
-          <div class="links">
-            <a class="btn ghost" href="https://www.youtube.com/watch?v=b3v5LJ1JiA8" target="_blank" rel="noopener">Short demo</a>
           </div>
         </div>
       </article>
