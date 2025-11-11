@@ -310,12 +310,24 @@
       background: #f1f5f9;
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .video-container video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .video-container img {
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      margin: 0 auto;
     }
 
     /* ASME video positioning - shift down to show robot */
@@ -670,7 +682,7 @@
     <!-- ASME -->
     <a href="work.html#asme" class="featured-card">
       <div class="video-container">
-        <video src="Assets/ASME.mov" autoplay loop muted playsinline></video>
+        <img src="Assets/novoprint.JPG" alt="Robotic printing demo"/>
       </div>
       <div class="card-content">
         <span class="card-badge work">Work Experience</span>
