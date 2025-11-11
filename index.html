@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hridaanshu Gusain</title>
+  <title>Hridaanshu Gusain – Mechatronics & Robotics Engineer</title>
   <link rel="stylesheet" href="style.css" />
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
   <style>
     /* Global San Francisco font application */
     * {
@@ -13,36 +14,407 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f0f9ff 0%, #faf5ff 50%, #fef3c7 100%);
+      min-height: 100vh;
     }
 
-    /* Contact button styles */
-    .contact-button {
+    /* Header */
+    .header {
       position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+    }
+
+    .ag-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #1a2332;
+      flex-shrink: 0;
+      z-index: 1001;
+    }
+
+    .ag-logo img {
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
-      backdrop-filter: blur(10px);
+      object-fit: cover;
+      flex-shrink: 0;
+      background: none;
+      padding: 0;
+      box-shadow: none;
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .ag-logo:hover img {
+      background: rgba(255, 255, 255, 1);
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex: 1;
+      justify-content: center;
+      margin: 0 20px;
+    }
+
+    .nav-links a {
+      color: #1a2332;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      transition: color 0.2s;
+      white-space: nowrap;
+      padding: 10px 16px;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* Contact button */
+    .contact-button {
+      width: 44px;
+      height: 44px;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: 50%;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
-      z-index: 1000;
+      flex-shrink: 0;
+      z-index: 1001;
     }
 
     .contact-button:hover {
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(37, 99, 235, 0.2);
       transform: scale(1.05);
     }
 
     .contact-button svg {
-      width: 24px;
-      height: 24px;
-      fill: white;
+      width: 20px;
+      height: 20px;
+      fill: #2563eb;
+    }
+
+    /* Contact button on header right side */
+    .contact-side {
+      width: 44px;
+      height: 44px;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      margin-left: 8px;
+    }
+    .contact-side:hover {
+      background: rgba(37, 99, 235, 0.2);
+      transform: scale(1.05);
+    }
+    .contact-side svg {
+      width: 20px;
+      height: 20px;
+      fill: #2563eb;
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      padding: 60px 24px 40px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #1a2332;
+      margin: 0 0 16px 0;
+      letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      color: #5a6b82;
+      margin: 0 0 40px 0;
+      font-weight: 400;
+    }
+
+    /* Featured Cards Grid */
+    .featured-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 32px;
+    }
+
+    .featured-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0.2, 0.2, 1);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      position: relative;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-media {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      background: #f1f5f9;
+    }
+
+    .card-content {
+      padding: 28px;
+    }
+
+    .card-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+      color: white;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .card-badge.work {
+      background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    }
+
+    .card-badge.project {
+      background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a2332;
+      margin: 0 0 12px 0;
+      line-height: 1.3;
+    }
+
+    .card-subtitle {
+      font-size: 14px;
+      color: #5a6b82;
+      margin: 0 0 16px 0;
+      font-weight: 500;
+    }
+
+    .card-description {
+      font-size: 15px;
+      color: #1a2332;
+      line-height: 1.6;
+      margin: 0 0 20px 0;
+    }
+
+    .card-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .tech-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      background: #f1f5f9;
+      color: #2563eb;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #2563eb;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+
+    .card-link:hover {
+      gap: 12px;
+    }
+
+    .card-link::after {
+      content: '→';
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+
+    .card-link:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* 3D Model Container */
+    .model-container {
+      width: 100%;
+      height: 280px;
+      background: #f1f5f9;
+      position: relative;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Video Container */
+    .video-container {
+      width: 100%;
+      height: 280px;
+      background: #f1f5f9;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ASME video positioning - shift down to show robot */
+    .featured-card:nth-child(2) .video-container video {
+      object-position: center 35%;
+    }
+
+    /* Navigation Section */
+    .nav-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-button {
+      flex: 1;
+      min-width: 280px;
+      max-width: 400px;
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-decoration: none;
+      color: #1a2332;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-button:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      border-color: #2563eb;
+    }
+
+    .nav-button-icon {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .nav-button:hover .nav-button-icon {
+      transform: scale(1.05);
+    }
+
+    .nav-button-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a2332;
+      margin: 0 0 8px 0;
+    }
+
+    .nav-button-subtitle {
+      font-size: 16px;
+      color: #5a6b82;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .nav-button.work {
+      border-color: #3b82f6;
+    }
+
+    .nav-button.work:hover {
+      border-color: #2563eb;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    }
+
+    .nav-button.projects {
+      border-color: #a78bfa;
+    }
+
+    .nav-button.projects:hover {
+      border-color: #8b5cf6;
+      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+    }
+
+    .nav-button.about {
+      border-color: #f59e0b;
+    }
+
+    .nav-button.about:hover {
+      border-color: #d97706;
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
     }
 
     /* Modal styles */
@@ -90,7 +462,6 @@
       font-size: 28px;
       margin-bottom: 30px;
       font-weight: 600;
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     }
 
     .contact-list {
@@ -104,7 +475,6 @@
       background: rgba(255, 255, 255, 0.5);
       border-radius: 12px;
       transition: all 0.3s ease;
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     }
 
     .contact-item:hover {
@@ -120,7 +490,6 @@
       justify-content: center;
       gap: 10px;
       font-weight: 500;
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     }
 
     .contact-item.email {
@@ -132,7 +501,6 @@
 
     .contact-item.email a {
       color: white;
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     }
 
     .contact-icon {
@@ -156,7 +524,6 @@
       justify-content: center;
       border-radius: 50%;
       transition: all 0.3s ease;
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
     }
 
     .close-button:hover {
@@ -164,69 +531,209 @@
       color: #333;
     }
 
-    /* Ensure all text elements use San Francisco */
-    h1, h2, h3, h4, h5, h6, p, a, span, div, li, ul {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif !important;
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header {
+        padding: 12px 16px;
+      }
+
+      .ag-logo span {
+        display: none;
+      }
+
+      .hero {
+        margin-top: 70px;
+        padding: 40px 16px 30px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 0 16px 40px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .contact-button {
+        width: 40px;
+        height: 40px;
+      }
+
+      .nav-section {
+        padding: 60px 16px;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-button {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .nav-button-icon {
+        width: 120px;
+        height: 120px;
+      }
     }
 
+    @media (max-width: 1024px) {
+      .nav-links {
+        gap: 16px;
+        margin: 0 12px;
+      }
 
-    .panel h1 {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif !important;
+      .nav-links a {
+        font-size: 13px;
+      }
     }
 
-    .panel p {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif !important;
-    }
-
-    .work-portrait-icon {
-      width: 70px;
-      height: 1000px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 50% / 60%; /* vertical oval */
-      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-      display: block;
-      margin: 0 auto 12px auto;
-      background: #eaeaea;
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
 <body>
-  <a href="index.html" class="ag-logo">
-    <img src="Assets/logo1.png" alt="AG Logo">
-  </a>
-  
-  <!-- Contact button -->
-  <button class="contact-button" onclick="openModal()">
-    <svg viewBox="0 0 24 24" width="32" height="32">
-      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="black"/>
-      <circle cx="6" cy="6" r="2" fill="black" opacity="0.8"/>
-    </svg>
-  </button>
+  <!-- Header -->
+  <header class="header">
+    <a href="index.html" class="ag-logo">
+      <img src="Assets/logo1.png" alt="AG Logo">
+    </a>
+    <nav class="nav-links">
+      <a href="work.html">All Work</a>
+      <a href="projects.html">All Projects</a>
+      <a href="about.html">About</a>
+    </nav>
+    <button class="contact-button contact-side" onclick="openModal()">
+      <svg viewBox="0 0 24 24">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+    </button>
+  </header>
 
-  <div class="container">
-    <a href="projects.html" class="panel-link">
-      <section class="panel blog">
-        <img src="Assets/Drone_final_optimized.jpg" alt="Projects Icon" class="icon" loading="eager" width="250" height="250" />
-        <h1>Projects</h1>
-        <p>Thoughts, tutorials, and projects.</p>
-      </section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Mechatronics & Robotics Engineer</h1>
+    <p class="hero-subtitle">Embedded Systems • Computer Vision • Real-time Control • PCB Design</p>
+  </section>
+
+  <!-- Featured Work & Projects -->
+  <section class="featured-grid">
+    <!-- Blink Robotics -->
+    <a href="work.html#blink" class="featured-card">
+      <div class="model-container">
+        <model-viewer 
+          src="Assets/ARM.gltf"
+          alt="Blink Robotics 4-DOF Robotic Arm"
+          camera-controls
+          auto-rotate
+          shadow-intensity="1"
+          exposure="1.2"
+          style="width: 100%; height: 100%;">
+        </model-viewer>
+      </div>
+      <div class="card-content">
+        <span class="card-badge work">Work Experience</span>
+        <h2 class="card-title">Mechatronics Engineer – Blink Robotics</h2>
+        <p class="card-subtitle">Champaign, IL · 2025 – Present</p>
+        <p class="card-description">
+          Designed and validated full embedded stack for 4-DOF robotic arm (STM32/ESP32, ROS2, motor & sensor drivers). 
+          Integrated depth camera with NVIDIA Orin to improve mapping & state estimation accuracy.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">STM32</span>
+          <span class="tech-tag">ESP32</span>
+          <span class="tech-tag">FreeRTOS</span>
+          <span class="tech-tag">ROS2</span>
+          <span class="tech-tag">CAN</span>
+          <span class="tech-tag">C/C++</span>
+        </div>
+        <span class="card-link">View Details</span>
+      </div>
     </a>
-    <a href="work.html" class="panel-link">
-      <section class="panel work">
-        <img src="Assets/About.jpeg" alt="Work Icon" class="icon" loading="eager" width="250" height="250" />
-        <h1>Work</h1>
-        <p>My engineering experience.</p>
-      </section>
+
+    <!-- ASME -->
+    <a href="work.html#asme" class="featured-card">
+      <div class="video-container">
+        <video src="Assets/ASME.mov" autoplay loop muted playsinline></video>
+      </div>
+      <div class="card-content">
+        <span class="card-badge work">Work Experience</span>
+        <h2 class="card-title">Additive Manufacturing Researcher – ASME</h2>
+        <p class="card-subtitle">Robotic 3D Printing · 6-DOF Control · CAN</p>
+        <p class="card-description">
+          Directed development of a 6-DOF robotic 3D printer with ROS-based multi-axis control. 
+          Built custom control boards and synchronized CAN bus networks for accurate toolpath execution.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">ROS</span>
+          <span class="tech-tag">CAN</span>
+          <span class="tech-tag">Kinematics</span>
+          <span class="tech-tag">Custom Boards</span>
+        </div>
+        <span class="card-link">View Details</span>
+      </div>
     </a>
-    <a href="about.html" class="panel-link">
-      <section class="panel about">
-        <img src="Assets/UIUC_optimized.jpg" alt="About Icon" class="icon" loading="eager" width="250" height="250" />
-        <h1>About Me</h1>
-        <p>Engineering student @ UIUC. Interested in ML Hardware, 3D printing, Robotics, Embedded Systems, and more!</p>
-      </section>
+
+    <!-- Drone Project -->
+    <a href="projects.html#autonomous-drone" class="featured-card">
+      <img src="Assets/Drone_final_optimized.jpg" alt="Autonomous Drone Navigation System" class="card-media" loading="eager">
+      <div class="card-content">
+        <span class="card-badge project">Featured Project</span>
+        <h2 class="card-title">Autonomous Drone Navigation System</h2>
+        <p class="card-subtitle">Custom Flight Controller · SLAM · Computer Vision</p>
+        <p class="card-description">
+          Designed custom flight controller PCB from scratch using ESP32, integrating power management, sensor interfaces, 
+          and motor control circuitry. Pi handles vision: stereo depth & object detection feeding obstacle avoidance.
+        </p>
+        <div class="card-tech">
+          <span class="tech-tag">ESP32</span>
+          <span class="tech-tag">FreeRTOS</span>
+          <span class="tech-tag">Raspberry Pi</span>
+          <span class="tech-tag">SLAM</span>
+          <span class="tech-tag">PID Control</span>
+          <span class="tech-tag">KiCAD</span>
+        </div>
+        <span class="card-link">View Project</span>
+      </div>
     </a>
-  </div>
+  </section>
+
+  <!-- Navigation Section -->
+  <section class="nav-section">
+    <div class="nav-buttons">
+      <a href="work.html" class="nav-button work">
+        <img src="Assets/About.jpeg" alt="Work Experience" class="nav-button-icon" loading="lazy">
+        <h3 class="nav-button-title">All Work Experience</h3>
+        <p class="nav-button-subtitle">View complete professional history</p>
+      </a>
+      <a href="projects.html" class="nav-button projects">
+        <img src="Assets/Drone_final_optimized.jpg" alt="Projects" class="nav-button-icon" loading="lazy">
+        <h3 class="nav-button-title">All Projects</h3>
+        <p class="nav-button-subtitle">Explore technical projects & research</p>
+      </a>
+      <a href="about.html" class="nav-button about">
+        <img src="Assets/UIUC_optimized.jpg" alt="About Me" class="nav-button-icon" loading="lazy">
+        <h3 class="nav-button-title">About Me</h3>
+        <p class="nav-button-subtitle">Learn more about my background</p>
+      </a>
+    </div>
+  </section>
 
   <!-- Contact Modal -->
   <div class="modal-overlay" id="contactModal">
@@ -271,16 +778,6 @@
   </div>
 
   <script>
-    const panelLinks = document.querySelectorAll('.panel-link');
-    panelLinks.forEach(link => {
-      link.addEventListener('mouseenter', () => {
-        document.body.classList.add('panel-hover');
-      });
-      link.addEventListener('mouseleave', () => {
-        document.body.classList.remove('panel-hover');
-      });
-    });
-
     // Contact modal functions
     function openModal() {
       document.getElementById('contactModal').classList.add('active');
