@@ -70,6 +70,26 @@
 
     /* Utilities */
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* Project write-up sections (matched to Work page style) */
+    .exp-section{margin:14px 0}
+    .exp-section h4{margin:0 0 6px;font-size:15px;color:var(--brand);text-transform:uppercase;letter-spacing:.5px}
+    .exp-section p{margin:0;color:var(--ink)}
+    .exp-bullets{margin:6px 0 0 18px}
+    .exp-bullets li{margin:4px 0}
+    .exp-specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-top:6px}
+    .exp-spec{background:#fff;border:1px solid var(--ring);border-radius:8px;padding:6px 8px;font-size:13px;color:var(--ink)}
+    /* Table of contents */
+    .toc{background:var(--card);border:1px solid var(--ring);border-radius:12px;padding:14px 16px;margin:18px auto;max-width:var(--maxw)}
+    .toc h3{font-size:16px;margin:0 0 10px}
+    .toc-grid{display:flex;gap:16px;flex-wrap:nowrap;justify-content:space-between;align-items:stretch;overflow-x:visible;padding-bottom:0}
+    .toc-card{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--ring);border-radius:10px;background:#fff;text-decoration:none;flex:1 1 0;min-width:0}
+    .toc-card:hover{border-color:var(--brand)}
+    .toc-thumb{width:56px;height:56px;border-radius:8px;border:1px solid var(--ring);object-fit:cover}
+    .toc-meta{display:flex;flex-direction:column;gap:2px}
+    .toc-title{font-size:14px;font-weight:700;color:var(--ink)}
+    .toc-sub{font-size:12px;color:var(--muted)}
+    .media-caption{font-size:13px;color:var(--muted);margin-top:6px;text-align:center}
   </style>
 </head>
 <body>
@@ -91,6 +111,34 @@
 
   <main id="content" tabindex="-1">
 
+    <!-- TOC -->
+    <nav class="toc" aria-label="On this page">
+      <h3>On this page</h3>
+      <div class="toc-grid">
+        <a class="toc-card" href="#autonomous-drone">
+          <img class="toc-thumb" src="Assets/Drone_final.png" alt="Autonomous Drone thumbnail">
+          <div class="toc-meta">
+            <span class="toc-title">Autonomous Drone</span>
+            <span class="toc-sub">ESP32 • SLAM • PID</span>
+          </div>
+        </a>
+        <a class="toc-card" href="#stereo-vision">
+          <img class="toc-thumb" src="Assets/DisparityMap.png" alt="Stereo Vision thumbnail">
+          <div class="toc-meta">
+            <span class="toc-title">Stereo Vision</span>
+            <span class="toc-sub">StereoSGBM • OpenCV</span>
+          </div>
+        </a>
+        <a class="toc-card" href="#parking-assistant">
+          <img class="toc-thumb" src="Assets/PCB.png" alt="Parking Assistant thumbnail">
+          <div class="toc-meta">
+            <span class="toc-title">Parking Assistant</span>
+            <span class="toc-sub">Ultrasonic • Embedded</span>
+          </div>
+        </a>
+      </div>
+    </nav>
+
     <!-- Autonomous Drone -->
     <section class="section" id="autonomous-drone" aria-labelledby="drone-h">
       <h2 id="drone-h">Autonomous Drone Navigation System</h2>
@@ -101,37 +149,47 @@
         <div style="padding:0 6px">
           <div class="proj-head">
             <h3 id="drone-title" class="proj-title">Custom flight‑controller hardware + CV stack for autonomous flight</h3>
-            <div class="meta"><span>Role: Systems & firmware</span><span>Status: In flight‑tuning</span></div>
+            <div class="meta"><span>Role: Systems &amp; firmware</span><span>Status: In flight‑tuning</span></div>
             <div class="badges">
-              <span class="badge">ESP32</span><span class="badge">freeRTOS</span><span class="badge">Raspberry Pi</span><span class="badge">SLAM</span><span class="badge">PID Control</span><span class="badge">KiCAD</span>
+              <span class="badge">ESP32</span><span class="badge">FreeRTOS</span><span class="badge">Raspberry Pi</span><span class="badge">SLAM</span><span class="badge">PID Control</span><span class="badge">KiCad</span>
             </div>
           </div>
-          <div class="cols">
-            <div class="col role">
-              <h4>Architecture</h4>
-              <ul>
-                <li>Designed custom flight controller PCB from scratch using ESP32, integrating power management, sensor interfaces, and motor control circuitry.</li>
-                <li>Prioritized IMU data pipeline on freeRTOS for real-time attitude estimation and control.</li>
-                <li>Pi handles vision: stereo depth & object detection feeding obstacle avoidance.</li>
-                <li>Multi‑loop PID for attitude/altitude; A*/RRT for path planning.</li>
-              </ul>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p>This past summer, I was extremely interested in avionics, and embedded software development. What better way to learn than building a flight controller from scratch! I developed a fully custom flight controller PCB, integrating IMU, GPS, and cameras. It allows communication between a Raspberry PI 0W for vision information. It combines <strong>real‑time embedded control</strong> with a companion computer vision pipeline to enable reliable autonomous flight on low‑cost hardware. I also developed the quadrotor chassis from scratch in Fusion 360, trying to minimize for 3D-printing weight and optimizing for center of mass distribution. </p>
+          </div>
+          <div class="exp-section">
+            <h4>Concept</h4>
+            <p>Split compute: the <strong>ESP32</strong> handles deterministic loops (sensing, control, motor PWM) under <strong>FreeRTOS</strong>, while a <strong>Raspberry Pi</strong> runs <strong>SLAM</strong> and obstacle avoidance. The design emphasises easy tuning and log‑driven iteration.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Design Process</h4>
+            <ul class="exp-bullets">
+              <li>Developed quadrotor chassis in <strong>Fusion 360</strong>, optimizing for center of gravity, and minimizing 3D-printing weight.</li>
+              <li>Designed a custom controller PCB (power management, IMU, GPS, barometer, motor drivers) in <strong>KiCad</strong>.</li>
+              <li>Implemented multi‑loop <strong>PID</strong> for attitude/altitude; prioritized IMU pipeline with task affinities on <strong>FreeRTOS</strong>.</li>
+              <li>Integrated stereo depth &amp; detection on the Pi; fused estimates for navigation.</li>
+              <li>Bench‑tested PWM transients and added flyback/EMI mitigation; iterated with black‑box logs.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Specifications</h4>
+            <div class="exp-specs">
+              <div class="exp-spec">MCU: <strong>ESP32</strong> @ FreeRTOS</div>
+              <div class="exp-spec">Companion: <strong>Raspberry Pi</strong></div>
+              <div class="exp-spec">Sensors: IMU (MPU 6500), GPS(GY-NEO6MV2), Barometer(BPM 280)</div>
+              <div class="exp-spec">Comms: I2C/SPI/UART, PWM ESCs</div>
+              <div class="exp-spec">Vision: Stereo depth + detection</div>
+              <div class="exp-spec">Planning: A*/RRT (roadmap)</div>
             </div>
-            <div class="col tech">
-              <h4>Hardware & Software</h4>
-              <ul>
-                <li>Designed and built custom flight controller PCB using ESP32 microcontroller as the core processor.</li>
-                <li>Integrated MPU‑9250 IMU, GPS, and barometer sensors; implemented Kalman‑based sensor fusion and vibration mitigation.</li>
-                <li>Developed custom firmware on freeRTOS for real-time control loops and sensor data processing.</li>
-                <li>SLAM for localization; mission execution via waypoint planner.</li>
-              </ul>
-            </div>
-            <div class="col impact">
-              <h4>Current Results</h4>
-              <ul>
-                <li>Hardware complete; PID tuning in progress for first autonomous missions.</li>
-                <li>Vision stack integrated; next phase is flight envelope characterization.</li>
-              </ul>
-            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Results</h4>
+            <ul class="exp-bullets">
+              <li>Hardware assembled and validated; closed‑loop stability achieved on bench.</li>
+              <li>Vision stack integrated; flight envelope characterization in progress.</li>
+              <li>Currently in process of self-navigation implementation using A* and Pathweaver.</li>
+            </ul>
           </div>
           <div class="grid" style="margin-top:14px">
             <img src="Assets/PCB.png" alt="Custom flight controller PCB" style="grid-column:1/7;border-radius:10px">
@@ -141,7 +199,7 @@
             <iframe style="width:100%;aspect-ratio:16/9;border:0;border-radius:10px" src="https://www.youtube.com/embed/7HAM1d4zvrc" title="Drone PWM characterization and flyback diode testing" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
           <div class="links">
-            <a class="btn ghost" href="https://www.youtube.com/watch?v=b3v5LJ1JiA8" target="_blank" rel="noopener">Short pre-flight demo</a>
+            <a class="btn ghost" href="https://www.youtube.com/watch?v=b3v5LJ1JiA8" target="_blank" rel="noopener">Short pre‑flight demo</a>
           </div>
         </div>
       </article>
@@ -155,41 +213,55 @@
           <div class="grid">
             <div class="proj-media" style="grid-column:1/-1">
               <img src="Assets/DisparityMap.png" alt="Generated disparity map from stereo pipeline"/>
+              <img src="Assets/CameraMounts.png" alt="Rectified stereo input pair animation" style="margin-top:10px"/>
+              <video controls style="margin-top:10px;width:100%;border-radius:10px">
+                <source src="Assets/TestingVideo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="media-caption">Driving test set up</div>
             </div>
           </div>
         </div>
         <div style="padding:0 6px">
           <div class="proj-head">
-            <h3 id="sv-title" class="proj-title">Depth pipeline using StereoSGBM/SBM with calibration & rectification</h3>
-            <div class="meta"><span>Role: Solo developer</span><span>Timeline: May-August 2025</span></div>
+            <h3 id="sv-title" class="proj-title">Depth pipeline using StereoSGBM/SBM with calibration &amp; rectification</h3>
+            <div class="meta"><span>Role: Solo developer</span><span>Timeline: May–August 2025</span></div>
             <div class="badges">
-              <span class="badge">OpenCV</span><span class="badge">Python</span><span class="badge">Camera Calibration</span><span class="badge">3D Reconstruction</span><span class="badge">Real‑time</span>
+              <span class="badge">OpenCV</span><span class="badge">Python</span><span class="badge">Calibration</span><span class="badge">3D Reconstruction</span><span class="badge">Real‑time</span>
             </div>
           </div>
-          <div class="cols">
-            <div class="col role">
-              <h4>Problem → Approach</h4>
-              <ul>
-                <li>Needed accurate, real‑time depth for robotics navigation on low‑cost sensors.</li>
-                <li>Built full pipeline: intrinsic/extrinsic calibration, rectification, SGBM disparity, post‑filtering.</li>
-                <li>Designed 3D‑printed stereo mount to ensure pixel‑level horizontal alignment.</li>
-              </ul>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p>A real‑time <strong>stereo depth</strong> pipeline built for robotics perception. Produces stable disparity maps on commodity cameras with a full calibration→rectification→disparity→post‑filtering chain.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Concept</h4>
+            <p>Engineer a reproducible CV stack that trades a bit of peak accuracy for consistent, low‑latency results appropriate for embedded navigation.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Design Process</h4>
+            <ul class="exp-bullets">
+              <li>Implemented intrinsic/extrinsic calibration and lens distortion correction.</li>
+              <li>Performed epipolar rectification and <strong>StereoSGBM</strong> disparity with tunable parameters.</li>
+              <li>Benchmarked against Middlebury; prepared <strong>Kalman</strong> temporal smoothing hooks.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Specifications</h4>
+            <div class="exp-specs">
+              <div class="exp-spec">Language: <strong>Python</strong> + OpenCV</div>
+              <div class="exp-spec">Modes: SGBM / BM</div>
+              <div class="exp-spec">Artifacts: Rectified pairs, disparity maps</div>
+              <div class="exp-spec">Outputs: Depth estimates &amp; point clouds</div>
             </div>
-            <div class="col tech">
-              <h4>Key Engineering</h4>
-              <ul>
-                <li>Checkerboard calibration & lens distortion correction.</li>
-                <li>Epipolar rectification and disparity benchmarking (Middlebury dataset).</li>
-                <li>Planned Kalman filtering for temporal noise suppression.</li>
-              </ul>
-            </div>
-            <div class="col impact">
-              <h4>Impact</h4>
-              <ul>
-                <li>Reliable depth maps suitable for embedded navigation & obstacle avoidance.</li>
-                <li>Validated with public datasets and live camera feeds.</li>
-              </ul>
-            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Results</h4>
+            <ul class="exp-bullets">
+              <li>Consistent depth maps validated on public datasets and live feeds.</li>
+              <li>Ready for integration into on‑robot navigation nodes.</li>
+              <li>Rough proof of concept, utilizing cheap amazon webcams fused together in a 3D print.</li>
+            </ul>
           </div>
           <div class="links">
             <a class="btn" href="https://github.com/AnshuGusain1/StereoDepth" target="_blank" rel="noopener">Source on GitHub</a>
@@ -219,20 +291,36 @@
             <div class="meta"><span>Role: Embedded developer</span></div>
             <div class="badges"><span class="badge">Arduino</span><span class="badge">Ultrasonic Sensors</span><span class="badge">Embedded</span></div>
           </div>
-          <div class="cols">
-            <div class="col tech">
-              <h4>Implementation</h4>
-              <ul>
-                <li>Sensor polling with debounced readings; smoothing filter for stable output.</li>
-                <li>Simple UI cues for driver attention and safety.</li>
-              </ul>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p>A garage aid that measures bumper‑to‑wall distance via <strong>ultrasonic sensing</strong> and provides intuitive feedback cues for consistent, safe parking.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Concept</h4>
+            <p>Low‑cost, reliable sensing with debounced reads and basic smoothing for stable display—no network or app required.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Design Process</h4>
+            <ul class="exp-bullets">
+              <li>Implemented sensor polling loop with outlier rejection and moving‑average smoothing.</li>
+              <li>Designed simple visual feedback logic and thresholds for driver cues.</li>
+              <li>Iterated mounting geometry to reduce spurious reflections.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Specifications</h4>
+            <div class="exp-specs">
+              <div class="exp-spec">MCU: <strong>Arduino</strong></div>
+              <div class="exp-spec">Sensor: Ultrasonic rangefinder</div>
+              <div class="exp-spec">Loop: Debounced + smoothed readings</div>
+              <div class="exp-spec">UI: LED/indicator thresholds</div>
             </div>
-            <div class="col impact">
-              <h4>Impact</h4>
-              <ul>
-                <li>Improved parking consistency; prevents front‑bumper contact in tight spaces.</li>
-              </ul>
-            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Results</h4>
+            <ul class="exp-bullets">
+              <li>More consistent parking stops; reduces bumper contact in tight spaces.</li>
+            </ul>
           </div>
         </div>
       </article>
