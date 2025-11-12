@@ -92,6 +92,15 @@
     .exp-card ul{margin:0;padding-left:20px;line-height:1.7}
     .exp-card li{margin-bottom:8px;color:var(--ink)}
 
+    /* Project write-up sections */
+    .exp-section{margin:14px 0}
+    .exp-section h4{font-size:14px;color:var(--accent);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
+    .exp-section p{font-size:15px;color:var(--ink)}
+    .exp-bullets{margin:6px 0 0 18px}
+    .exp-bullets li{margin:4px 0}
+    .exp-specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-top:6px}
+    .exp-spec{background:#f8fafc;border:1px solid var(--border);border-radius:6px;padding:6px 8px;font-size:13px;color:var(--ink)}
+
     .tech-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
     .tech-pill{display:inline-block;padding:5px 10px;background:#f1f5f9;color:var(--accent);border:1px solid var(--border);border-radius:6px;font-size:12px;font-weight:600}
 
@@ -101,6 +110,18 @@
 
     .link-btn{display:inline-block;padding:10px 16px;background:var(--accent);color:white;border-radius:8px;font-weight:600;font-size:14px;transition:background .2s}
     .link-btn:hover{background:var(--accent-light);color:white}
+
+    /* Table of contents */
+    .toc{background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:14px 16px;margin:20px 0 28px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .toc h3{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:10px;letter-spacing:.2px}
+    .toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+    .toc-card{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--bg);text-decoration:none}
+    .toc-card:hover{border-color:var(--accent);box-shadow:0 2px 10px rgba(37,99,235,.12)}
+    .toc-thumb{width:56px;height:56px;border-radius:8px;border:2px solid var(--border);object-fit:cover;flex:0 0 56px;background:#eef2ff}
+    .toc-meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+    .toc-title{font-size:14px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .toc-sub{font-size:12px;color:var(--muted)}
+    .toc-placeholder{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#e2e8f0,#f8fafc);color:#4b5563;font-weight:800;font-size:12px}
 
     @media (max-width:768px){
       .title{font-size:18px}
@@ -129,14 +150,143 @@
       <h2>Mechatronics & Robotics Engineer</h2>
       <p class="hero-subtitle">Embedded Systems • Computer Vision • Real-time Control • PCB Design</p>
       <div class="skills-grid">
-        <div class="skill-category"><h3>Programming</h3><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">C/C++</span><span class="skill-tag">Java</span></div></div>
-        <div class="skill-category"><h3>Embedded & RTOS</h3><div class="skill-tags"><span class="skill-tag">STM32</span><span class="skill-tag">ESP32</span><span class="skill-tag">FreeRTOS</span></div></div>
-        <div class="skill-category"><h3>Robotics</h3><div class="skill-tags"><span class="skill-tag">ROS/ROS2</span><span class="skill-tag">SLAM</span><span class="skill-tag">Kinematics</span></div></div>
-        <div class="skill-category"><h3>Hardware</h3><div class="skill-tags"><span class="skill-tag">KiCAD</span><span class="skill-tag">Altium</span><span class="skill-tag">PCB Design</span></div></div>
-        <div class="skill-category"><h3>Protocols</h3><div class="skill-tags"><span class="skill-tag">CAN</span><span class="skill-tag">SPI/I2C</span><span class="skill-tag">UART</span></div></div>
-        <div class="skill-category"><h3>Vision & ML</h3><div class="skill-tags"><span class="skill-tag">OpenCV</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span></div></div>
+        <div class="skill-category">
+          <h3>Programming</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C/C++</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Bash</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Embedded &amp; RTOS</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">STM32</span>
+            <span class="skill-tag">ESP32</span>
+            <span class="skill-tag">FreeRTOS</span>
+            <span class="skill-tag">PlatformIO</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Robotics &amp; Control</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">ROS/ROS2</span>
+            <span class="skill-tag">Kinematics</span>
+            <span class="skill-tag">SLAM</span>
+            <span class="skill-tag">PID/Kalman</span>
+            <span class="skill-tag">HIL Testing</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Hardware &amp; PCB</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">KiCad</span>
+            <span class="skill-tag">Altium</span>
+            <span class="skill-tag">Mixed‑Signal PCB</span>
+            <span class="skill-tag">Power Electronics</span>
+            <span class="skill-tag">DFM/DFA</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Comms &amp; Protocols</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">CAN</span>
+            <span class="skill-tag">SPI</span>
+            <span class="skill-tag">I2C</span>
+            <span class="skill-tag">UART</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Vision &amp; ML</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">scikit‑learn</span>
+            <span class="skill-tag">YOLOv8</span>
+            <span class="skill-tag">NumPy/pandas</span>
+            <span class="skill-tag">Stereo Vision</span>
+            <span class="skill-tag">Semi-Global Block Matching</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>CAD &amp; Fabrication</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Fusion 360</span>
+            <span class="skill-tag">3D Printing</span>
+            <span class="skill-tag">Cura/PrusaSlicer</span>
+            <span class="skill-tag">Laser/Shop Tools</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Tools &amp; DevOps</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Git/GitHub</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Test &amp; Validation</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Oscilloscope/LA</span>
+            <span class="skill-tag">Calibration</span>
+            <span class="skill-tag">Soak/HALT</span>
+            <span class="skill-tag">Data Logging</span>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- TOC -->
+    <nav class="toc" aria-label="On this page">
+      <h3>On this page</h3>
+      <div class="toc-grid">
+        <a class="toc-card" href="#blink">
+          <img class="toc-thumb" src="Assets/blink_arm.jpg" alt="Blink Robotics thumbnail">
+          <div class="toc-meta">
+            <span class="toc-title">Blink Robotics</span>
+            <span class="toc-sub">4‑DOF Arm • ROS2</span>
+          </div>
+        </a>
+        <a class="toc-card" href="#miteout">
+          <img class="toc-thumb" src="Assets/MiteOut.jpeg" alt="MiteOut thumbnail">
+          <div class="toc-meta">
+            <span class="toc-title">MiteOut</span>
+            <span class="toc-sub">Embedded • PCBs</span>
+          </div>
+        </a>
+        <a class="toc-card" href="#asme">
+          <img class="toc-thumb" src="Assets/novoprint.jpg" alt="NovoPrint 6‑DOF thumbnail">
+          <div class="toc-meta">
+            <span class="toc-title">NovoPrint (ASME)</span>
+            <span class="toc-sub">6‑DOF • ROS</span>
+          </div>
+        </a>
+        <a class="toc-card" href="#cloudcage">
+          <div class="toc-thumb toc-placeholder">CC</div>
+          <div class="toc-meta">
+            <span class="toc-title">CloudCage</span>
+            <span class="toc-sub">Automation • JetKVM</span>
+          </div>
+        </a>
+        <a class="toc-card" href="#bioinfo">
+          <img class="toc-thumb" src="Assets/Nuclei1.png" alt="Bioinformatics thumbnail">
+          <div class="toc-meta">
+            <span class="toc-title">Bioinformatics</span>
+            <span class="toc-sub">DL • Hyperspectral</span>
+          </div>
+        </a>
+        <a class="toc-card" href="#frc">
+          <img class="toc-thumb" src="Assets/swerve.jpg" alt="FRC thumbnail">
+          <div class="toc-meta">
+            <span class="toc-title">FRC 2791</span>
+            <span class="toc-sub">Controls • Vision</span>
+          </div>
+        </a>
+      </div>
+    </nav>
 
     <!-- Awards -->
     <div class="awards">
@@ -159,12 +309,41 @@
         <div class="exp-card">
           <h3>Mechatronics Engineer – Blink Robotics Systems</h3>
           <p class="exp-subtitle">Champaign, IL · 2025 – Present</p>
-          <ul>
-            <li>Designed and validated full embedded stack for 4-DOF robotic arm (STM32/ESP32, ROS2, motor & sensor drivers).</li>
-            <li>Integrated depth camera with NVIDIA Orin to improve mapping & state estimation accuracy.</li>
-            <li>Implemented safety-critical PID/state machine control with watchdog timers, reducing bench faults.</li>
-            <li>Built URDF + Gazebo simulation loop, accelerating motion-planning experiments by ~40%.</li>
-          </ul>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p>Built a lab-ready <strong>4‑DOF robotic arm</strong> and mobile base that merge <strong>embedded control</strong>, <strong>perception</strong>, and <strong>simulation</strong> for rapid mechatronics R&amp;D. The system serves as a proving ground for motion‑planning ideas before hardware deployment. It is in development for deployment at the Molecule Maker Lab to autonomously navigate around the laboratory floor, interacting with scientists and test vials.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Concept</h4>
+            <p>Use a compact manipulator paired with an <strong>NVIDIA Orin</strong> and depth camera to prototype autonomy quickly. A shared codebase in <strong>ROS2</strong> lets the same behaviors run in <strong>Gazebo</strong> and on the real robot.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Design Process</h4>
+            <ul class="exp-bullets">
+              <li>Modeled kinematics/URDF and stood up a full simulation loop in <strong>ROS2 + Gazebo</strong> for CI‑like testing.</li>
+              <li>Implemented <strong>PID/state‑machine</strong> control on <strong>STM32/ESP32</strong> with watchdogs and safety interlocks.</li>
+              <li>Integrated depth sensing for mapping and <strong>state estimation</strong>; validated SLAM + tag localization workflows.</li>
+              <li>Closed the sim‑to‑real gap with log‑driven tuning and bench HALT/soak tests on actuators and gripper.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Specifications</h4>
+            <div class="exp-specs">
+              <div class="exp-spec">Compute: NVIDIA Orin + Depth Camera</div>
+              <div class="exp-spec">MCUs: <strong>STM32</strong>, <strong>ESP32</strong> (FreeRTOS)</div>
+              <div class="exp-spec">Buses: <strong>CAN</strong>, <strong>UART/SPI/I2C</strong></div>
+              <div class="exp-spec">Software: <strong>ROS2</strong>, C/C++, Python</div>
+              <div class="exp-spec">Simulation: <strong>URDF</strong>, Gazebo</div>
+            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Results</h4>
+            <ul class="exp-bullets">
+              <li><strong>~40% faster</strong> iteration by validating trajectories in simulation first.</li>
+              <li>Improved localization accuracy with fused vision + IMU; reduced drift on long runs.</li>
+              <li>Bench fault rate reduced via watchdogs and safety state machine.</li>
+            </ul>
+          </div>
           <div class="tech-pills"><span class="tech-pill">STM32</span><span class="tech-pill">ESP32</span><span class="tech-pill">FreeRTOS</span><span class="tech-pill">ROS2</span><span class="tech-pill">CAN</span><span class="tech-pill">C/C++</span><span class="tech-pill">Python</span><span class="tech-pill">KiCAD</span></div>
         </div>
         <div class="exp-media">
@@ -174,6 +353,7 @@
                         auto-rotate
                         style="height:340px;border:2px solid var(--border);border-radius:8px">
           </model-viewer>
+          <img src="Assets/blink_arm.jpg" alt="Blink Robotics arm detail photo" loading="lazy"/>
         </div>
       </article>
 
@@ -183,16 +363,46 @@
         <div class="exp-card">
           <h3>Co-Founder & Embedded Systems Engineer – MiteOut Precision Technologies</h3>
           <p class="exp-subtitle">AgTech · 2024 – Present</p>
-          <ul>
-            <li>Co-founded AgTech startup focused on precision beekeeping hardware.</li>
-            <li>Designed 4-layer mixed-signal PCBs with robust power stages and calibrated sensor pipelines.</li>
-            <li>Developed FreeRTOS-based firmware for real-time scheduling and wireless data collection.</li>
-            <li>Extended field uptime via low-power modes and accelerated pilot revisions with drop-in board spins.</li>
-          </ul>
-          <div class="tech-pills"><span class="tech-pill">Power Mgmt</span><span class="tech-pill">I2C/SPI</span><span class="tech-pill">FreeRTOS</span><span class="tech-pill">PlatformIO</span><span class="tech-pill">KiCAD/Altium</span></div>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p>Around <strong>50% of bees are affected by varroa mites</strong>, a parasitic mite that can cause significant damage to bee colonies. These infections are costly and can lead to colony collapse. <strong>MiteOut</strong> builds low‑power, field‑ready data collection and monitoring tools for precision commercial beekeepers. I co‑founded the effort and lead the <strong>embedded hardware/firmware</strong> stack.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Concept</h4>
+            <p>Deploy <strong>ESP32-based</strong> nodes with calibrated sensors and reliable RF to monitor hive health continuously. Focus on <strong>robust power</strong>, OTA serviceability, and modular boards for quick pilot spins. Reliability and longevity is of the utmost importance, becuase these decices have to perform year-round in the open environment.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Design Process</h4>
+            <ul class="exp-bullets">
+              <li>Designed <strong>4‑layer mixed‑signal PCBs</strong> (KiCad/Altium) with protected power stages and low‑noise analog front‑ends.</li>
+              <li>Wrote <strong>FreeRTOS</strong> firmware in C++ for task scheduling, sensor pipelines, and OTA diagnostics.</li>
+              <li>Ran environmental soak tests and field telemetry to guide board iterations and firmware fixes.</li>
+              <li>Set up Python tooling for calibration and automated log analysis.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Specifications</h4>
+            <div class="exp-specs">
+              <div class="exp-spec">MCU: <strong>ESP32</strong> (low‑power modes)</div>
+              <div class="exp-spec">Sensors: I2C/SPI environmental + load/weight</div>
+              <div class="exp-spec">Power: Battery + Solar (6 V input), protected rails</div>
+              <div class="exp-spec">Comms: RF modules, UART/I2C/SPI</div>
+              <div class="exp-spec">Firmware: <strong>FreeRTOS</strong>, OTA, PlatformIO</div>
+            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Results</h4>
+            <ul class="exp-bullets">
+              <li>Increased field uptime by <strong>~50%</strong> through RTOS scheduling and power management.</li>
+              <li>Cut validation time by <strong>~30%</strong> with automated Python/C++ calibration suite.</li>
+              <li>Secured <strong>$8K</strong> in pre‑seed funding and deployed pilot units to multiple apiaries.</li>
+            </ul>
+          </div>
+          <div class="tech-pills"><span class="tech-pill">Power Mgmt</span><span class="tech-pill">I2C/SPI</span><span class="tech-pill">FreeRTOS</span><span class="tech-pill">PlatformIO</span><span class="tech-pill">KiCAD</span></div>
         </div>
         <div class="exp-media">
           <img src="Assets/MiteOut.jpeg" alt="Custom PCB"/>
+          <img src="Assets/MiteOut_closeup.png" alt="MiteOut PCB and enclosure close-up" loading="lazy"/>
           <a class="link-btn" href="https://miteouttech.com" target="_blank" rel="noopener">Visit Website →</a>
         </div>
       </article>
@@ -203,17 +413,47 @@
         <div class="exp-card">
           <h3>Additive Manufacturing Researcher / Product Lead – ASME</h3>
           <p class="exp-subtitle">Robotic 3D printing · 6-DOF control · CAN</p>
-          <ul>
-            <li>Directed electrical architecture development of a 6-DOF robotic 3D printer with ROS-based multi-axis control.</li>
-            <li>Built custom control boards and synchronized CAN bus networks for accurate toolpath execution.</li>
-            <li>Implemented non-planar toolpaths with feedback, enabling angled and curved prints.</li>
-            <li>Led product demonstrations, showcasing novel robotic additive manufacturing capabilities.</li>
-          </ul>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p><strong>A 6‑DOF Robotic Arm for Advanced 3D Printing</strong>. The <em>NovoPrint</em> project (ASME • Dr. Clemon’s group) aims to redefine additive manufacturing by printing on non‑planar surfaces and complex geometries. The system integrates <strong>mechanics</strong>, <strong>electronics</strong>, and <strong>software control</strong> into a cohesive robotic platform based on the open-source platform <strong>ARCTOS</strong>.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Concept</h4>
+            <p>Adapt a robust open‑source arm and tailor it for precision <strong>additive manufacturing</strong>. By mounting a printing extruder as the end‑effector and leveraging the dexterity of a 6‑axis robot, we unlock toolpaths impossible on traditional 3‑axis gantries.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Design Process</h4>
+            <ul class="exp-bullets">
+              <li>Led cross‑functional work across mechanical design, electronics, and motion control; coordinated funding and milestones.</li>
+              <li>Fabricated and assembled extensive custom parts and fixtures; integrated <strong>CAN</strong>‑synchronized stepper subsystems.</li>
+              <li>Implemented <strong>ROS</strong> motion control, precision calibration, and a <strong>serial</strong> command interface for bring‑up.</li>
+              <li>Validated non‑planar printing with feedback; iterated via rapid prototyping and bench testing.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Specifications</h4>
+            <div class="exp-specs">
+              <div class="exp-spec">Axes: <strong>6‑DOF</strong></div>
+              <div class="exp-spec">Control: <strong>ROS</strong> + CAN bus sync</div>
+              <div class="exp-spec">Precision: ~<strong>0.2&nbsp;mm</strong> (validated)</div>
+              <div class="exp-spec">Construction: 100+ printed/custom components</div>
+              <div class="exp-spec">Interface: <strong>Serial</strong> control + ROS nodes</div>
+            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Results</h4>
+            <ul class="exp-bullets">
+              <li>Successful non‑planar toolpaths and synchronized multi‑axis prints with reduced drift.</li>
+              <li>Awarded <strong>UIUC EOH Distinguished Technology (2025)</strong>.</li>
+              <li>Reduced print time by ~<strong>20%</strong> through multi‑extruder synchronization.</li>
+            </ul>
+          </div>
           <div class="tech-pills"><span class="tech-pill">ROS</span><span class="tech-pill">CAN</span><span class="tech-pill">Kinematics</span><span class="tech-pill">Custom Boards</span></div>
         </div>
         <div class="exp-media">
           <video src="Assets/ASME.mov" autoplay loop muted playsinline></video>
           <img src="Assets/GIF.gif" alt="Robotic printing demo"/>
+          <img src="Assets/novoprint.jpg" alt="NovoPrint 6‑DOF robotic 3D printing still" loading="lazy"/>
           <a class="link-btn" href="https://asme.mechse.illinois.edu/productdev.html?year=2024-2025&slug=novoprint" target="_blank" rel="noopener">Learn More →</a>
         </div>
       </article>
@@ -224,11 +464,36 @@
         <div class="exp-card">
           <h3>Software/Hardware Intern – CloudCage</h3>
           <p class="exp-subtitle">Summer 2025</p>
-          <ul>
-            <li>Automated CRM workflow integrations and internal platform syncs with Python.</li>
-            <li>Assisted server management and validation of Linux-based infrastructure.</li>
-            <li>Built and validated JetKVM remote access hardware, reducing manual tickets and speeding field setup.</li>
-          </ul>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p>Software/Hardware internship focused on <strong>automation</strong>, <strong>infrastructure</strong>, and a custom remote‑access device (<em>JetKVM</em>).</p>
+          </div>
+          <div class="exp-section">
+            <h4>Concept</h4>
+            <p>Streamline operations by automating CRM workflows and enabling reliable remote bring‑up via a lightweight KVM appliance.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Design Process</h4>
+            <ul class="exp-bullets">
+              <li>Built Python scripts to integrate/synchronize internal systems.</li>
+              <li>Assisted Linux server provisioning and validation.</li>
+              <li>Prototyped and tested <strong>JetKVM</strong> hardware; documented assembly and QA steps.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Specifications</h4>
+            <div class="exp-specs">
+              <div class="exp-spec">Stack: Python, Bash, Linux</div>
+              <div class="exp-spec">Device: JetKVM remote access unit</div>
+              <div class="exp-spec">Focus: Automation, reliability, supportability</div>
+            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Results</h4>
+            <ul class="exp-bullets">
+              <li>Reduced manual tickets; accelerated field setup and troubleshooting.</li>
+            </ul>
+          </div>
           <div class="tech-pills"><span class="tech-pill">Python</span><span class="tech-pill">Linux</span><span class="tech-pill">Automation</span><span class="tech-pill">Servers</span></div>
         </div>
       </article>
@@ -239,11 +504,37 @@
         <div class="exp-card">
           <h3>Bioinformatics Researcher – Deep Learning for Nuclei Segmentation</h3>
           <p class="exp-subtitle">Lead author · IEEE paper · 2022–2024</p>
-          <ul>
-            <li>Designed and trained U-Net deep learning models for hyperspectral nuclei segmentation.</li>
-            <li>Led dataset preprocessing, experiment tracking, and publication as IEEE paper lead author.</li>
-            <li>Awarded Best Paper Honorable Mention by IEEE Systems Council (2024).</li>
-          </ul>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p>Currently, about 50% of cancer biopsies are misdiagnosed due to the difficulty of identifying cancerous cells. Current technologies implement computer vision techniques to identify cancerous morphologies. However, they are often inaccureate with around <strong><60%</strong> accuracy. I was the lead researcher (under the mentorship of Dr. Mestha) studying <strong>deep learning</strong> pipelines with <strong>hyperspectral nuclei segmentation</strong> techniques to <strong>improve accuracy to around 85%</strong>.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Concept</h4>
+            <p>Apply Hyperspectral imaging techniques using the <strong>UNET</strong> model architecture to high‑dimensional biomedical imagery; tighten the loop between dataset prep, training, and validation. Improve accuracy, and validate on different image stacks.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Design Process</h4>
+            <ul class="exp-bullets">
+              <li>Built TensorFlow training stack; engineered preprocessing with NumPy/pandas.</li>
+              <li>Constructed datasets and threshold‑tuning scripts; tracked experiments for comparability.</li>
+              <li>Collaborated on writing and figures as <strong>IEEE first author</strong>.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Specifications</h4>
+            <div class="exp-specs">
+              <div class="exp-spec">Models: <strong>U‑Net</strong> variants</div>
+              <div class="exp-spec">Domain: Hyperspectral microscopy</div>
+              <div class="exp-spec">Tooling: TensorFlow, Python, NumPy/pandas</div>
+            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Results</h4>
+            <ul class="exp-bullets">
+              <li>Accuracy improved from ~50% → <strong>~85%</strong>; presented internationally.</li>
+              <li><strong>IEEE Systems Council Honorable Mention (2024)</strong>.</li>
+            </ul>
+          </div>
           <div class="tech-pills"><span class="tech-pill">TensorFlow</span><span class="tech-pill">Keras</span><span class="tech-pill">Image Analysis</span></div>
         </div>
         <div class="exp-media">
@@ -251,7 +542,7 @@
           <img src="Assets/Nuclei 5.png" alt="Segmentation 2"/>
           <img src="Assets/Nuclei3.png" alt="Segmentation 3"/>
           <img src="Assets/Nuclei4.png" alt="Segmentation 4"/>
-          <a class="link-btn" href="Assets/Nuclei Segmentation Using Deep Learning and Hyperspectral Imaging for High Accuracy.pdf" target="_blank" rel="noopener">Read Paper →</a>
+          <a class="link-btn" href="Assets/Nuclei Segmentation Using Deep Learning and Hyperspectral Imaging for High Accuracy.pdf" target="_blank" rel="noopener">Read Technical Paper →</a>
         </div>
       </article>
 
@@ -261,11 +552,36 @@
         <div class="exp-card">
           <h3>Lead Programmer – FRC Team 2791</h3>
           <p class="exp-subtitle">Control • Vision • Motion Planning · 2020–2024</p>
-          <ul>
-            <li>Led software development for competitive robotics (Java/C++), covering drivetrain, vision, and autonomous subsystems.</li>
-            <li>Implemented motion profiling and real-time PID/PIDf tuning for stable autonomous behavior.</li>
-            <li>Integrated fiducial markers for pose estimation, improving autonomous scoring reliability.</li>
-          </ul>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p><strong>Lead Programmer</strong> for FRC 2791, delivering competition‑ready control, vision, and autonomous behaviors.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Concept</h4>
+            <p>Engineer a robust software stack in <strong>Java/C++</strong> for swerve drive, vision‑assisted scoring, and reliable autonomous routines.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Design Process</h4>
+            <ul class="exp-bullets">
+              <li>Implemented motion profiling and real‑time PID/PIDF tuning.</li>
+              <li>Integrated fiducials/AprilTags for pose estimation and autonomous alignment.</li>
+              <li>Led a 25+ member software team with reviews, training, and task delegation.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Specifications</h4>
+            <div class="exp-specs">
+              <div class="exp-spec">Languages: <strong>Java</strong>, <strong>C++</strong></div>
+              <div class="exp-spec">Subsystems: Drivetrain, vision, autonomous</div>
+              <div class="exp-spec">Tooling: WPILib, OpenCV</div>
+            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Results</h4>
+            <ul class="exp-bullets">
+              <li>Improved autonomous scoring reliability; qualified for 2024 Worlds (Hudson Valley #3 seed).</li>
+            </ul>
+          </div>
           <div class="tech-pills"><span class="tech-pill">C++/Java</span><span class="tech-pill">Control</span><span class="tech-pill">Vision</span></div>
         </div>
         <div class="exp-media">
