@@ -20,7 +20,7 @@
       --success-bg:#d1fae5;
       --orange:#f59e0b;
       --orange-bg:#fef3c7;
-      --maxw:1200px;
+      --maxw:1400px;
     }
     
     *{box-sizing:border-box;margin:0;padding:0}
@@ -29,7 +29,7 @@
     body{
       background:linear-gradient(135deg,#f0f9ff 0%,#faf5ff 50%,#fef3c7 100%);
       color:var(--ink);
-      font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;
+      font:17px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;
       min-height:100vh;
     }
     
@@ -333,7 +333,7 @@
               <div class="exp-spec">MCUs: <strong>STM32</strong>, <strong>ESP32</strong> (FreeRTOS)</div>
               <div class="exp-spec">Buses: <strong>CAN</strong>, <strong>UART/SPI/I2C</strong></div>
               <div class="exp-spec">Software: <strong>ROS2</strong>, C/C++, Python</div>
-              <div class="exp-spec">Simulation: <strong>URDF</strong>, Gazebo</div>
+              <div class="exp-spec">Simulation: <strong>URDF</strong>, <strong> RTAB mapping</strong>, Gazebo</div>
             </div>
           </div>
           <div class="exp-section">
@@ -344,6 +344,16 @@
               <li>Bench fault rate reduced via watchdogs and safety state machine.</li>
             </ul>
           </div>
+          <video src="Assets/tracking.mp4"
+                 controls
+                 muted
+                 playsinline
+                 style="width:70%;margin:10px auto 0;border:2px solid var(--border);border-radius:8px;display:block">
+            Your browser does not support the video tag.
+          </video>
+          <div style="font-size:14px;color:var(--muted);margin-top:6px;text-align:center;">
+            yolo object tracking algorithm with ESP32
+          </div>
           <div class="tech-pills"><span class="tech-pill">STM32</span><span class="tech-pill">ESP32</span><span class="tech-pill">FreeRTOS</span><span class="tech-pill">ROS2</span><span class="tech-pill">CAN</span><span class="tech-pill">C/C++</span><span class="tech-pill">Python</span><span class="tech-pill">KiCAD</span></div>
         </div>
         <div class="exp-media">
@@ -353,7 +363,22 @@
                         auto-rotate
                         style="height:340px;border:2px solid var(--border);border-radius:8px">
           </model-viewer>
-          <img src="Assets/blink_arm.jpg" alt="Blink Robotics arm detail photo" loading="lazy"/>
+          <img src="Assets/blink_arm.jpg"
+               alt="Blink Robotics arm photo"
+               style="width:70%;margin:0 auto;border:2px solid var(--border);border-radius:8px"/>
+          <div style="display:flex;align-items:center;gap:16px;justify-content:center;">
+            <video src="Assets/RTABvideo.mp4"
+                   controls
+                   muted
+                   playsinline
+                   style="width:55%;border:2px solid var(--border);border-radius:8px">
+              Your browser does not support the video tag.
+            </video>
+            <div style="width:35%;font-size:14px;color:var(--muted);line-height:1.5;">
+              <strong>RTAB mapping algorithm</strong><br>
+              using NVIDIA Orin and Luxonis depth camera
+            </div>
+          </div>
         </div>
       </article>
 
@@ -402,9 +427,9 @@
           <div class="tech-pills"><span class="tech-pill">Power Mgmt</span><span class="tech-pill">I2C/SPI</span><span class="tech-pill">FreeRTOS</span><span class="tech-pill">PlatformIO</span><span class="tech-pill">KiCAD</span></div>
         </div>
         <div class="exp-media">
-          <img src="Assets/MiteOut.jpeg" alt="Custom PCB"/>
-          <img src="Assets/MiteOut_closeup.png" alt="MiteOut PCB and enclosure close-up" loading="lazy"/>
-          <img src="Assets/MiteModule.JPG" alt="MiteOut module assembly" loading="lazy"/>
+          <img src="Assets/MiteOut.jpeg" alt="Custom PCB" style="width:80%;margin:0 auto;"/>
+          <img src="Assets/MiteOut_closeup.png" alt="MiteOut PCB and enclosure close-up" loading="lazy" style="width:80%;margin:0 auto;"/>
+          <img src="Assets/MiteModule.JPG" alt="MiteOut module assembly" loading="lazy" style="width:80%;margin:0 auto;"/>
           <a class="link-btn" href="https://miteouttech.com" target="_blank" rel="noopener">Visit Website →</a>
         </div>
       </article>
