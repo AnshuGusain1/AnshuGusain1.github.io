@@ -115,13 +115,18 @@
     .toc{background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:14px 16px;margin:20px 0 28px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
     .toc h3{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:10px;letter-spacing:.2px}
     .toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-    .toc-card{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--bg);text-decoration:none}
-    .toc-card:hover{border-color:var(--accent);box-shadow:0 2px 10px rgba(37,99,235,.12)}
-    .toc-thumb{width:56px;height:56px;border-radius:8px;border:2px solid var(--border);object-fit:cover;flex:0 0 56px;background:#eef2ff}
+    .toc-card{display:flex;align-items:center;gap:14px;padding:14px 18px;border:2px solid var(--border);border-radius:16px;background:var(--bg);text-decoration:none;box-shadow:0 4px 12px rgba(15,23,42,.06);transform:translateY(0);transition:transform .3s,box-shadow .3s,border-color .3s;animation:floatCard 6s ease-in-out infinite}
+    .toc-card:hover{border-color:var(--accent);box-shadow:0 8px 20px rgba(37,99,235,.16);transform:translateY(-4px)}
+    .toc-thumb{width:64px;height:64px;border-radius:12px;border:2px solid var(--border);object-fit:cover;flex:0 0 64px;background:#eef2ff}
     .toc-meta{display:flex;flex-direction:column;gap:2px;min-width:0}
     .toc-title{font-size:14px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .toc-sub{font-size:12px;color:var(--muted)}
     .toc-placeholder{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#e2e8f0,#f8fafc);color:#4b5563;font-weight:800;font-size:12px}
+
+    @keyframes floatCard{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-3px)}
+    }
 
     @media (max-width:768px){
       .title{font-size:18px}
@@ -262,13 +267,6 @@
           <div class="toc-meta">
             <span class="toc-title">NovoPrint (ASME)</span>
             <span class="toc-sub">6‑DOF • ROS</span>
-          </div>
-        </a>
-        <a class="toc-card" href="#cloudcage">
-          <div class="toc-thumb toc-placeholder">CC</div>
-          <div class="toc-meta">
-            <span class="toc-title">CloudCage</span>
-            <span class="toc-sub">Automation • JetKVM</span>
           </div>
         </a>
         <a class="toc-card" href="#bioinfo">
@@ -493,46 +491,6 @@
                loading="lazy"
                style="width:80%;margin:0 auto;"/>
           <a class="link-btn" href="https://asme.mechse.illinois.edu/productdev.html?year=2024-2025&slug=novoprint" target="_blank" rel="noopener">Learn More →</a>
-        </div>
-      </article>
-
-      <!-- CloudCage -->
-      <article id="cloudcage" class="experience-item">
-        <span class="timeline-node"></span>
-        <div class="exp-card">
-          <h3>Software/Hardware Intern – CloudCage</h3>
-          <p class="exp-subtitle">Summer 2025</p>
-          <div class="exp-section">
-            <h4>Overview</h4>
-            <p>Software/Hardware internship focused on <strong>automation</strong>, <strong>infrastructure</strong>, and a custom remote‑access device (<em>JetKVM</em>).</p>
-          </div>
-          <div class="exp-section">
-            <h4>Concept</h4>
-            <p>Streamline operations by automating CRM workflows and enabling reliable remote bring‑up via a lightweight KVM appliance.</p>
-          </div>
-          <div class="exp-section">
-            <h4>Design Process</h4>
-            <ul class="exp-bullets">
-              <li>Built Python scripts to integrate/synchronize internal systems.</li>
-              <li>Assisted Linux server provisioning and validation.</li>
-              <li>Prototyped and tested <strong>JetKVM</strong> hardware; documented assembly and QA steps.</li>
-            </ul>
-          </div>
-          <div class="exp-section">
-            <h4>Specifications</h4>
-            <div class="exp-specs">
-              <div class="exp-spec">Stack: Python, Bash, Linux</div>
-              <div class="exp-spec">Device: JetKVM remote access unit</div>
-              <div class="exp-spec">Focus: Automation, reliability, supportability</div>
-            </div>
-          </div>
-          <div class="exp-section">
-            <h4>Results</h4>
-            <ul class="exp-bullets">
-              <li>Reduced manual tickets; accelerated field setup and troubleshooting.</li>
-            </ul>
-          </div>
-          <div class="tech-pills"><span class="tech-pill">Python</span><span class="tech-pill">Linux</span><span class="tech-pill">Automation</span><span class="tech-pill">Servers</span></div>
         </div>
       </article>
 
