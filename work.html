@@ -309,19 +309,19 @@
           <p class="exp-subtitle">Champaign, IL · 2025 – Present</p>
           <div class="exp-section">
             <h4>Overview</h4>
-            <p>Built a lab-ready <strong>4‑DOF robotic arm</strong> and mobile base that merge <strong>embedded control</strong>, <strong>perception</strong>, and <strong>simulation</strong> for rapid mechatronics R&amp;D. The system serves as a proving ground for motion‑planning ideas before hardware deployment. It is in development for deployment at the Molecule Maker Lab to autonomously navigate around the laboratory floor, interacting with scientists and test vials.</p>
+            <p>Architected <strong>ROS2/C++/ROS2</strong> automation pipelines for a <strong>4‑DOF robotic platform</strong> used in medical research workflows, including deterministic trajectory generation, cycle sequencing, and motor‑controller coordination under strict timing constraints. The system is in development for deployment at the Molecule Maker Lab to autonomously navigate around the laboratory floor, interacting with scientists and test vials.</p>
           </div>
           <div class="exp-section">
             <h4>Concept</h4>
-            <p>Use a compact manipulator paired with an <strong>NVIDIA Orin</strong> and depth camera to prototype autonomy quickly. A shared codebase in <strong>ROS2</strong> lets the same behaviors run in <strong>Gazebo</strong> and on the real robot.</p>
+            <p>Use a compact manipulator paired with an <strong>NVIDIA Orin</strong> and depth cameras to enable equipment‑grade motion automation by implementing fail‑safe state machines, process interlocks, and fault‑tolerant recovery logic to ensure safe and repeatable operation of robotic manipulation tasks in clinical research settings.</p>
           </div>
           <div class="exp-section">
             <h4>Design Process</h4>
             <ul class="exp-bullets">
-              <li>Modeled kinematics/URDF and stood up a full simulation loop in <strong>ROS2 + Gazebo</strong> for CI‑like testing.</li>
-              <li>Implemented <strong>PID/state‑machine</strong> control on <strong>STM32/ESP32</strong> with watchdogs and safety interlocks.</li>
-              <li>Integrated depth sensing for mapping and <strong>state estimation</strong>; validated SLAM + tag localization workflows.</li>
-              <li>Closed the sim‑to‑real gap with log‑driven tuning and bench HALT/soak tests on actuators and gripper.</li>
+              <li>Implemented <strong>SLAM</strong>, sensor fusion, and EKF‑based state estimation on <strong>NVIDIA Orin</strong> using depth cameras and IMUs, enabling autonomous positioning and reliable handoff between automated procedures.</li>
+              <li>Designed and fabricated a cycloidal gearbox for <strong>QDD actuators</strong>, optimizing torque density and mechanical repeatability required for high‑duty‑cycle automated lab instrumentation.</li>
+              <li>Developed and benchmarked control and <strong>trajectory‑optimization algorithms</strong> (PID/PIDF, feedforward, EKF) to regulate torque, manage state estimation in automated workflows, and ensure safe motor performance in autonomous routines.</li>
+              <li>Integrated <strong>MoveIt</strong> motion planning for collision‑free trajectory generation and coordinated multi‑joint movements.</li>
             </ul>
           </div>
           <div class="exp-section">
