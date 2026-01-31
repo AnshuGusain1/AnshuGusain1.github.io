@@ -145,18 +145,24 @@
       <article class="project" aria-labelledby="drone-title">
         <div class="proj-media">
           <model-viewer src="Assets/DroneBody.gltf" alt="3D model of custom drone" camera-controls auto-rotate ar shadow-intensity="1" exposure="1.2" style="height:420px"></model-viewer>
-          <video controls muted style="margin-top:10px;width:100%;border-radius:10px" aria-label="Drone video IMG_3212">
-            <source src="Assets/IMG_3212.mov" type="video/quicktime">
-            Your browser does not support the video tag.
+          <video src="Assets/IMG_3212.mov"
+                 autoplay
+                 loop
+                 muted
+                 playsinline
+                 style="margin-top:10px;width:100%;border-radius:10px">
           </video>
           <div class="media-caption">roll axis PID tuning</div>
           <div style="margin-top:14px">
             <iframe style="width:100%;aspect-ratio:16/9;border:0;border-radius:10px" src="https://www.youtube.com/embed/xwziA5jS3ms" title="First outdoor flight test" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
           <div class="media-caption">First outdoor flight test</div>
-          <video controls style="margin-top:14px;width:100%;border-radius:10px" aria-label="PID timing test video">
-            <source src="Assets/TimingTest.MP4" type="video/mp4">
-            Your browser does not support the video tag.
+          <video src="Assets/TimingTest.MP4"
+                 autoplay
+                 loop
+                 muted
+                 playsinline
+                 style="margin-top:14px;width:100%;border-radius:10px">
           </video>
           <div class="media-caption">PID timing test</div>
         </div>
@@ -284,6 +290,15 @@
               <li>Consistent depth maps validated on public datasets and live feeds.</li>
               <li>Ready for integration into on‑robot navigation nodes.</li>
               <li>Rough proof of concept, utilizing cheap amazon webcams fused together in a 3D print.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Pitfalls &amp; Challenges</h4>
+            <ul class="exp-bullets">
+              <li><strong>Undocumented cameras:</strong> The Amazon listing lacked sensor/lens details, so I disassembled the webcams to identify the sensor and track down the manufacturer datasheet. I used those specs (sensor size, focal characteristics, etc.) to sanity‑check and improve <strong>intrinsic calibration</strong>.</li>
+              <li><strong>Mechanical misalignment from the mount:</strong> A 3D‑printed stereo rig was difficult to keep consistent due to printer tolerances and warping. I iterated by adding small shims (tape) to adjust pitch/yaw in ~<strong>0.5–1°</strong> steps until epipolar lines were close.</li>
+              <li><strong>Software rectification trade‑offs:</strong> Because the cameras weren’t perfectly aligned, I relied heavily on <strong>software rectification</strong> to enforce horizontal alignment. The large black borders in the rectified frames are the cost of cropping/warping to keep epipolar geometry correct and disparity stable.</li>
+              <li><strong>Baseline &amp; FOV constraints:</strong> With cheap webcams, small baseline changes and lens variation noticeably impacted depth noise. I had to tune baseline spacing and SGBM parameters to balance depth range vs. flicker and speckle artifacts.</li>
             </ul>
           </div>
           <div class="links">
