@@ -1,17 +1,31 @@
-/* Monospace clean font */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+/* ============ UKIYO-E THEME - Global Styles ============ */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Playfair+Display:wght@400;600;700;800&family=Noto+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --indigo-dark: #1a2744;
+  --indigo: #2d4a7a;
+  --wave-blue: #3b6fa0;
+  --wave-light: #6b9fcc;
+  --foam: #e8dcc8;
+  --cream: #faf3e0;
+  --paper: #fffbf0;
+  --accent-red: #b83a3a;
+  --warm-brown: #8b6f4e;
+  --text-dark: #1a2332;
+  --text-muted: #5a6b82;
+}
 
 html, body {
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Noto Sans', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 body {
-  background: #939388;
+  background: var(--paper);
 }
 
 /* About page specific background */
 body.about-page {
-  background: linear-gradient(135deg, #e8f4f8 0%, #d4e9e0 100%) !important;
+  background: var(--paper) !important;
   min-height: 100vh;
 }
 
@@ -19,20 +33,28 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Fira Code', monospace;
-  color: #111;
+  color: var(--text-dark);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #111;
+  color: var(--text-dark);
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
-a, .panel-link, .panel-link .panel, .panel-link .panel h1, .panel-link .panel p {
-  color: #111;
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: none;
+  transition: color 0.3s ease;
 }
 
+a:hover {
+  border-color: transparent;
+}
+
+/* ============ LEGACY PANEL LAYOUT (work/projects pages) ============ */
 .panel {
-  color: #111;
+  color: var(--text-dark);
 }
 
 .panel-link:hover .panel {
@@ -40,20 +62,21 @@ a, .panel-link, .panel-link .panel, .panel-link .panel h1, .panel-link .panel p 
 }
 
 .emoji {
-  color: #111;
+  color: var(--text-dark);
 }
 
 .about-center-text, .about-img, .concert-caption, .concert-img-wrapper, .content-page, .photo-flex-row, .music-flex-row, .award-organization, .project-header h3, .award-header h3, .skill-tile h3 {
-  color: #111;
+  color: var(--text-dark);
 }
 
+/* ============ SHARED LOGO (for work/projects pages) ============ */
 .ag-logo {
-  color: #111;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif !important;
+  color: var(--text-dark);
+  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif !important;
 }
 
 .ag-logo:hover {
-  color: #00A5CF;
+  color: var(--wave-blue);
 }
 
 .container {
@@ -66,7 +89,6 @@ a, .panel-link, .panel-link .panel, .panel-link .panel h1, .panel-link .panel p 
 
 .panel {
   flex: 1;
-  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,46 +124,33 @@ a, .panel-link, .panel-link .panel, .panel-link .panel h1, .panel-link .panel p 
 
 /* Colors for each section */
 .blog {
-  background-color: #087E8B;
+  background-color: var(--indigo-dark);
 }
 
 .work {
-  background-color: #C1DFF0;
-  color: #000; /* Dark text for light background */
+  background-color: #dde7f0;
+  color: var(--text-dark);
 }
 
 .about {
-  background-color: #7DD181;
+  background-color: #a8c4a0;
 }
 
 .home-button {
-  position: fixed; /* stays in the top-left */
+  position: fixed;
   top: 300px;
   left: 300px;
-  font-style: italic; /* italic text */
-  text-decoration: underline; /* underscored */
+  font-style: italic;
+  text-decoration: underline;
   font-size: 1.5rem;
-  color: white; /* color of text */
-  text-decoration-thickness: 2px; /* thicker underline */
-  z-index: 1000; /* 👈 THIS keeps it above other elements */
+  color: white;
+  text-decoration-thickness: 2px;
+  z-index: 1000;
 }
 
 .home-button:hover {
-  color: white; /* hover color */
+  color: white;
   cursor: pointer;
-}
-
-
-/* Links (optional) */
-a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-a:hover {
-  border-color: #fff;
 }
 
 .panel-link {
@@ -178,7 +187,6 @@ a:hover {
   margin: 0;
   padding: 40px 0 0 0;
   background: transparent;
-  color: #fff;
   border-radius: 0;
   box-shadow: none;
   border: none;
@@ -251,8 +259,8 @@ a:hover {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0,0,0,0.7);
-  color: #fff;
+  background: rgba(26, 39, 68, 0.8);
+  color: var(--cream);
   padding: 12px 20px;
   border-radius: 8px;
   font-size: 1.1rem;
@@ -271,14 +279,14 @@ a:hover {
   left: 20px;
   width: 120px;
   height: 120px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,251,240,0.2);
   border-radius: 50%;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 12px rgba(26, 39, 68, 0.15);
   z-index: 1000;
   transition: all 0.3s ease, opacity 0.4s cubic-bezier(0.4,0.2,0.2,1), transform 0.4s cubic-bezier(0.4,0.2,0.2,1);
   padding: 0;
@@ -289,13 +297,13 @@ a:hover {
 .ag-logo img {
   width: 100%;
   height: 100%;
-  object-fit:fill;
+  object-fit: fill;
   border-radius: 50%;
 }
 
 .ag-logo:hover {
-  background: rgba(255,255,255,0.3);
-  color: #25A18E;
+  background: rgba(255,251,240,0.3);
+  color: var(--wave-blue);
   transform: scale(1.05);
 }
 
@@ -307,9 +315,9 @@ a:hover {
   object-fit: cover;
   object-position: center 30%;
   border-radius: 50%;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-  border: 4px solid #C1DFF0;
-  filter:brightness(1.1)
+  box-shadow: 0 2px 12px rgba(26, 39, 68, 0.12);
+  border: 4px solid var(--foam);
+  filter: brightness(1.1);
 }
 
 .about-center-text {
@@ -318,6 +326,25 @@ a:hover {
   margin: 0 auto 24px auto;
 }
 
+/* ============ CAD EMBED ============ */
+.cad-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f0ebe2;
+}
+
+.cad-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ============ RESPONSIVE ============ */
 @media (max-width: 900px) {
   .container {
     flex-direction: column;
@@ -340,40 +367,4 @@ a:hover {
   .music-flex-row > div:last-child {
     align-items: stretch;
   }
-/* Ensure 3D CAD viewer shows at all breakpoints */
-.cad-embed {
-  position: relative;
-  width: 100%;
-  /* 56.25% = 16:9 aspect ratio */
-  padding-top: 56.25%;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #f6f8fa;
 }
-
-.cad-embed iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-  .cad-embed {
-  position: relative;
-  width: 100%;
-  /* Pick your aspect ratio: 56.25% = 16:9, 75% = 4:3, etc. */
-  padding-top: 56.25%;
-  border-radius: 10px;        /* optional */
-  overflow: hidden;           /* rounds the iframe corners */
-  background: #f6f8fa;        /* nice loading background */
-}
-
-.cad-embed iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-}
-

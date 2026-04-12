@@ -5,529 +5,979 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Me - Hridaanshu Gusain</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Globe.gl for 3D travel globe -->
+  <script src="https://unpkg.com/globe.gl@2.35.1"></script>
   <style>
+    :root {
+      --indigo-dark: #1a2744;
+      --indigo: #2d4a7a;
+      --wave-blue: #3b6fa0;
+      --wave-light: #6b9fcc;
+      --foam: #e8dcc8;
+      --cream: #faf3e0;
+      --paper: #fffbf0;
+      --accent-red: #b83a3a;
+      --warm-brown: #8b6f4e;
+      --text-dark: #1a2332;
+      --text-muted: #5a6b82;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     }
-    
+
     body {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--paper);
       min-height: 100vh;
-      color: #000;
+      color: var(--text-dark);
     }
-    
-    .about-page {
-      line-height: 1.6;
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
     }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    
-    .ag-logo {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      width: 120px;
-      height: 120px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
+
+    a {
+      color: inherit;
       text-decoration: none;
+      border-bottom: none;
+    }
+
+    /* ============ HEADER ============ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(26, 39, 68, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 251, 240, 0.1);
+      z-index: 1000;
+      padding: 12px 24px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-      z-index: 1000;
-      transition: all 0.3s ease, opacity 0.4s cubic-bezier(0.4,0.2,0.2,1), transform 0.4s cubic-bezier(0.4,0.2,0.2,1);
-      padding: 0;
-      overflow: visible;
-      pointer-events: auto;
+      justify-content: space-between;
+      min-height: 64px;
     }
-    
+
+    .ag-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--cream);
+      flex-shrink: 0;
+      position: static;
+      width: auto;
+      height: auto;
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    .ag-logo img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 251, 240, 0.2);
+      transition: all 0.3s ease;
+    }
+
     .ag-logo:hover {
-      background: rgba(255,255,255,0.3);
+      background: none;
+      transform: none;
+    }
+
+    .ag-logo:hover img {
+      border-color: var(--wave-light);
       transform: scale(1.05);
     }
-    
-    .ag-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-      border-radius: 50%;
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex: 1;
+      justify-content: center;
     }
-    
-    .hero-section {
+
+    .nav-links a {
+      color: var(--foam);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: all 0.3s;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover {
+      color: var(--paper);
+      background: rgba(255, 251, 240, 0.1);
+    }
+
+    .nav-links a.active {
+      color: var(--paper);
+      background: rgba(255, 251, 240, 0.15);
+    }
+
+    /* ============ HERO ============ */
+    .hero-banner {
+      position: relative;
+      background: linear-gradient(180deg, #f5e6ca 0%, #d4c4a0 40%, #3b6fa0 75%, #1a2744 100%);
+      padding: 140px 24px 120px;
       text-align: center;
-      margin-bottom: 4rem;
-      animation: fadeInDown 0.8s ease;
+      overflow: hidden;
     }
-    
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+
+    /* Paper grain */
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
     }
-    
-    .hero-section h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      text-shadow: 0 2px 8px rgba(255,255,255,0.3);
-      color: #000;
+
+    .hero-banner-content {
+      position: relative;
+      z-index: 10;
     }
-    
+
     .about-img-container {
       position: relative;
       display: inline-block;
-      margin: 2rem 0;
+      margin-bottom: 28px;
     }
-    
+
     .about-img {
-      width: 220px;
-      height: 220px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      border: 6px solid rgba(255,255,255,0.3);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-      filter: brightness(1.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 4px solid rgba(255, 251, 240, 0.3);
+      box-shadow: 0 10px 40px rgba(26, 39, 68, 0.3);
+      filter: brightness(1.3);
+      transition: transform 0.3s ease;
     }
-    
+
     .about-img:hover {
       transform: scale(1.05);
-      box-shadow: 0 15px 50px rgba(0,0,0,0.4);
     }
-    
+
     .about-img-container::before {
       content: '';
       position: absolute;
       inset: -8px;
       border-radius: 50%;
-      background: linear-gradient(45deg, #667eea, #764ba2, #667eea);
-      z-index: -1;
-      opacity: 0.5;
-      animation: rotate 3s linear infinite;
+      border: 2px solid rgba(255, 251, 240, 0.15);
+      animation: pulse-ring 3s ease-in-out infinite;
     }
-    
-    @keyframes rotate {
-      100% { transform: rotate(360deg); }
+
+    @keyframes pulse-ring {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.04); opacity: 0.8; }
     }
-    
-    .about-center-text {
-      max-width: 700px;
+
+    .hero-banner h1 {
+      font-size: 3.2rem;
+      color: var(--indigo-dark);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .hero-intro {
+      max-width: 680px;
       margin: 0 auto;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       line-height: 1.8;
-      background: rgba(255,255,255,0.95);
+      color: #3d4f66;
+      background: rgba(255, 251, 240, 0.85);
       backdrop-filter: blur(10px);
-      padding: 2rem;
+      padding: 24px 32px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 251, 240, 0.5);
+    }
+
+    /* Wave at bottom of hero */
+    .hero-wave {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      z-index: 5;
+    }
+
+    .hero-wave svg {
+      display: block;
+      width: 100%;
+    }
+
+    /* ============ MAIN CONTENT ============ */
+    .main-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+    }
+
+    .wave-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--indigo-dark), var(--wave-blue));
+      margin: 0 auto 40px;
+      border-radius: 2px;
+    }
+
+    /* ============ SECTIONS ============ */
+    .content-section {
+      background: white;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-      color: #000;
-    }
-    
-    .about-center-text p {
-      color: #000;
-    }
-    
-    .sections-grid {
-      display: grid;
-      gap: 2.5rem;
-      margin-top: 3rem;
-    }
-    
-    section {
-      background: rgba(255, 255, 255, 0.95);
-      color: #000;
-      padding: 2.5rem;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      padding: 36px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 12px rgba(26, 39, 68, 0.06);
+      border: 1px solid rgba(26, 39, 68, 0.06);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeInUp 0.8s ease;
-      animation-fill-mode: both;
+      animation: fadeInUp 0.6s ease both;
       position: relative;
       overflow: hidden;
     }
-    
-    section p {
-      color: #000;
-    }
-    
-    section::before {
+
+    .content-section::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #667eea, #764ba2);
+      height: 3px;
+      background: linear-gradient(90deg, var(--indigo-dark), var(--wave-blue), var(--wave-light));
     }
-    
+
+    .content-section:nth-child(1) { animation-delay: 0.05s; }
+    .content-section:nth-child(2) { animation-delay: 0.1s; }
+    .content-section:nth-child(3) { animation-delay: 0.15s; }
+    .content-section:nth-child(4) { animation-delay: 0.2s; }
+    .content-section:nth-child(5) { animation-delay: 0.25s; }
+    .content-section:nth-child(6) { animation-delay: 0.3s; }
+
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    
-    section:nth-child(1) { animation-delay: 0.1s; }
-    section:nth-child(2) { animation-delay: 0.2s; }
-    section:nth-child(3) { animation-delay: 0.3s; }
-    section:nth-child(4) { animation-delay: 0.4s; }
-    section:nth-child(5) { animation-delay: 0.5s; }
-    
-    section:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+
+    .content-section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(26, 39, 68, 0.1);
     }
-    
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-      color: #000;
+
+    .content-section h2 {
+      font-size: 1.8rem;
+      color: var(--indigo-dark);
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 12px;
     }
-    
-    section h2::before {
-      content: attr(data-emoji);
-      font-size: 2.5rem;
+
+    .section-icon {
+      font-size: 2rem;
+      line-height: 1;
     }
-    
-    .photo-flex-row {
+
+    .content-section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #4a5568;
+    }
+
+    /* ============ FLEX LAYOUTS ============ */
+    .flex-row {
       display: flex;
-      gap: 2.5rem;
+      gap: 32px;
       align-items: flex-start;
-      margin-top: 1.5rem;
+      margin-top: 16px;
     }
-    
-    .photo-flex-row > div {
+
+    .flex-row > div {
       flex: 1;
     }
-    
-    .photo-flex-row p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #000;
+
+    .section-img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(26, 39, 68, 0.12);
+      transition: transform 0.3s ease;
     }
-    
+
+    .section-img:hover {
+      transform: scale(1.03);
+    }
+
+    .img-caption {
+      display: block;
+      text-align: center;
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ============ MUSIC SECTION ============ */
     .music-content {
       display: flex;
-      gap: 2.5rem;
+      gap: 32px;
       align-items: flex-start;
-      margin-top: 1.5rem;
+      margin-top: 16px;
     }
-    
+
     .music-text {
       flex: 1;
     }
-    
-    .music-text > p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #000;
-      margin-bottom: 1.5rem;
-    }
-    
+
     .music-albums {
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      padding: 1.5rem;
+      background: rgba(26, 39, 68, 0.04);
+      padding: 20px;
       border-radius: 12px;
-      margin: 1rem 0;
-      box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+      margin: 16px 0;
+      border: 1px solid rgba(26, 39, 68, 0.06);
     }
-    
+
     .music-albums ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    
+
     .music-albums li {
-      padding: 0.75rem;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-      color: #000;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(26, 39, 68, 0.06);
+      color: var(--text-dark);
       font-weight: 500;
+      font-size: 0.95rem;
       transition: all 0.3s ease;
       border-radius: 6px;
     }
-    
+
     .music-albums li:hover {
-      background: rgba(255,255,255,0.5);
-      transform: translateX(8px);
+      background: rgba(59, 111, 160, 0.06);
+      transform: translateX(6px);
     }
-    
+
     .music-albums li:last-child {
       border-bottom: none;
     }
-    
+
     .music-albums li::before {
       content: '♪';
-      margin-right: 0.5rem;
-      color: #000;
+      margin-right: 8px;
+      color: var(--wave-blue);
       font-weight: bold;
     }
-    
+
     .now-playing {
-      margin-top: 1.5rem;
-      padding: 1.5rem;
-      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+      margin-top: 20px;
+      padding: 20px;
+      background: var(--indigo-dark);
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(255,107,107,0.3);
-      color: white;
+      color: var(--cream);
     }
-    
+
     .now-playing h3 {
-      color: white;
-      margin: 0 0 1rem 0;
-      font-size: 1.2rem;
+      color: var(--cream);
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
       font-weight: 600;
+      font-family: 'Noto Sans', sans-serif;
     }
-    
+
     .concert-img-wrapper {
-      position: relative;
       text-align: center;
     }
-    
+
     .concert-img {
       width: 100%;
-      max-width: 320px;
-      height: auto;
+      max-width: 300px;
       border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 20px rgba(26, 39, 68, 0.15);
+      transition: transform 0.3s ease;
     }
-    
+
     .concert-img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+      transform: scale(1.03);
     }
-    
+
     .concert-caption {
       display: block;
-      margin-top: 0.75rem;
-      font-size: 0.95rem;
-      color: #fff;
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
       font-style: italic;
-      font-weight: 500;
     }
-    
-    .fitness-section, .f1-section {
+
+    /* ============ 3D GLOBE SECTION ============ */
+    .map-section {
+      margin-top: 16px;
+    }
+
+    .globe-container {
+      width: 100%;
+      height: 520px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: radial-gradient(ellipse at center, #0d1b2a 0%, #0a1628 50%, #060e1a 100%);
+      box-shadow: 0 8px 32px rgba(26, 39, 68, 0.2);
+      border: 1px solid rgba(26, 39, 68, 0.12);
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .globe-container canvas {
+      cursor: grab;
+    }
+
+    .globe-container canvas:active {
+      cursor: grabbing;
+    }
+
+    /* Legend overlay */
+    .globe-legend {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background: rgba(255, 251, 240, 0.92);
+      backdrop-filter: blur(8px);
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(26, 39, 68, 0.1);
+      font-size: 0.82rem;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      pointer-events: none;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .legend-dot.visited {
+      background: #e07040;
+      box-shadow: 0 0 6px rgba(224, 112, 64, 0.5);
+    }
+
+    .legend-dot.bucket {
+      background: transparent;
+      border: 2px solid #6bc4ff;
+      width: 10px;
+      height: 10px;
+      box-sizing: border-box;
+    }
+
+    /* Globe tooltip */
+    .globe-tooltip {
+      background: rgba(255, 251, 240, 0.95) !important;
+      color: #1a2744 !important;
+      font-family: 'Noto Sans', sans-serif !important;
+      padding: 8px 14px !important;
+      border-radius: 8px !important;
+      font-size: 13px !important;
+      border: 1px solid rgba(26, 39, 68, 0.12) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+      pointer-events: none;
+    }
+
+    .travel-stats {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 16px 28px;
+      background: rgba(26, 39, 68, 0.04);
+      border-radius: 10px;
+      border: 1px solid rgba(26, 39, 68, 0.06);
+      min-width: 120px;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--indigo-dark);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+
+    /* ============ CENTER SECTIONS ============ */
+    .center-section {
       text-align: center;
     }
-    
-    .fitness-section p, .f1-section p {
+
+    .center-section p {
       max-width: 700px;
       margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #000;
     }
-    
-    iframe {
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    
+
+    /* ============ BACK LINK ============ */
     .back-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      margin-top: 4rem;
-      padding: 14px 32px;
-      background: rgba(255, 255, 255, 0.95);
-      color: #000;
-      border: 2px solid rgba(0, 0, 0, 0.2);
-      border-radius: 12px;
+      gap: 8px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      padding: 14px 28px;
+      background: var(--indigo-dark);
+      color: var(--cream);
+      border-radius: 10px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(26, 39, 68, 0.2);
     }
-    
+
     .back-link:hover {
-      background: #000;
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      background: var(--indigo);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26, 39, 68, 0.25);
     }
-    
+
+    /* ============ FOOTER ============ */
+    .footer {
+      background: var(--indigo-dark);
+      color: var(--foam);
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--wave-blue), var(--wave-light), var(--wave-blue));
+    }
+
+    .footer p {
+      opacity: 0.7;
+      margin: 0;
+    }
+
+    /* ============ RESPONSIVE ============ */
     @media (max-width: 768px) {
-      .hero-section h1 {
-        font-size: 2.5rem;
+      .header {
+        padding: 10px 16px;
       }
-      
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-banner {
+        padding: 120px 20px 100px;
+      }
+
+      .hero-banner h1 {
+        font-size: 2.4rem;
+      }
+
       .about-img {
-        width: 180px;
-        height: 180px;
+        width: 160px;
+        height: 160px;
       }
-      
-      .photo-flex-row, .music-content {
+
+      .main-content {
+        padding: 40px 16px 20px;
+      }
+
+      .content-section {
+        padding: 24px 20px;
+      }
+
+      .content-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .flex-row,
+      .music-content {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 20px;
       }
-      
-      .concert-img-wrapper iframe {
-        width: 100%;
-        max-width: 320px;
+
+      .globe-container {
+        height: 380px;
       }
-      
-      section {
-        padding: 2rem;
+
+      .travel-stats {
+        gap: 12px;
       }
-      
-      section h2 {
-        font-size: 1.6rem;
+
+      .globe-legend {
+        bottom: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 0.75rem;
       }
-      
-      .container {
-        padding: 20px 15px;
+
+      .stat-item {
+        padding: 12px 20px;
+        min-width: 100px;
       }
     }
-    
+
     @media (max-width: 480px) {
-      .hero-section h1 {
+      .hero-banner h1 {
         font-size: 2rem;
       }
-      
+
       .about-img {
-        width: 150px;
-        height: 150px;
+        width: 140px;
+        height: 140px;
       }
-      
-      section {
-        padding: 1.5rem;
+
+      .content-section {
+        padding: 20px 16px;
       }
-      
-      section h2 {
-        font-size: 1.4rem;
-      }
-      
-      .now-playing iframe {
-        width: 100%;
-        max-width: 280px;
+
+      .globe-container {
+        height: 300px;
       }
     }
   </style>
 </head>
-<body class="about-page">
-  <a href="index.html" class="ag-logo">
-    <img src="Assets/logo1.png" alt="AG Logo">
-  </a>
-  
-  <div class="container content-page">
-    <div class="hero-section">
+<body>
+  <!-- Header -->
+  <header class="header">
+    <a href="index.html" class="ag-logo">
+      <img src="Assets/logo1.png" alt="AG Logo">
+    </a>
+    <nav class="nav-links">
+      <a href="work.html">Work</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <div class="hero-banner">
+    <div class="hero-banner-content">
       <div class="about-img-container">
         <img src="Assets/About.jpeg" alt="Hridaanshu Gusain" class="about-img" />
       </div>
       <h1>About Me</h1>
-      <div class="about-center-text">
+      <div class="hero-intro">
         <p>Hi! My name is Hridaanshu, or Anshu for short. I'm an Electrical Engineering student at UIUC, passionate about autonomous systems, avionics, computer vision and machine learning. I love making things, and if you ever have a project idea, I'm down! I am also passionate in computer science, and am pursuing a minor in CS.</p>
       </div>
     </div>
-
-    <div class="sections-grid">
-      <section>
-        <h2 data-emoji="📸">Photography & Videography</h2>
-        <div class="photo-flex-row">
-          <div>
-            <p>I absolutely love capturing nature's beauty through my lens. You'll never catch me outside without my trusty Nikon camera! Exploring new places and documenting them is one of my greatest joys. I have been to almost all the US National Parks, and many countries.</p>
-          </div>
-          <div>
-            <iframe src="https://www.instagram.com/anshu.photos/embed" width="320" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2 data-emoji="🎵">Music Lover</h2>
-        <div class="music-content">
-          <div class="music-text">
-            <p>Music is a huge part of my life. Here are some of my favorite albums:</p>
-            <div class="music-albums">
-              <ul>
-                <li>The Weeknd – Hurry Up Tomorrow</li>
-                <li>The Weeknd – Starboy</li>
-                <li>Travis Scott – Utopia</li>
-                <li>Drake – Views</li>
-                <li>Don Toliver – Hardstone Psycho</li>
-              </ul>
-            </div>
-            <div class="now-playing">
-              <h3>🎧 Live Now Playing</h3>
-              <iframe 
-                src="https://nowplaying.aidenwallis.co.uk/6878827d5582e164574df644" 
-                width="340" 
-                height="100" 
-                style="border:none; border-radius:8px; overflow:hidden;" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy">
-              </iframe>
-            </div>
-          </div>
-          <div>
-            <div class="concert-img-wrapper">
-              <img src="Assets/Concert.jpeg" alt="Weeknd Concert" class="concert-img" />
-              <span class="concert-caption">Weeknd After Hours Til' Dawn Concert</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2 data-emoji="🌲">Growing Up in Nature</h2>
-        <div class="photo-flex-row">
-          <div>
-            <p>I'm from Upstate New York, where I grew up surrounded by forests, lakes, and mountains. Hiking with my family every summer weekend is a tradition that I cherish deeply, and it's given me a deep appreciation for the outdoors. I appreciate the beauty of nature, and all the life inside it!</p>
-          </div>
-          <div>
-            <div class="concert-img-wrapper">
-              <img src="Assets/Nature.jpeg" alt="Lake Minnewaska" class="concert-img" />
-              <span class="concert-caption">Lake Minnewaska, NY</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="fitness-section">
-        <h2 data-emoji="🏋️‍♂️">Gym & Fitness Journey</h2>
-        <p>I've become absolutely addicted to the gym over the past couple of years. Through consistent training and dedication, I've gained 20 pounds in two years and have completely transformed my body. Fitness has become a huge part of my life, and I'm proud of the progress I've made!</p>
-      </section>
-
-      <section class="f1-section">
-        <h2 data-emoji="🏎️">Formula One Fan</h2>
-        <p>I love watching Formula One, and my favorite drivers are Lewis Hamilton and Daniel Ricciardo. Race weekends are always great.</p>
-        <div class="concert-img-wrapper" style="margin-top: 2rem;">
-          <img src="Assets/dannyric.jpg" alt="Daniel Ricciardo F1" class="concert-img" />
-          <span class="concert-caption" style="color: #000;">Daniel Ricciardo</span>
-        </div>
-      </section>
+    <!-- Wave transition -->
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="var(--paper)"/>
+      </svg>
     </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Travel & 3D Globe Section -->
+    <section class="content-section">
+      <h2><span class="section-icon">🗺️</span> Where I've Been</h2>
+      <p>I love exploring new places and cultures. From hiking through nearly every US National Park to traveling across countries, each journey shapes how I see the world. Drag the globe to explore.</p>
+      <div class="map-section">
+        <div class="globe-container" id="globeContainer">
+          <div class="globe-legend">
+            <div class="legend-item">
+              <span class="legend-dot visited"></span>
+              <span>Visited</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot bucket"></span>
+              <span>Bucket List</span>
+            </div>
+          </div>
+        </div>
+        <div class="travel-stats">
+          <div class="stat-item">
+            <span class="stat-number">6</span>
+            <span class="stat-label">National Parks</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">States Visited</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">8</span>
+            <span class="stat-label">Countries</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Photography Section -->
+    <section class="content-section">
+      <h2><span class="section-icon">📸</span> Photography & Videography</h2>
+      <div class="flex-row">
+        <div>
+          <p>I absolutely love capturing nature's beauty through my lens. You'll never catch me outside without my trusty Nikon camera! Exploring new places and documenting them is one of my greatest joys. I have been to almost all the US National Parks, and many countries.</p>
+        </div>
+        <div>
+          <iframe src="https://www.instagram.com/anshu.photos/embed" width="320" height="440" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(26,39,68,0.1);"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music Section -->
+    <section class="content-section">
+      <h2><span class="section-icon">🎵</span> Music Lover</h2>
+      <div class="music-content">
+        <div class="music-text">
+          <p>Music is a huge part of my life. Here are some of my favorite albums:</p>
+          <div class="music-albums">
+            <ul>
+              <li>The Weeknd – Hurry Up Tomorrow</li>
+              <li>The Weeknd – Starboy</li>
+              <li>Travis Scott – Utopia</li>
+              <li>Drake – Views</li>
+              <li>Don Toliver – Hardstone Psycho</li>
+            </ul>
+          </div>
+          <div class="now-playing">
+            <h3>🎧 Live Now Playing</h3>
+            <iframe
+              src="https://nowplaying.aidenwallis.co.uk/6878827d5582e164574df644"
+              width="340"
+              height="100"
+              style="border:none; border-radius:8px; overflow:hidden;"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+        <div>
+          <div class="concert-img-wrapper">
+            <img src="Assets/Concert.jpeg" alt="Weeknd Concert" class="concert-img" />
+            <span class="concert-caption">Weeknd After Hours Til' Dawn Concert</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nature Section -->
+    <section class="content-section">
+      <h2><span class="section-icon">🌲</span> Growing Up in Nature</h2>
+      <div class="flex-row">
+        <div>
+          <p>I'm from Upstate New York, where I grew up surrounded by forests, lakes, and mountains. Hiking with my family every summer weekend is a tradition that I cherish deeply, and it's given me a deep appreciation for the outdoors. I appreciate the beauty of nature, and all the life inside it!</p>
+        </div>
+        <div style="text-align: center;">
+          <img src="Assets/Nature.jpeg" alt="Lake Minnewaska" class="section-img" />
+          <span class="img-caption">Lake Minnewaska, NY</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fitness Section -->
+    <section class="content-section center-section">
+      <h2 style="justify-content: center;"><span class="section-icon">🏋️‍♂️</span> Gym & Fitness Journey</h2>
+      <p>I've become absolutely addicted to the gym over the past couple of years. Through consistent training and dedication, I've gained 20 pounds in two years and have completely transformed my body. Fitness has become a huge part of my life, and I'm proud of the progress I've made!</p>
+    </section>
+
+    <!-- F1 Section -->
+    <section class="content-section center-section">
+      <h2 style="justify-content: center;"><span class="section-icon">🏎️</span> Formula One Fan</h2>
+      <p>I love watching Formula One, and my favorite drivers are Lewis Hamilton and Daniel Ricciardo. Race weekends are always great.</p>
+      <div class="concert-img-wrapper" style="margin-top: 24px;">
+        <img src="Assets/dannyric.jpg" alt="Daniel Ricciardo F1" class="concert-img" />
+        <span class="concert-caption">Daniel Ricciardo</span>
+      </div>
+    </section>
 
     <a href="index.html" class="back-link">
       <span>←</span>
       <span>Back to Home</span>
     </a>
   </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Hridaanshu Gusain</p>
+  </footer>
+
+  <script>
+    // ============ 3D TRAVEL GLOBE ============
+
+    // =====================================================
+    // VISITED LOCATIONS — add yours here
+    // =====================================================
+    const visited = [
+      // Home & School
+      { lat: 41.74, lng: -74.09, name: "Upstate New York", desc: "Hometown" },
+      { lat: 40.11, lng: -88.23, name: "UIUC, Champaign", desc: "University" },
+      { lat: 41.24, lng: -74.79, name: "Lake Minnewaska", desc: "State Park, NY" },
+
+      // US National Parks
+      { lat: 38.73, lng: -109.57, name: "Arches", desc: "National Park, UT" },
+      { lat: 38.20, lng: -111.17, name: "Capitol Reef", desc: "National Park, UT" },
+      { lat: 36.24, lng: -116.82, name: "Death Valley", desc: "National Park, CA" },
+      { lat: 48.76, lng: -113.79, name: "Glacier", desc: "National Park, MT" },
+      { lat: 44.46, lng: -110.83, name: "Yellowstone", desc: "National Park, WY" },
+      { lat: 36.10, lng: -112.11, name: "Grand Canyon", desc: "National Park, AZ" },
+
+      // US Cities
+      { lat: 37.77, lng: -122.42, name: "San Francisco", desc: "California" },
+      { lat: 32.72, lng: -117.16, name: "San Diego", desc: "California" },
+      { lat: 34.05, lng: -118.24, name: "Los Angeles", desc: "California" },
+      { lat: 36.17, lng: -115.14, name: "Las Vegas", desc: "Nevada" },
+      { lat: 39.74, lng: -104.99, name: "Colorado", desc: "Denver area" },
+      { lat: 42.65, lng: -73.76, name: "Albany", desc: "New York" },
+      { lat: 40.71, lng: -74.01, name: "New York City", desc: "New York" },
+      { lat: 41.10, lng: -75.34, name: "Poconos", desc: "Pennsylvania" },
+      { lat: 28.54, lng: -81.38, name: "Orlando", desc: "Florida" },
+      { lat: 29.76, lng: -95.37, name: "Houston", desc: "Texas" },
+      { lat: 41.88, lng: -87.63, name: "Chicago", desc: "Illinois" },
+      { lat: 21.31, lng: -157.86, name: "Honolulu", desc: "O'ahu, Hawai'i" },
+      { lat: 20.80, lng: -156.32, name: "Maui", desc: "Hawai'i" },
+
+      // US States
+      { lat: 44.26, lng: -72.58, name: "Vermont", desc: "New England" },
+      { lat: 43.21, lng: -71.54, name: "New Hampshire", desc: "New England" },
+
+      // US Territories
+      { lat: 18.47, lng: -66.11, name: "Puerto Rico", desc: "San Juan" },
+
+      // Canada
+      { lat: 51.18, lng: -115.57, name: "Banff", desc: "Alberta, Canada" },
+      { lat: 45.50, lng: -73.57, name: "Montreal", desc: "Quebec, Canada" },
+
+      // Europe
+      { lat: 41.39, lng: 2.17, name: "Barcelona", desc: "Spain" },
+      { lat: 48.86, lng: 2.35, name: "Paris", desc: "France" },
+      { lat: 52.37, lng: 4.90, name: "Amsterdam", desc: "Netherlands" },
+      { lat: 40.42, lng: -3.70, name: "Madrid", desc: "Spain" },
+      { lat: 36.14, lng: -5.35, name: "Gibraltar", desc: "British Territory" },
+
+      // Asia
+      { lat: 28.61, lng: 77.21, name: "New Delhi", desc: "India" },
+      { lat: 26.92, lng: 75.79, name: "Rajasthan", desc: "Jaipur, India" },
+      // Add more: { lat: 0, lng: 0, name: "", desc: "" },
+    ];
+
+    // =====================================================
+    // BUCKET LIST — places you want to visit
+    // Set checked: true once you've been!
+    // =====================================================
+    const bucketList = [
+      { lat: 35.68, lng: 139.69, name: "Tokyo, Japan", desc: "Culture & tech", checked: false },
+      { lat: 64.13, lng: -21.90, name: "Reykjavik, Iceland", desc: "Northern lights", checked: false },
+      { lat: 27.99, lng: 86.93, name: "Everest Base Camp", desc: "Nepal trek", checked: false },
+      { lat: -13.16, lng: -72.55, name: "Machu Picchu, Peru", desc: "Inca trail", checked: false },
+      { lat: -33.87, lng: 151.21, name: "Sydney, Australia", desc: "Opera house & reefs", checked: false },
+      { lat: 47.56, lng: 10.75, name: "Swiss Alps", desc: "Mountain hiking", checked: false },
+      { lat: -22.95, lng: -43.17, name: "Rio de Janeiro", desc: "Cristo Redentor", checked: false },
+      { lat: 37.57, lng: 126.98, name: "Seoul, South Korea", desc: "Street food & culture", checked: false },
+      { lat: -8.41, lng: 115.19, name: "Bali, Indonesia", desc: "Temples & rice terraces", checked: false },
+      { lat: 61.22, lng: -149.90, name: "Alaska", desc: "Denali & glaciers", checked: false },
+      // Add more: { lat: 0, lng: 0, name: "", desc: "", checked: false },
+    ];
+
+    // ---- Build the globe ----
+    const container = document.getElementById('globeContainer');
+
+    const globe = Globe()
+      .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
+      .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
+      .backgroundImageUrl('')
+      .backgroundColor('rgba(0,0,0,0)')
+      .atmosphereColor('#3b6fa0')
+      .atmosphereAltitude(0.18)
+      .width(container.clientWidth)
+      .height(container.clientHeight)
+
+      // Visited points — warm orange pins
+      .pointsData(visited)
+      .pointLat('lat')
+      .pointLng('lng')
+      .pointColor(() => '#e07040')
+      .pointAltitude(0.06)
+      .pointRadius(0.45)
+      .pointLabel(d => `
+        <div style="background:rgba(255,251,240,0.95);color:#1a2744;padding:8px 14px;border-radius:8px;font-family:'Noto Sans',sans-serif;font-size:13px;border:1px solid rgba(26,39,68,0.12);box-shadow:0 4px 16px rgba(0,0,0,0.2);">
+          <strong style="font-family:'Playfair Display',serif;font-size:14px;">${d.name}</strong><br/>
+          <span style="opacity:0.7;">${d.desc}</span>
+        </div>
+      `)
+
+      // Bucket list — rings (hollow circles)
+      .ringsData(bucketList)
+      .ringLat('lat')
+      .ringLng('lng')
+      .ringColor(() => d => d.checked ? 'rgba(107,196,255,0.3)' : 'rgba(107,196,255,0.7)')
+      .ringMaxRadius(2.5)
+      .ringPropagationSpeed(1.5)
+      .ringRepeatPeriod(2000)
+      .ringAltitude(0.005)
+
+      // Bucket list labels
+      .labelsData(bucketList)
+      .labelLat('lat')
+      .labelLng('lng')
+      .labelText('name')
+      .labelSize(0.8)
+      .labelDotRadius(0.4)
+      .labelColor(() => 'rgba(107,196,255,0.85)')
+      .labelResolution(2)
+      .labelAltitude(0.01)
+
+      (container);
+
+    // Set initial view to show Americas + part of Europe
+    globe.pointOfView({ lat: 30, lng: -40, altitude: 2.2 }, 0);
+
+    // Auto-rotate slowly
+    globe.controls().autoRotate = true;
+    globe.controls().autoRotateSpeed = 0.4;
+    globe.controls().enableZoom = true;
+
+    // Responsive resize
+    window.addEventListener('resize', () => {
+      globe.width(container.clientWidth);
+      globe.height(container.clientHeight);
+    });
+
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
