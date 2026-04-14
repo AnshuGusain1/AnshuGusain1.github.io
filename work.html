@@ -556,12 +556,91 @@
       <legend><span class="legend-text">cd ~/experience/log</span></legend>
     <section class="timeline">
 
+      <!-- ASME -->
+      <article id="asme" class="experience-item">
+        <span class="timeline-node"></span>
+        <div class="exp-card">
+          <h3>Additive Manufacturing Researcher / Product Lead – ASME</h3>
+          <p class="exp-subtitle">Robotic 3D printing · 6-DOF control · CAN</p>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p><strong>A 6‑DOF Robotic Arm for Advanced 3D Printing</strong>. The <em>NovoPrint</em> project (ASME • Dr. Clemon’s group) aims to redefine additive manufacturing by printing on non‑planar surfaces and complex geometries. The system integrates <strong>mechanics</strong>, <strong>electronics</strong>, and <strong>software control</strong> into a cohesive robotic platform based on the open-source platform <strong>ARCTOS</strong>.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Concept</h4>
+            <p>Adapt a robust open‑source arm and tailor it for precision <strong>additive manufacturing</strong>. By mounting a printing extruder as the end‑effector and leveraging the dexterity of a 6‑axis robot, we unlock toolpaths impossible on traditional 3‑axis gantries.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Design Process</h4>
+            <ul class="exp-bullets">
+              <li>Led cross‑functional work across mechanical design, electronics, and motion control; coordinated funding and milestones.</li>
+              <li>Fabricated and assembled extensive custom parts and fixtures; integrated <strong>CAN</strong>‑synchronized stepper subsystems.</li>
+              <li>Implemented <strong>ROS</strong> motion control, precision calibration, and a <strong>serial</strong> command interface for bring‑up.</li>
+              <li>Validated non‑planar printing with feedback; iterated via rapid prototyping and bench testing.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Specifications</h4>
+            <div class="exp-specs">
+              <div class="exp-spec">Axes: <strong>6‑DOF</strong></div>
+              <div class="exp-spec">Control: <strong>ROS</strong> + CAN bus sync</div>
+              <div class="exp-spec">Precision: ~<strong>0.2&nbsp;mm</strong> (validated)</div>
+              <div class="exp-spec">Construction: 100+ printed/custom components</div>
+              <div class="exp-spec">Interface: <strong>Serial</strong> control + ROS nodes</div>
+            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Results</h4>
+            <ul class="exp-bullets">
+              <li>Successful non‑planar toolpaths and synchronized multi‑axis prints with reduced drift.</li>
+              <li>Awarded <strong>UIUC EOH Distinguished Technology (2025)</strong>.</li>
+              <li>Reduced print time by ~<strong>20%</strong> through multi‑extruder synchronization.</li>
+            </ul>
+          </div>
+          <div class="tech-pills"><span class="tech-pill">ROS</span><span class="tech-pill">CAN</span><span class="tech-pill">Kinematics</span><span class="tech-pill">Custom Boards</span></div>
+          <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;">
+            <video controls style="max-width:200px;width:100%;border-radius:8px;" aria-label="Inverse kinematics solver demo">
+              <source src="Assets/IK.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <video controls preload="metadata" style="max-width:200px;width:100%;border-radius:8px;" aria-label="UR5 inverse kinematics demo">
+              <source src="Assets/UR5IK.mp4" type="video/mp4">
+              <source src="Assets/UR5IK.mov">
+              Your browser does not support the video tag.
+              <a href="Assets/UR5IK.mov" target="_blank" rel="noopener">Open / download the video</a>
+            </video>
+          </div>
+          <p style="font-size:12px;color:#4b5563;margin-top:4px;margin-bottom:0;">Experimenting with inverse kinematics solvers in ROS/Python on custon arm. Tower of Hanoi with UR5 arm.</p>
+        </div>
+        <div class="exp-media">
+          <video src="Assets/ASME.mov"
+                 autoplay
+                 loop
+                 muted
+                 playsinline
+                 style="width:80%;margin:0 auto;">
+          </video>
+          <img src="Assets/GIF.gif"
+               alt="Robotic printing demo"
+               style="width:80%;margin:0 auto;"/>
+          <img src="Assets/novoprint.JPG"
+               alt="NovoPrint 6‑DOF robotic 3D printing still"
+               loading="lazy"
+               style="width:80%;margin:0 auto;"/>
+          <img src="Assets/Novoprint2026.JPG"
+               alt="NovoPrint 2026"
+               loading="lazy"
+               style="width:80%;margin:0 auto;"/>
+          <a class="link-btn" href="https://asme.mechse.illinois.edu/productdev.html?year=2024-2025&slug=novoprint" target="_blank" rel="noopener">Learn More →</a>
+        </div>
+      </article>
+
       <!-- Blink -->
       <article id="blink" class="experience-item">
         <span class="timeline-node"></span>
         <div class="exp-card">
           <h3>Mechatronics Engineer – Blink Robotics Systems</h3>
-          <p class="exp-subtitle">Champaign, IL · 2025 – Present</p>
+          <p class="exp-subtitle">Champaign, IL · August 2025 – Janurary 2026</p>
           <div class="exp-section">
             <h4>Overview</h4>
             <p>Architected <strong>ROS2/C++/ROS2</strong> automation pipelines for a <strong>4‑DOF robotic platform</strong> used in medical research workflows, including deterministic trajectory generation, cycle sequencing, and motor‑controller coordination under strict timing constraints. The system is in development for deployment at the Molecule Maker Lab to autonomously navigate around the laboratory floor, interacting with scientists and test vials.</p>
@@ -687,80 +766,7 @@
         </div>
       </article>
 
-      <!-- ASME -->
-      <article id="asme" class="experience-item">
-        <span class="timeline-node"></span>
-        <div class="exp-card">
-          <h3>Additive Manufacturing Researcher / Product Lead – ASME</h3>
-          <p class="exp-subtitle">Robotic 3D printing · 6-DOF control · CAN</p>
-          <div class="exp-section">
-            <h4>Overview</h4>
-            <p><strong>A 6‑DOF Robotic Arm for Advanced 3D Printing</strong>. The <em>NovoPrint</em> project (ASME • Dr. Clemon’s group) aims to redefine additive manufacturing by printing on non‑planar surfaces and complex geometries. The system integrates <strong>mechanics</strong>, <strong>electronics</strong>, and <strong>software control</strong> into a cohesive robotic platform based on the open-source platform <strong>ARCTOS</strong>.</p>
-          </div>
-          <div class="exp-section">
-            <h4>Concept</h4>
-            <p>Adapt a robust open‑source arm and tailor it for precision <strong>additive manufacturing</strong>. By mounting a printing extruder as the end‑effector and leveraging the dexterity of a 6‑axis robot, we unlock toolpaths impossible on traditional 3‑axis gantries.</p>
-          </div>
-          <div class="exp-section">
-            <h4>Design Process</h4>
-            <ul class="exp-bullets">
-              <li>Led cross‑functional work across mechanical design, electronics, and motion control; coordinated funding and milestones.</li>
-              <li>Fabricated and assembled extensive custom parts and fixtures; integrated <strong>CAN</strong>‑synchronized stepper subsystems.</li>
-              <li>Implemented <strong>ROS</strong> motion control, precision calibration, and a <strong>serial</strong> command interface for bring‑up.</li>
-              <li>Validated non‑planar printing with feedback; iterated via rapid prototyping and bench testing.</li>
-            </ul>
-          </div>
-          <div class="exp-section">
-            <h4>Specifications</h4>
-            <div class="exp-specs">
-              <div class="exp-spec">Axes: <strong>6‑DOF</strong></div>
-              <div class="exp-spec">Control: <strong>ROS</strong> + CAN bus sync</div>
-              <div class="exp-spec">Precision: ~<strong>0.2&nbsp;mm</strong> (validated)</div>
-              <div class="exp-spec">Construction: 100+ printed/custom components</div>
-              <div class="exp-spec">Interface: <strong>Serial</strong> control + ROS nodes</div>
-            </div>
-          </div>
-          <div class="exp-section">
-            <h4>Results</h4>
-            <ul class="exp-bullets">
-              <li>Successful non‑planar toolpaths and synchronized multi‑axis prints with reduced drift.</li>
-              <li>Awarded <strong>UIUC EOH Distinguished Technology (2025)</strong>.</li>
-              <li>Reduced print time by ~<strong>20%</strong> through multi‑extruder synchronization.</li>
-            </ul>
-          </div>
-          <div class="tech-pills"><span class="tech-pill">ROS</span><span class="tech-pill">CAN</span><span class="tech-pill">Kinematics</span><span class="tech-pill">Custom Boards</span></div>
-          <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;">
-            <video controls style="max-width:200px;width:100%;border-radius:8px;" aria-label="Inverse kinematics solver demo">
-              <source src="Assets/IK.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <video controls preload="metadata" style="max-width:200px;width:100%;border-radius:8px;" aria-label="UR5 inverse kinematics demo">
-              <source src="Assets/UR5IK.mp4" type="video/mp4">
-              <source src="Assets/UR5IK.mov">
-              Your browser does not support the video tag.
-              <a href="Assets/UR5IK.mov" target="_blank" rel="noopener">Open / download the video</a>
-            </video>
-          </div>
-          <p style="font-size:12px;color:#4b5563;margin-top:4px;margin-bottom:0;">Experimenting with inverse kinematics solvers in ROS/Python on custon arm. Tower of Hanoi with UR5 arm.</p>
-        </div>
-        <div class="exp-media">
-          <video src="Assets/ASME.mov"
-                 autoplay
-                 loop
-                 muted
-                 playsinline
-                 style="width:80%;margin:0 auto;">
-          </video>
-          <img src="Assets/GIF.gif"
-               alt="Robotic printing demo"
-               style="width:80%;margin:0 auto;"/>
-          <img src="Assets/novoprint.JPG"
-               alt="NovoPrint 6‑DOF robotic 3D printing still"
-               loading="lazy"
-               style="width:80%;margin:0 auto;"/>
-          <a class="link-btn" href="https://asme.mechse.illinois.edu/productdev.html?year=2024-2025&slug=novoprint" target="_blank" rel="noopener">Learn More →</a>
-        </div>
-      </article>
+
 
       <!-- Bioinformatics -->
       <article id="bioinfo" class="experience-item">
