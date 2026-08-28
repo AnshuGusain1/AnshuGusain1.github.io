@@ -200,6 +200,23 @@
       font-family:'IBM Plex Mono',monospace;
     }
 
+    .dataset-lockup{
+      display:flex;align-items:center;gap:12px;padding:10px 12px;
+      border:1px solid var(--border);background:var(--panel-soft);margin-bottom:10px;
+    }
+    .proj-media .dataset-logo{
+      width:40px;height:40px;flex:0 0 40px;border:none;background:none;object-fit:contain;
+    }
+    .dataset-meta{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 auto}
+    .dataset-name{font-family:'IBM Plex Mono',monospace;font-size:.84rem;font-weight:700;color:var(--text)}
+    .dataset-sub{font-size:.72rem;color:var(--muted);font-family:'IBM Plex Mono',monospace}
+    .media-block{margin-top:10px}
+    .proj-wide{margin-top:4px}
+    @media (min-width:900px){.proj-wide{grid-column:1/-1;margin-top:0}}
+    .proj-wide .grid{align-items:start}
+    .media-block video{width:100%}
+    code{font-family:'IBM Plex Mono',monospace;font-size:.86em;background:var(--panel-soft);border:1px solid var(--border);padding:1px 4px}
+
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
@@ -229,6 +246,13 @@
       <legend><span class="legend-text">cd ~/projects/list</span></legend>
       <h3>On this page</h3>
       <div class="toc-grid">
+        <a class="toc-card" href="#3d-detection">
+          <img class="toc-thumb" src="Assets/waymo-logo.svg" alt="3D Object Detection thumbnail" style="object-fit:contain;padding:6px;background:var(--panel-soft)">
+          <div class="toc-meta">
+            <span class="toc-title">3D Object Detection</span>
+            <span class="toc-sub">Waymo &bull; LiDAR &bull; BEV Fusion</span>
+          </div>
+        </a>
         <a class="toc-card" href="#autonomous-drone">
           <img class="toc-thumb" src="Assets/Drone_final.png" alt="Autonomous Drone thumbnail">
           <div class="toc-meta">
@@ -251,6 +275,91 @@
           </div>
         </a>
       </div>
+    </fieldset>
+
+    <!-- 3D Object Detection -->
+    <fieldset class="section" id="3d-detection" aria-labelledby="det-h">
+      <legend><span class="legend-text">cd ~/projects/3d-object-detection</span></legend>
+      <h2 id="det-h">3D Object Detection on the Waymo Open Dataset</h2>
+      <article class="project" aria-labelledby="det-title">
+        <div class="project-shell">
+        <div class="proj-media">
+          <div class="dataset-lockup">
+            <img src="Assets/waymo-logo.svg" alt="Waymo logo" class="dataset-logo">
+            <div class="dataset-meta">
+              <span class="dataset-name">Waymo Open Dataset</span>
+              <span class="dataset-sub">Perception &middot; 5 cameras + 5 LiDARs &middot; 20s segments @ 10&nbsp;Hz</span>
+            </div>
+          </div>
+          <div class="media-block">
+            <video src="Assets/waymo_perception_clip.mp4" autoplay loop muted playsinline preload="metadata"></video>
+            <div class="media-caption">LiDAR returns projected into the front camera and colored by depth, with labeled objects carrying persistent track IDs</div>
+          </div>
+          <div class="media-block">
+            <video src="Assets/waymo_dual_pane.mp4" autoplay loop muted playsinline preload="metadata"></video>
+            <div class="media-caption">front camera alongside the fused 360&deg; LiDAR bird&rsquo;s&#8209;eye view &mdash; same frame, both sensor domains</div>
+          </div>
+          <div class="media-block">
+            <video src="Assets/waymo_global_map.mp4" autoplay loop muted playsinline preload="metadata"></video>
+            <div class="media-caption">earth&#8209;locked global map &mdash; returns accumulated in world frame via ego pose, with the vehicle trajectory</div>
+          </div>
+        </div>
+        <div style="padding:0 6px">
+          <div class="proj-head">
+            <h3 id="det-title" class="proj-title">LiDAR, multi&#8209;view camera, and fusion pipelines predicting 7&#8209;DoF oriented boxes</h3>
+            <div class="meta"><span>Role: Solo developer</span><span>Status: In progress</span></div>
+            <div class="badges">
+              <span class="badge">PyTorch</span><span class="badge">Waymo Open Dataset</span><span class="badge">LiDAR</span><span class="badge">BEV</span><span class="badge">Sensor Fusion</span><span class="badge">Open3D</span>
+            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p>A deep learning perception stack that takes raw autonomous&#8209;vehicle sensor data and predicts <strong>3D oriented bounding boxes</strong> &mdash; <code>(x, y, z, l, w, h, heading)</code> plus an object class &mdash; for vehicles, pedestrians, and cyclists. I&rsquo;m building it on the <strong>Waymo Open Dataset</strong>, which provides synchronized 5&#8209;camera imagery and 360&deg; LiDAR with human&#8209;verified 3D labels.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Concept</h4>
+            <p>3D detection is the perception foundation that tracking, prediction, and planning all inherit their errors from. Each sensor family fails differently &mdash; LiDAR gives metric depth but sparse texture, cameras give dense semantics with no direct depth &mdash; so I&rsquo;m building a pipeline per modality behind a shared data loader to compare them on the same data.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Architectures Explored</h4>
+            <ul class="exp-bullets">
+              <li><strong>LiDAR&#8209;only:</strong> <strong>PointPillars</strong> as a fast baseline (2D pseudo&#8209;image projection), with <strong>SECOND</strong> and <strong>CenterPoint</strong> for sparse 3D convolutions and anchor&#8209;free center detection.</li>
+              <li><strong>Multi&#8209;view camera:</strong> <strong>BEVFormer</strong> / <strong>PETR</strong>&#8209;style transformers that lift the 5 surround cameras into a unified bird&rsquo;s&#8209;eye&#8209;view feature map via cross&#8209;attention.</li>
+              <li><strong>Sensor fusion:</strong> a <strong>BEVFusion</strong>&#8209;style network combining camera texture with LiDAR depth in shared BEV space.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Specifications</h4>
+            <div class="exp-specs">
+              <div class="exp-spec">Dataset: <strong>Waymo Open</strong> (Perception)</div>
+              <div class="exp-spec">Sensors: 5 cameras + 5 LiDARs</div>
+              <div class="exp-spec">Output: 7&#8209;DoF box + class</div>
+              <div class="exp-spec">Classes: Vehicle, Pedestrian, Cyclist</div>
+              <div class="exp-spec">Framework: <strong>PyTorch</strong></div>
+              <div class="exp-spec">Viz: <strong>Open3D</strong> + OpenCV</div>
+            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Current Progress</h4>
+            <p>The data pipeline and visualizer are working end to end: segments decode from TFRecords, LiDAR returns project into all five camera views, and boxes render in both ego&#8209;centric and earth&#8209;locked BEV using ego pose. The clips here are ground&#8209;truth labels rendered through that pipeline &mdash; the reference I&rsquo;ll evaluate model predictions against.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Results</h4>
+            <p>Actively working on this pipeline and learning from it.</p>
+          </div>
+        </div>
+        <div class="proj-media proj-wide">
+          <div class="media-block">
+            <video src="Assets/waymo_5cam_surround.mp4" autoplay loop muted playsinline preload="metadata"></video>
+            <div class="media-caption">all five surround cameras, time&#8209;synchronized &mdash; 3D labels projected into each view for full 360&deg; coverage</div>
+          </div>
+          <div class="media-block" style="max-width:480px;margin-left:auto;margin-right:auto">
+            <video src="Assets/waymo_full_segment.mp4" controls muted playsinline preload="metadata"></video>
+            <div class="media-caption">full 199&#8209;frame segment in ego&#8209;centric BEV with range rings</div>
+          </div>
+        </div>
+        </div>
+      </article>
     </fieldset>
 
     <!-- Autonomous Drone -->
@@ -494,5 +603,29 @@
     </fieldset>
     <footer class="site-footer">&copy; 2025 Hridaanshu Gusain</footer>
   </main>
+  <script>
+    // Hide media blocks whose video asset isn't present, and only run
+    // autoplaying clips while they're actually on screen.
+    document.querySelectorAll('.media-block video').forEach(function(v){
+      function hide(){
+        var block = v.closest('.media-block');
+        if (block) block.style.display = 'none';
+      }
+      if (v.error || v.networkState === 3 /* NETWORK_NO_SOURCE */) hide();
+      v.addEventListener('error', hide);
+    });
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          var v = e.target;
+          if (!v.autoplay) return;              // leave `controls` videos alone
+          if (e.isIntersecting) { v.play().catch(function(){}); }
+          else { v.pause(); }
+        });
+      }, {rootMargin: '200px'});
+      document.querySelectorAll('.media-block video').forEach(function(v){ io.observe(v); });
+    }
+  </script>
 </body>
 </html>
