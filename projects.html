@@ -354,7 +354,7 @@
             <div class="media-caption">all five surround cameras, time&#8209;synchronized &mdash; 3D labels projected into each view for full 360&deg; coverage</div>
           </div>
           <div class="media-block" style="max-width:480px;margin-left:auto;margin-right:auto">
-            <video src="Assets/waymo_full_segment.mp4" controls muted playsinline preload="metadata"></video>
+            <video src="Assets/waymo_full_segment.mp4#t=0.1" controls muted playsinline preload="metadata"></video>
             <div class="media-caption">full 199&#8209;frame segment in ego&#8209;centric BEV with range rings</div>
           </div>
         </div>
@@ -611,7 +611,11 @@
         var block = v.closest('.media-block');
         if (block) block.style.display = 'none';
       }
-      if (v.error || v.networkState === 3 /* NETWORK_NO_SOURCE */) hide();
+      // Only hide on a real load failure. Do NOT test networkState here:
+      // the resource selection algorithm leaves it at NETWORK_NO_SOURCE (3)
+      // until the next stable state, so Chrome reports 3 for every healthy
+      // video when this inline script runs and would hide all of them.
+      if (v.error) hide();
       v.addEventListener('error', hide);
     });
 
