@@ -505,13 +505,20 @@
     <fieldset class="hero">
       <legend><span class="legend-text">cd ~/work</span></legend>
       <h2>Mechatronics &amp; Robotics Engineer</h2>
-      <p class="hero-subtitle">Embedded systems, control, computer vision, PCB design, and robotics programs shipped across research labs, startups, and competition teams.</p>
+      <p class="hero-subtitle">Motion planning, embedded systems, control, computer vision, PCB design, and robotics programs shipped across autonomous trucking, research labs, startups, and competition teams.</p>
     </fieldset>
 
     <fieldset class="toc" aria-label="On this page">
       <legend><span class="legend-text">cd ~/experience</span></legend>
       <h3>On this page</h3>
       <div class="toc-grid">
+        <a class="toc-card" href="#kodiak">
+          <img class="toc-thumb" src="Assets/kodiak_truck.jpg" alt="Kodiak AI thumbnail">
+          <div class="toc-meta">
+            <span class="toc-title">Kodiak AI</span>
+            <span class="toc-sub">Motion Planning • Autonomy</span>
+          </div>
+        </a>
         <a class="toc-card" href="#atomic">
           <img class="toc-thumb" src="Assets/Atomic.jpeg" alt="Fab2 thumbnail">
           <div class="toc-meta">
@@ -562,6 +569,78 @@
     <fieldset>
       <legend><span class="legend-text">cd ~/experience/log</span></legend>
     <section class="timeline">
+
+      <!-- Kodiak -->
+      <article id="kodiak" class="experience-item">
+        <span class="timeline-node"></span>
+        <div class="exp-card">
+          <h3 style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <img src="Assets/kodiak-logo.svg" alt="Kodiak" style="height:26px;width:auto;border:none;background:none;box-shadow:none;" />
+            <span>Motion Planning Intern – Kodiak AI</span>
+          </h3>
+          <p class="exp-subtitle">Mountain View, CA · Fall 2026 – Present</p>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p><strong>Motion Planning</strong> intern at <strong>Kodiak AI</strong>, working on the planning stack of the <strong>Kodiak Driver</strong> — the autonomy system that operates driverless Class&nbsp;8 tractor‑trailers on long‑haul highway routes and industrial sites. The planner turns perception output and route intent into safe, comfortable, rule‑following trajectories for an 80,000&nbsp;lb vehicle.</p>
+          </div>
+          <div class="exp-section">
+            <h4>Focus</h4>
+            <ul class="exp-bullets">
+              <li>Behavior and trajectory planning for a tractor‑trailer: lane keeping, lane changes, merges, and interactions with surrounding traffic.</li>
+              <li>Planning under vehicle constraints — long wheelbase, trailer articulation, braking distance, and comfort limits — at highway speed.</li>
+              <li>Validation through simulation and on‑road log replay, with daily software releases tested against real and edge‑case scenarios.</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <h4>Specifications</h4>
+            <div class="exp-specs">
+              <div class="exp-spec">Platform: <strong>Kodiak Driver</strong> on Class 8 trucks</div>
+              <div class="exp-spec">Sensing: LiDAR + radar + camera SensorPods (360°)</div>
+              <div class="exp-spec">Domain: Highway + industrial autonomy</div>
+              <div class="exp-spec">Software: C++, Python, simulation &amp; log replay</div>
+            </div>
+          </div>
+          <div class="tech-pills"><span class="tech-pill">Motion Planning</span><span class="tech-pill">Trajectory Optimization</span><span class="tech-pill">C++</span><span class="tech-pill">Python</span><span class="tech-pill">Autonomous Vehicles</span><span class="tech-pill">Simulation</span></div>
+          <a href="https://kodiak.ai/technology" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:0.8rem;color:var(--link);">kodiak.ai ↗</a>
+        </div>
+        <div class="exp-media">
+          <img src="Assets/kodiak_truck.jpg"
+               alt="Kodiak AI autonomous Class 8 tractor-trailer on the highway"
+               loading="lazy"
+               style="width:100%;margin:0 auto;"/>
+          <video src="Assets/kodiak_planning_merge.mp4#t=0.1"
+                 autoplay
+                 loop
+                 muted
+                 playsinline
+                 preload="metadata"
+                 poster="Assets/kodiak_planning_still.jpg"
+                 aria-label="Kodiak Driver planning a merge around a detected vehicle"
+                 style="width:100%;margin:0 auto;">
+          </video>
+          <div style="display:flex;gap:10px;">
+            <video src="Assets/kodiak_planning_lanechange.mp4#t=0.1"
+                   autoplay
+                   loop
+                   muted
+                   playsinline
+                   preload="metadata"
+                   aria-label="Kodiak Driver planning a lane change around slower traffic"
+                   style="width:50%;margin:0;">
+            </video>
+            <video src="Assets/kodiak_perception.mp4#t=0.1"
+                   autoplay
+                   loop
+                   muted
+                   playsinline
+                   preload="metadata"
+                   aria-label="Kodiak Driver tracking surrounding vehicles and objects"
+                   style="width:50%;margin:0;">
+            </video>
+          </div>
+          <p style="font-size:12px;color:var(--muted);margin:0;text-align:center;">Kodiak Driver planning &amp; perception visualizations — planned path (yellow) around tracked traffic. Media © Kodiak AI.</p>
+        </div>
+      </article>
 
       <!-- Fab2 -->
       <article id="atomic" class="experience-item">
@@ -933,6 +1012,7 @@
           <h3>Robotics &amp; Control</h3>
           <div class="skill-tags">
             <span class="skill-tag">ROS/ROS2</span>
+            <span class="skill-tag">Motion Planning</span>
             <span class="skill-tag">Kinematics</span>
             <span class="skill-tag">SLAM</span>
             <span class="skill-tag">PID/Kalman</span>
