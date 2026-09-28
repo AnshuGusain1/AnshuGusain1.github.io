@@ -246,11 +246,18 @@
       <legend><span class="legend-text">cd ~/projects/list</span></legend>
       <h3>On this page</h3>
       <div class="toc-grid">
+        <a class="toc-card" href="#actathon">
+          <img class="toc-thumb" src="Assets/actathon_thumb.jpg" alt="Autonomous excavator thumbnail">
+          <div class="toc-meta">
+            <span class="toc-title">Autonomous Excavator</span>
+            <span class="toc-sub">&pi;0.7 &bull; DAgger &bull; Act-Athon</span>
+          </div>
+        </a>
         <a class="toc-card" href="#3d-detection">
           <img class="toc-thumb" src="Assets/waymo-logo.svg" alt="3D Object Detection thumbnail" style="object-fit:contain;padding:6px;background:var(--panel-soft)">
           <div class="toc-meta">
-            <span class="toc-title">3D Object Detection</span>
-            <span class="toc-sub">Waymo &bull; LiDAR &bull; BEV Fusion</span>
+            <span class="toc-title">Waymo Perception Tooling</span>
+            <span class="toc-sub">Waymo &bull; LiDAR &bull; BEV</span>
           </div>
         </a>
         <a class="toc-card" href="#autonomous-drone">
@@ -277,10 +284,60 @@
       </div>
     </fieldset>
 
+    <!-- Act-Athon: Autonomous Excavator -->
+    <fieldset class="section" id="actathon" aria-labelledby="act-h">
+      <legend><span class="legend-text">cd ~/projects/autonomous-excavator</span></legend>
+      <h2 id="act-h">Autonomous Excavator &ndash; Act-Athon</h2>
+      <article class="project" aria-labelledby="act-title">
+        <div class="project-shell">
+        <div class="proj-media">
+          <div class="media-block" style="max-width:360px;margin-left:auto;margin-right:auto">
+            <video src="Assets/actathon_2.mp4" autoplay loop muted playsinline preload="metadata"></video>
+            <div class="media-caption">the policy driving the arm in daylight, reaching down for the object by the cone</div>
+          </div>
+        </div>
+        <div style="padding:0 6px">
+          <div class="proj-head">
+            <h3 id="act-title" class="proj-title">Language-conditioned pick-and-place on a real mini excavator with &pi;0.7</h3>
+            <div class="meta"><span>Event: Act-Athon (Actor Labs &times; Physical Intelligence)</span><span>Sep 2026</span></div>
+            <div class="badges">
+              <span class="badge">&pi;0.7</span><span class="badge">VLA</span><span class="badge">DAgger</span><span class="badge">Imitation Learning</span><span class="badge">Python</span><span class="badge">Raspberry Pi</span><span class="badge">OAK-D</span>
+            </div>
+          </div>
+          <div class="exp-section">
+            <h4>Overview</h4>
+            <p>Built at the <strong>Act-Athon</strong>, a physical-AI hackathon hosted by <strong>Actor Labs</strong> and sponsored by <strong>Physical Intelligence</strong>. Our team turned a Takeuchi mini excavator into a robot that picks up objects and places them where it&rsquo;s told, driven end to end by a fine-tuned build of PI&rsquo;s unreleased <strong>&pi;0.7</strong> model.</p>
+          </div>
+          <div class="exp-section">
+            <h4>How It Works</h4>
+            <ul class="exp-bullets">
+              <li>Recorded demonstrations of an operator in the cab, with onboard front and wrist cameras plus a third-person world camera.</li>
+              <li>Fine-tuned <strong>&pi;0.7</strong> through PI&rsquo;s Partner API and served it as a hosted checkpoint.</li>
+              <li>Improved the policy with <strong>DAgger</strong>: ran it on the machine, took over when it went wrong, and fed the corrections back into training.</li>
+              <li>A control loop on the excavator&rsquo;s Pi streams action chunks from the model, requesting the next chunk before the current one runs out and dropping stale steps, with a held deadman and kill switch on every run.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="proj-media proj-wide">
+          <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,280px));justify-content:center;gap:16px">
+            <div class="media-block">
+              <video src="Assets/actathon_1.mp4" autoplay loop muted playsinline preload="metadata"></video>
+              <div class="media-caption">running the policy from the dashboard: live camera feeds and actions</div>
+            </div>
+            <div class="media-block">
+              <video src="Assets/actathon_3.mp4" autoplay loop muted playsinline preload="metadata"></video>
+              <div class="media-caption">first teleoperation of the excavator from our custom remote dashboard</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </article>
+    </fieldset>
+
     <!-- 3D Object Detection -->
     <fieldset class="section" id="3d-detection" aria-labelledby="det-h">
       <legend><span class="legend-text">cd ~/projects/3d-object-detection</span></legend>
-      <h2 id="det-h">3D Object Detection on the Waymo Open Dataset</h2>
+      <h2 id="det-h">Waymo Open Dataset Perception Tooling</h2>
       <article class="project" aria-labelledby="det-title">
         <div class="project-shell">
         <div class="proj-media">
@@ -306,46 +363,22 @@
         </div>
         <div style="padding:0 6px">
           <div class="proj-head">
-            <h3 id="det-title" class="proj-title">LiDAR, multi&#8209;view camera, and fusion pipelines predicting 7&#8209;DoF oriented boxes</h3>
+            <h3 id="det-title" class="proj-title">Perception tooling for the Waymo Open Dataset</h3>
             <div class="meta"><span>Role: Solo developer</span><span>Status: In progress</span></div>
             <div class="badges">
-              <span class="badge">PyTorch</span><span class="badge">Waymo Open Dataset</span><span class="badge">LiDAR</span><span class="badge">BEV</span><span class="badge">Sensor Fusion</span><span class="badge">Open3D</span>
+              <span class="badge">Python</span><span class="badge">PyTorch</span><span class="badge">LiDAR</span><span class="badge">BEV</span><span class="badge">protobuf</span><span class="badge">Open3D</span><span class="badge">OpenCV</span>
             </div>
           </div>
           <div class="exp-section">
-            <h4>Overview</h4>
-            <p>A deep learning perception stack that takes raw autonomous&#8209;vehicle sensor data and predicts <strong>3D oriented bounding boxes</strong> &mdash; <code>(x, y, z, l, w, h, heading)</code> plus an object class &mdash; for vehicles, pedestrians, and cyclists. I&rsquo;m building it on the <strong>Waymo Open Dataset</strong>, which provides synchronized 5&#8209;camera imagery and 360&deg; LiDAR with human&#8209;verified 3D labels.</p>
-          </div>
-          <div class="exp-section">
-            <h4>Concept</h4>
-            <p>3D detection is the perception foundation that tracking, prediction, and planning all inherit their errors from. Each sensor family fails differently &mdash; LiDAR gives metric depth but sparse texture, cameras give dense semantics with no direct depth &mdash; so I&rsquo;m building a pipeline per modality behind a shared data loader to compare them on the same data.</p>
-          </div>
-          <div class="exp-section">
-            <h4>Architectures Explored</h4>
+            <h4>So Far</h4>
             <ul class="exp-bullets">
-              <li><strong>LiDAR&#8209;only:</strong> <strong>PointPillars</strong> as a fast baseline (2D pseudo&#8209;image projection), with <strong>SECOND</strong> and <strong>CenterPoint</strong> for sparse 3D convolutions and anchor&#8209;free center detection.</li>
-              <li><strong>Multi&#8209;view camera:</strong> <strong>BEVFormer</strong> / <strong>PETR</strong>&#8209;style transformers that lift the 5 surround cameras into a unified bird&rsquo;s&#8209;eye&#8209;view feature map via cross&#8209;attention.</li>
-              <li><strong>Sensor fusion:</strong> a <strong>BEVFusion</strong>&#8209;style network combining camera texture with LiDAR depth in shared BEV space.</li>
+              <li>Python frame loader that decodes segment TFRecords through the dataset&rsquo;s <strong>protobuf</strong> schema and time&#8209;aligns 5 cameras with 360&deg; LiDAR.</li>
+              <li>Calibration geometry that projects LiDAR returns into each camera view and renders oriented 3D boxes in <strong>bird&rsquo;s&#8209;eye view</strong> &mdash; a ground&#8209;truth reference for evaluating detectors.</li>
             </ul>
           </div>
           <div class="exp-section">
-            <h4>Specifications</h4>
-            <div class="exp-specs">
-              <div class="exp-spec">Dataset: <strong>Waymo Open</strong> (Perception)</div>
-              <div class="exp-spec">Sensors: 5 cameras + 5 LiDARs</div>
-              <div class="exp-spec">Output: 7&#8209;DoF box + class</div>
-              <div class="exp-spec">Classes: Vehicle, Pedestrian, Cyclist</div>
-              <div class="exp-spec">Framework: <strong>PyTorch</strong></div>
-              <div class="exp-spec">Viz: <strong>Open3D</strong> + OpenCV</div>
-            </div>
-          </div>
-          <div class="exp-section">
-            <h4>Current Progress</h4>
-            <p>The data pipeline and visualizer are working end to end: segments decode from TFRecords, LiDAR returns project into all five camera views, and boxes render in both ego&#8209;centric and earth&#8209;locked BEV using ego pose. The clips here are ground&#8209;truth labels rendered through that pipeline &mdash; the reference I&rsquo;ll evaluate model predictions against.</p>
-          </div>
-          <div class="exp-section">
-            <h4>Results</h4>
-            <p>Actively working on this pipeline and learning from it.</p>
+            <h4>Next</h4>
+            <p>Training and evaluating 3D detectors against this reference.</p>
           </div>
         </div>
         <div class="proj-media proj-wide">

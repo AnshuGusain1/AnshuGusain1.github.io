@@ -829,6 +829,28 @@
     <p style="margin: 0 0 16px 0;">things I've built</p>
     <div style="display: flex; flex-direction: column; gap: 16px;">
 
+      <!-- Act-Athon -->
+      <div class="project-card">
+        <div class="project-inner">
+          <div class="project-media">
+            <video src="Assets/actathon_2.mp4" autoplay loop muted playsinline preload="metadata"></video>
+          </div>
+          <div class="project-info">
+            <p class="project-name">Autonomous Excavator &ndash; Act-Athon</p>
+            <p class="project-desc">Hackathon by Actor Labs, sponsored by Physical Intelligence. A real mini excavator that picks up and places objects, driven by a fine-tuned build of the unreleased &pi;0.7 model and improved with DAgger.</p>
+            <div class="exp-tags">
+              <span class="exp-tag">&pi;0.7</span>
+              <span class="exp-tag">DAgger</span>
+              <span class="exp-tag">Imitation Learning</span>
+              <span class="exp-tag">OAK-D</span>
+            </div>
+            <div class="exp-chips">
+              <a href="projects.html#actathon" class="chip chip-sm">details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- 3D Object Detection -->
       <div class="project-card">
         <div class="project-inner">
@@ -836,14 +858,13 @@
             <video src="Assets/waymo_dual_pane.mp4" autoplay loop muted playsinline preload="metadata"></video>
           </div>
           <div class="project-info">
-            <p class="project-name" style="display:flex;align-items:center;gap:8px;"><img src="Assets/waymo-logo.svg" alt="" style="width:20px;height:20px;flex:0 0 20px;" />3D Object Detection &ndash; Waymo Open Dataset</p>
-            <p class="project-desc">Deep learning perception stack predicting 7-DoF oriented 3D boxes from raw AV sensor data. Exploring LiDAR-only (PointPillars, CenterPoint), multi-view camera BEV transformers, and camera/LiDAR fusion.</p>
+            <p class="project-name" style="display:flex;align-items:center;gap:8px;"><img src="Assets/waymo-logo.svg" alt="" style="width:20px;height:20px;flex:0 0 20px;" />Waymo Open Dataset Perception Tooling</p>
+            <p class="project-desc">Frame loader and calibration tooling: decodes TFRecords, time-aligns 5 cameras with 360&deg; LiDAR, and renders ground-truth 3D boxes in BEV. In progress.</p>
             <div class="exp-tags">
-              <span class="exp-tag">PyTorch</span>
+              <span class="exp-tag">Python</span>
               <span class="exp-tag">LiDAR</span>
               <span class="exp-tag">BEV</span>
-              <span class="exp-tag">Sensor Fusion</span>
-              <span class="exp-tag">CUDA</span>
+              <span class="exp-tag">protobuf</span>
             </div>
             <div class="exp-chips">
               <a href="projects.html#3d-detection" class="chip chip-sm">details</a>
