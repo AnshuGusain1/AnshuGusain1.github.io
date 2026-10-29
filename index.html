@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hridaanshu Gusain – Mechatronics & Robotics Engineer</title>
+  <title>Anshu Gusain – Embedded Systems & Robotics Engineer</title>
+  <meta name="description" content="Hridaanshu (Anshu) Gusain. Computer Engineering at UIUC. Embedded C/C++, ROS 2, motion planning, and PCB design for autonomous systems. Currently a Motion Planning Intern at Kodiak AI." />
+  <meta property="og:title" content="Anshu Gusain – Embedded Systems & Robotics Engineer" />
+  <meta property="og:description" content="Firmware, control software, and boards for robots. Kodiak AI, Fab2, Blink Robotics, ASME, MiteOut." />
+  <meta property="og:image" content="https://anshugusain.dev/Assets/Drone_final_optimized.jpg" />
+  <meta property="og:url" content="https://anshugusain.dev/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="theme.css" />
   <script src="theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
   <style>
     :root {
@@ -27,9 +34,12 @@
       --cream: #faf3e0;
       --foam: #e8dcc8;
       --link: #2d4a7a;
+      --gold: #d4a017;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
@@ -37,52 +47,44 @@
       font-family: 'IBM Plex Sans', -apple-system, sans-serif;
       font-size: 16px;
       line-height: 1.55;
-      /* Paper grain texture */
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
     }
 
-    a {
-      color: var(--link);
-      text-underline-offset: 2px;
-    }
+    a { color: var(--link); text-underline-offset: 2px; }
+    a:hover { color: var(--wave-blue); }
 
-    a:hover {
-      color: var(--wave-blue);
+    :focus-visible { outline: 2px solid var(--wave-blue); outline-offset: 3px; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
     }
 
     /* ============ LAYOUT ============ */
     .page {
-      max-width: 960px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 24px 16px 48px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 28px;
       min-height: 100vh;
     }
 
     @media (min-width: 640px) {
-      .page { padding: 40px 24px 64px; }
+      .page { padding: 36px 24px 64px; gap: 40px; }
     }
 
     /* ============ TOP BAR ============ */
-    .top-bar {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+    .top-bar { display: flex; flex-direction: column; gap: 12px; }
 
     @media (min-width: 640px) {
-      .top-bar {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
+      .top-bar { flex-direction: row; justify-content: space-between; align-items: flex-start; }
     }
 
     .top-bar h1 {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       font-weight: 700;
       color: var(--text);
       display: flex;
@@ -90,98 +92,272 @@
       gap: 12px;
     }
 
-    .top-bar h1 a {
-      text-decoration: none;
-      color: inherit;
-    }
+    .top-bar h1 a { text-decoration: none; color: inherit; }
 
-    /* Hanko stamp */
     .hanko {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px;
       border: 2px solid var(--accent-red);
       color: var(--accent-red);
       font-family: 'Playfair Display', serif;
-      font-weight: 800;
-      font-size: 13px;
+      font-weight: 800; font-size: 13px;
       transform: rotate(-4deg);
-      flex-shrink: 0;
-      line-height: 1;
+      flex-shrink: 0; line-height: 1;
     }
 
-    .social-row {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-    }
+    .social-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    @media (min-width: 640px) { .social-row { display: flex; gap: 8px; } }
 
-    @media (min-width: 640px) {
-      .social-row {
-        display: flex;
-        gap: 8px;
-      }
-    }
-
-    /* ============ CHIP BUTTONS ============ */
+    /* ============ CHIPS ============ */
     .chip {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 28px;
-      padding: 0 14px;
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 28px; padding: 0 14px;
       border: 1px solid var(--border-strong);
       background: var(--panel);
       color: var(--text);
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.78rem;
-      font-weight: 600;
+      font-size: 0.78rem; font-weight: 600;
       text-decoration: none;
       box-shadow: 3px 3px 0 var(--shadow-strong);
       white-space: nowrap;
-      transition: background 0.15s, color 0.15s;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, transform 0.15s, box-shadow 0.15s;
     }
 
-    .chip:hover {
-      background: var(--indigo-dark);
-      color: var(--panel);
-    }
+    .chip:hover { background: var(--indigo-dark); color: var(--panel); }
+    .chip:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--shadow-strong); }
 
-    .chip-sm {
-      height: 24px;
-      padding: 0 10px;
-      font-size: 0.72rem;
-      box-shadow: 2px 2px 0 var(--shadow);
-    }
+    .chip-sm { height: 24px; padding: 0 10px; font-size: 0.72rem; box-shadow: 2px 2px 0 var(--shadow); }
 
-    .chip-nav {
-      min-height: 58px;
-      padding: 12px 22px;
-      font-size: 1rem;
-      font-weight: 700;
+    .chip-primary {
+      height: 40px; padding: 0 20px; font-size: 0.88rem;
+      background: var(--indigo-dark); color: var(--foam); border-color: var(--wave-blue);
       box-shadow: 4px 4px 0 var(--shadow-strong);
-      line-height: 1.25;
-      background: var(--indigo-dark);
-      color: var(--foam);
-      border-color: var(--wave-blue);
+    }
+    .chip-primary:hover { background: var(--indigo); color: #fff; }
+    html[data-theme="dark"] .chip-primary:hover { color: var(--panel); }
+
+    .chip-ghost { height: 40px; padding: 0 20px; font-size: 0.88rem; box-shadow: 4px 4px 0 var(--shadow-strong); }
+
+    /* ============ HERO ============ */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: center;
+      padding-top: 8px;
     }
 
-    .chip-nav:hover {
-      background: var(--indigo);
-      color: #ffffff;
-      border-color: var(--wave-blue);
+    @media (min-width: 900px) {
+      .hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 44px; padding-top: 20px; }
     }
 
-    @media (max-width: 639px) {
-      .chip-nav {
-        width: 100%;
-        min-height: 54px;
-      }
+    .hero-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted);
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
     }
 
-    /* ============ FIELDSET SECTIONS ============ */
+    .hero-eyebrow::before {
+      content: ''; width: 28px; height: 1px; background: var(--border-strong); display: inline-block;
+    }
+
+    .hero-title {
+      margin-top: 14px;
+      font-size: clamp(2.1rem, 5.2vw, 3.55rem);
+      line-height: 1.04;
+      letter-spacing: -0.022em;
+      font-weight: 700;
+      max-width: 14ch;
+    }
+
+    .hero-title em {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--wave-blue);
+      letter-spacing: -0.01em;
+    }
+
+    .hero-sub {
+      margin-top: 18px;
+      font-size: 1.06rem;
+      line-height: 1.6;
+      max-width: 46ch;
+      color: var(--text);
+      opacity: 0.85;
+    }
+
+    .now-pill {
+      margin-top: 18px;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 7px 12px 7px 10px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text);
+      text-decoration: none;
+      box-shadow: 3px 3px 0 var(--shadow);
+    }
+
+    .now-pill:hover { color: var(--text); border-color: var(--border-strong); }
+
+    .now-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #2f9e62;
+      box-shadow: 0 0 0 0 rgba(47, 158, 98, 0.55);
+      animation: pulse 2s ease-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(47, 158, 98, 0.55); }
+      100% { box-shadow: 0 0 0 9px rgba(47, 158, 98, 0); }
+    }
+
+    .now-pill img { width: 16px; height: 16px; }
+
+    .hero-actions { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* keyword strip: the words a host would search for */
+    .kw-strip { margin-top: 26px; }
+
+    .kw-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .kw-list { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
+
+    .kw {
+      display: inline-block; padding: 3px 9px;
+      border: 1px solid var(--border);
+      background: var(--panel-soft);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem; font-weight: 600;
+      color: var(--indigo);
+      letter-spacing: 0.02em;
+    }
+
+    /* ---- demo wall ---- */
+    .demo-wall {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .demo-tile {
+      position: relative;
+      display: block;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      background: #0b1322;
+      box-shadow: 5px 5px 0 var(--shadow);
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .demo-tile:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--shadow-strong); color: #fff; }
+
+    .demo-tile video,
+    .demo-tile img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .demo-tile:hover video,
+    .demo-tile:hover img { transform: scale(1.04); }
+
+    .demo-cap {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 28px 10px 9px;
+      background: linear-gradient(180deg, rgba(10, 18, 34, 0) 0%, rgba(10, 18, 34, 0.82) 100%);
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 8px;
+    }
+
+    .demo-cap-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.74rem; font-weight: 600; line-height: 1.25;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .demo-cap-sub {
+      display: block; font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.68rem; font-weight: 400; opacity: 0.8; margin-top: 2px;
+    }
+
+    .demo-tag {
+      position: absolute; top: 8px; left: 8px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 7px;
+      background: rgba(255, 251, 240, 0.92);
+      color: var(--indigo-dark);
+      border: 1px solid rgba(26, 39, 68, 0.3);
+    }
+
+    html[data-theme="dark"] .demo-tag { background: rgba(23, 33, 58, 0.92); color: #e8dcc8; border-color: rgba(232,220,200,0.35); }
+
+    .demo-arrow {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 50%;
+      display: grid; place-items: center;
+      font-size: 12px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .demo-tile:hover .demo-arrow { background: #fff; color: var(--indigo-dark); }
+
+    /* ============ PROOF STRIP ============ */
+    .proof {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--border-strong);
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    @media (min-width: 768px) { .proof { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+    .proof-item {
+      padding: 18px 14px 16px;
+      border-right: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.2s;
+    }
+
+    .proof-item:hover { background: var(--panel); color: var(--text); }
+    .proof-item:nth-child(2n) { border-right: none; }
+    .proof-item:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+
+    @media (min-width: 768px) {
+      .proof-item:nth-child(2n) { border-right: 1px solid var(--border); }
+      .proof-item:last-child { border-right: none; }
+      .proof-item:nth-child(-n+2) { border-bottom: none; }
+    }
+
+    .proof-num {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 4.2vw, 2.9rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--indigo-dark);
+    }
+
+    .proof-num sup { font-size: 0.45em; vertical-align: super; font-weight: 700; margin-left: 1px; }
+
+    .proof-cap { margin-top: 8px; font-size: 0.82rem; line-height: 1.4; color: var(--muted); }
+    .proof-cap strong { color: var(--text); font-weight: 600; }
+
+    /* ============ SECTION FRAMES ============ */
     fieldset {
       border: none;
       border-top: 1px solid var(--border-strong);
@@ -190,433 +366,275 @@
     }
 
     @media (min-width: 768px) {
-      fieldset {
-        border: 1px solid var(--border-strong);
-        padding: 20px;
-        padding-top: 12px;
-      }
+      fieldset { border: 1px solid var(--border-strong); padding: 22px 24px 24px; padding-top: 12px; }
     }
 
-    fieldset legend {
-      padding: 0 8px;
-      margin-left: 8px;
-    }
-
-    @media (min-width: 768px) {
-      fieldset legend {
-        margin-left: 0;
-      }
-    }
+    fieldset legend { padding: 0 8px; margin-left: 8px; }
+    @media (min-width: 768px) { fieldset legend { margin-left: 0; } }
 
     .legend-text {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.05rem;
-      font-style: italic;
-      color: var(--text);
+      font-size: 1rem; font-style: italic; color: var(--text);
     }
 
-    /* ============ WHOAMI SECTION ============ */
-    .whoami-article {
-      font-size: 1.05rem;
-      display: flex;
-      flex-direction: column-reverse;
+    .section-head {
+      display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+      gap: 10px 20px;
+      margin: 6px 0 18px;
     }
 
-    @media (min-width: 640px) {
-      .whoami-article {
-        display: block;
-      }
+    .section-head h2 {
+      font-size: clamp(1.45rem, 2.6vw, 1.9rem);
+      line-height: 1.15; letter-spacing: -0.015em; font-weight: 700;
     }
 
-    .whoami-article p {
-      margin: 0 0 14px 0;
+    .section-head h2 em {
+      font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; color: var(--wave-blue);
     }
 
-    .profile-photo-wrap {
-      position: relative;
-      cursor: pointer;
-      margin: 16px auto 0;
-      width: 220px;
-      max-width: 100%;
-    }
+    .section-head p { font-size: 0.9rem; color: var(--muted); max-width: 40ch; }
 
-    @media (min-width: 640px) {
-      .profile-photo-wrap {
-        float: right;
-        margin: 0 0 16px 20px;
-        width: 210px;
-      }
-    }
+    /* ============ EXPERIENCE INDEX ============ */
+    .exp-index { list-style: none; border-top: 1px solid var(--border); }
 
-    .profile-photo-wrap img {
-      width: 100%;
-      object-fit: cover;
-      border: 1px solid var(--border);
-    }
-
-    /* ============ MINI CARDS GRID ============ */
-    .mini-grid {
+    .exp-row {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 6px 14px;
+      padding: 16px 6px;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.2s, padding-left 0.2s;
     }
 
-    @media (max-width: 900px) {
-      .mini-grid {
-        grid-template-columns: repeat(2, 1fr);
+    @media (min-width: 760px) {
+      .exp-row {
+        grid-template-columns: 56px minmax(0, 1.05fr) minmax(0, 1.4fr) 128px;
+        align-items: start;
+        gap: 18px;
+        padding: 18px 8px;
       }
     }
 
-    @media (max-width: 480px) {
-      .mini-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .exp-row:hover { background: var(--panel); color: var(--text); padding-left: 12px; }
 
-    .mini-card {
+    .exp-logo {
+      width: 52px; height: 52px;
       border: 1px solid var(--border);
-      background: var(--panel);
-      padding: 12px;
-      box-shadow: 4px 4px 0 var(--shadow);
-    }
-
-    .mini-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .mini-value {
-      margin-top: 6px;
-      font-size: 0.92rem;
-      line-height: 1.4;
-      font-weight: 500;
-    }
-
-    /* ============ EXPERIENCE CARDS ============ */
-    .exp-card {
-      position: relative;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      padding: 14px;
-      box-shadow: 4px 4px 0 var(--shadow);
-    }
-
-    .exp-card-inner {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
-
-    .exp-thumb {
-      width: 56px;
-      height: 56px;
-      flex-shrink: 0;
+      background: #fff;
       object-fit: cover;
-      border: 1px solid var(--border);
-      background: white;
+      display: block;
     }
 
-    .exp-info {
-      min-width: 0;
-      flex: 1;
-    }
+    @media (min-width: 760px) { .exp-logo { width: 56px; height: 56px; } }
 
-    .exp-header {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
+    .exp-logo.svg-tile { object-fit: contain; padding: 10px; }
 
-    @media (min-width: 640px) {
-      .exp-header {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 8px;
-      }
-    }
+    .exp-who { min-width: 0; }
 
-    .exp-company {
-      font-weight: 600;
-      font-size: 1rem;
-    }
+    .exp-company { font-weight: 700; font-size: 1.02rem; line-height: 1.25; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .exp-company .fka { font-weight: 400; font-size: 0.8rem; opacity: 0.6; }
 
-    .exp-role {
-      font-size: 0.9rem;
-    }
+    .exp-role { font-size: 0.88rem; color: var(--muted); margin-top: 2px; }
 
-    .exp-date {
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-family: 'IBM Plex Mono', monospace;
-      white-space: nowrap;
-    }
+    .exp-what { grid-column: 1 / -1; min-width: 0; }
+    @media (min-width: 760px) { .exp-what { grid-column: auto; } }
 
-    .exp-location {
-      font-size: 0.78rem;
-      opacity: 0.55;
-      margin-top: 3px;
-    }
+    .exp-line { font-size: 0.92rem; line-height: 1.5; }
 
-    .exp-desc {
-      font-size: 0.9rem;
-      margin-top: 8px;
-      line-height: 1.6;
-    }
-
-    .exp-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-    }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 
     .exp-tag {
-      display: inline-block;
-      padding: 2px 8px;
+      display: inline-block; padding: 2px 8px;
       border: 1px solid var(--border);
       background: var(--panel-soft);
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.7rem;
-      font-weight: 600;
+      font-size: 0.68rem; font-weight: 600;
       color: var(--indigo);
       letter-spacing: 0.02em;
     }
 
-    .exp-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
+    .exp-meta {
+      grid-column: 1 / -1;
+      display: flex; justify-content: space-between; align-items: center; gap: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem; color: var(--muted);
     }
 
-    /* Star badge for featured items */
-    .star-badge {
-      position: absolute;
-      right: 8px;
-      bottom: 8px;
-      width: 22px;
-      height: 22px;
+    @media (min-width: 760px) {
+      .exp-meta { grid-column: auto; flex-direction: column; align-items: flex-end; justify-content: flex-start; gap: 6px; text-align: right; }
+    }
+
+    .exp-meta .where { font-size: 0.72rem; opacity: 0.8; }
+
+    .exp-more {
+      font-size: 0.72rem; font-weight: 600; color: var(--link);
+      border-bottom: 1px solid transparent;
+    }
+
+    .exp-row:hover .exp-more { border-bottom-color: currentColor; }
+
+    .star {
+      display: inline-grid; place-items: center;
+      width: 16px; height: 16px; font-size: 11px; color: var(--gold);
+    }
+
+    /* ============ PROJECT GRID ============ */
+    .proj-grid {
       display: grid;
-      place-items: center;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      box-shadow: 2px 2px 0 var(--shadow);
-      pointer-events: none;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+      gap: 18px;
     }
 
-    .star-badge::before {
-      content: '★';
-      font-size: 12px;
-      color: #d4a017;
-    }
-
-    /* ============ PROJECT CARDS ============ */
-    .project-card {
+    .proj-card {
       position: relative;
+      display: flex; flex-direction: column;
       border: 1px solid var(--border);
       background: var(--panel);
-      padding: 10px;
+      box-shadow: 4px 4px 0 var(--shadow);
+      text-decoration: none;
+      color: var(--text);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .proj-card:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--shadow-strong); color: var(--text); }
+
+    .proj-media {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--panel-soft);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .proj-media img,
+    .proj-media video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .proj-card:hover .proj-media img,
+    .proj-card:hover .proj-media video { transform: scale(1.04); }
+
+    .proj-media model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
+
+    .proj-badge {
+      position: absolute; top: 8px; left: 8px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 7px;
+      background: rgba(255, 251, 240, 0.92);
+      color: var(--indigo-dark);
+      border: 1px solid rgba(26, 39, 68, 0.3);
+      z-index: 1;
+    }
+
+    html[data-theme="dark"] .proj-badge { background: rgba(23, 33, 58, 0.92); color: #e8dcc8; border-color: rgba(232,220,200,0.35); }
+
+    .proj-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+
+    .proj-name { font-weight: 700; font-size: 1rem; line-height: 1.3; display: flex; align-items: center; gap: 8px; }
+    .proj-name img { width: 18px; height: 18px; flex: 0 0 18px; }
+
+    .proj-line { font-size: 0.86rem; line-height: 1.5; color: var(--text); opacity: 0.85; }
+
+    .proj-foot { margin-top: auto; padding-top: 8px; display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; }
+
+    .proj-foot .exp-tags { margin-top: 0; }
+
+    /* ============ BEYOND (personal, compact) ============ */
+    .beyond {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 16px 22px;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      background: var(--panel);
       box-shadow: 4px 4px 0 var(--shadow);
     }
 
-    .project-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    @media (min-width: 640px) {
-      .project-inner {
-        flex-direction: row;
-        align-items: flex-start;
-      }
-    }
-
-    .project-media {
-      width: 100%;
-      height: 160px;
+    .beyond img {
+      width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+      border: 1px solid var(--border-strong);
       flex-shrink: 0;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--panel-soft);
     }
 
-    @media (min-width: 640px) {
-      .project-media {
-        width: 200px;
-        height: 130px;
-      }
-    }
+    .beyond-text { flex: 1 1 280px; min-width: 0; }
+    .beyond-text p { font-size: 0.92rem; line-height: 1.5; }
+    .beyond-text .mini { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
 
-    .project-media img,
-    .project-media video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .project-media model-viewer {
-      width: 100%;
-      height: 100%;
-    }
-
-    .project-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .project-name {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .project-desc {
-      font-size: 0.88rem;
-      margin-top: 6px;
-      line-height: 1.6;
-      color: var(--text);
-    }
-
-    /* ============ WAVE SCENE (subtle decoration) ============ */
-    .wave-decoration {
-      width: 100%;
-      overflow: hidden;
-      margin: 8px 0 -8px;
-      opacity: 0.35;
-      pointer-events: none;
-    }
-
-    .wave-decoration svg {
-      display: block;
-      width: 100%;
-    }
-
-    /* ============ NAV SECTION ============ */
-    .nav-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    @media (max-width: 639px) {
-      .nav-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .beyond-links { display: flex; flex-wrap: wrap; gap: 8px; }
 
     /* ============ MODAL ============ */
     .modal-overlay {
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background: rgba(26, 39, 68, 0.5);
       backdrop-filter: blur(4px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      opacity: 0;
-      visibility: hidden;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 2000; opacity: 0; visibility: hidden;
       transition: all 0.2s ease;
     }
 
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
 
     .modal {
       background: var(--panel);
       border: 1px solid var(--border-strong);
-      padding: 24px;
-      max-width: 380px;
-      width: 90%;
+      padding: 24px; max-width: 380px; width: 90%;
       box-shadow: 6px 6px 0 var(--shadow-strong);
       position: relative;
     }
 
-    .modal h2 {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
+    .modal h2 { font-family: 'IBM Plex Mono', monospace; font-size: 1.1rem; margin-bottom: 20px; }
 
-    .contact-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 
     .contact-item a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      display: flex; align-items: center; gap: 10px;
       padding: 10px 14px;
       border: 1px solid var(--border);
       background: var(--panel-soft);
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      font-size: 0.92rem;
+      text-decoration: none; color: var(--text);
+      font-weight: 500; font-size: 0.92rem;
       transition: all 0.15s;
     }
 
-    .contact-item a:hover {
-      background: var(--indigo-dark);
-      color: var(--panel);
-      border-color: var(--indigo-dark);
-    }
-
-    .contact-item.email a {
-      background: var(--indigo-dark);
-      color: var(--cream);
-      border-color: var(--indigo-dark);
-      font-weight: 600;
-    }
-
-    .contact-item.email a:hover {
-      background: var(--indigo);
-    }
-
-    .contact-icon {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
+    .contact-item a:hover { background: var(--indigo-dark); color: var(--panel); border-color: var(--indigo-dark); }
+    .contact-item.email a { background: var(--indigo-dark); color: var(--cream); border-color: var(--indigo-dark); font-weight: 600; }
+    .contact-item.email a:hover { background: var(--indigo); }
+    .contact-icon { width: 16px; height: 16px; flex-shrink: 0; }
 
     .close-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 28px;
-      height: 28px;
+      position: absolute; top: 10px; right: 10px;
+      width: 28px; height: 28px;
       border: 1px solid var(--border-strong);
       background: var(--panel);
-      font-size: 14px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 14px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
       box-shadow: 2px 2px 0 var(--shadow);
       transition: all 0.15s;
     }
 
-    .close-button:hover {
-      background: var(--indigo-dark);
-      color: var(--panel);
-    }
+    .close-button:hover { background: var(--indigo-dark); color: var(--panel); }
 
     /* ============ FOOTER ============ */
     .site-footer {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--muted);
-      padding: 24px 0 0;
+      text-align: center; font-size: 0.8rem; color: var(--muted);
+      padding: 8px 0 0;
       font-family: 'IBM Plex Mono', monospace;
+    }
+
+    /* ============ REVEAL ON SCROLL ============ */
+    html.js .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: var(--d, 0ms);
+    }
+
+    html.js .reveal.is-in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      html.js .reveal { opacity: 1; transform: none; transition: none; }
+      .now-dot { animation: none; }
+      .demo-tile, .proj-card, .demo-tile video, .demo-tile img, .proj-media img, .proj-media video { transition: none; }
     }
   </style>
 </head>
@@ -636,390 +654,374 @@
       <a href="index.html">Hridaanshu (Anshu) Gusain</a>
     </h1>
     <div class="social-row">
-      <a class="chip" href="https://www.linkedin.com/in/hridaanshugusain/" target="_blank">LinkedIn</a>
-      <a class="chip" href="https://github.com/AnshuGusain1" target="_blank">GitHub</a>
-      <a class="chip" href="https://instagram.com/anshu.gusainn" target="_blank">Instagram</a>
-      <button class="chip" onclick="openModal()">Contact</button>
+      <a class="chip" href="https://www.linkedin.com/in/hridaanshugusain/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="chip" href="https://github.com/AnshuGusain1" target="_blank" rel="noopener">GitHub</a>
+      <a class="chip" href="work.html#skills">Skills</a>
+      <button class="chip" type="button" onclick="openModal()">Contact</button>
     </div>
   </div>
 
-  <!-- ===== WHOAMI ===== -->
-  <fieldset>
-    <legend><span class="legend-text">whoami</span></legend>
-    <article class="whoami-article">
-      <div class="profile-photo-wrap">
-        <img src="Assets/About.jpeg" alt="Hridaanshu Gusain" />
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div>
+      <p class="hero-eyebrow reveal">Computer Engineering · UIUC '28 · Embedded &amp; Robotics</p>
+      <h2 id="hero-title" class="hero-title reveal" style="--d: 60ms;">
+        I build the stack that makes robots <em>move</em>, from the PCB to the planner.
+      </h2>
+      <p class="hero-sub reveal" style="--d: 120ms;">
+        Firmware in C/C++, drivers and control on STM32 and ESP32, ROS 2 integration, and the boards they run on. Currently writing motion planning code for driverless trucks.
+      </p>
+      <a class="now-pill reveal" style="--d: 160ms;" href="work.html#kodiak">
+        <span class="now-dot" aria-hidden="true"></span>
+        <img src="Assets/kodiak-mark.svg" alt="" />
+        <span>Now: Motion Planning Intern @ Kodiak AI</span>
+      </a>
+      <div class="hero-actions reveal" style="--d: 200ms;">
+        <a class="chip chip-primary" href="#experience">Experience</a>
+        <a class="chip chip-ghost" href="#projects">Projects</a>
       </div>
-      <div>
-        <p>Hi! I'm Anshu, a Mechatronics & Robotics engineer studying Computer Engineering at UIUC, with a minor in CS.</p>
-        <p>I really enjoy embedded systems, computer vision, real-time control, and PCB design - basically the software/hardware stack that drives autonomous systems.</p>
-        <p>When I'm not at school, I love exploring nature and taking pictures with my Sony a6400.</p>
-        <p>Feel free to reach out on LinkedIn!</p>
-      </div>
-      <div style="clear: right;"></div>
-    </article>
-  </fieldset>
-
-  <!-- ===== RANDOM / ABOUT ME ===== -->
-  <fieldset>
-    <legend><span class="legend-text">cd ~/random</span></legend>
-    <div style="display: flex; flex-direction: column; gap: 12px;">
-      <div>
-        <p style="margin: 0;">a few things about me outside of engineering</p>
-      </div>
-      <div class="nav-grid">
-        <a href="about.html" class="chip chip-nav" style="justify-content: flex-start;">About Me</a>
-        <a href="work.html" class="chip chip-nav" style="justify-content: flex-start;">All Work</a>
-        <a href="projects.html" class="chip chip-nav" style="justify-content: flex-start;">All Projects</a>
-      </div>
-      <div class="mini-grid" style="margin-top: 4px;">
-        <div class="mini-card">
-          <p class="mini-label">Camera</p>
-          <p class="mini-value">Sony a6400</p>
-        </div>
-        <div class="mini-card">
-          <p class="mini-label">Hobbies</p>
-          <p class="mini-value">Photography · Gym · F1</p>
-        </div>
-        <div class="mini-card">
-          <p class="mini-label">Favorite Artist</p>
-          <p class="mini-value">The Weeknd</p>
-        </div>
-        <div class="mini-card">
-          <p class="mini-label">Happy Place</p>
-          <p class="mini-value">Exploring the Outdoors</p>
-        </div>
+      <div class="kw-strip reveal" style="--d: 240ms;">
+        <p class="kw-label">Stack</p>
+        <ul class="kw-list" aria-label="Core skills">
+          <li class="kw">C/C++</li>
+          <li class="kw">Python</li>
+          <li class="kw">Rust</li>
+          <li class="kw">ROS 2</li>
+          <li class="kw">STM32</li>
+          <li class="kw">ESP32</li>
+          <li class="kw">FreeRTOS</li>
+          <li class="kw">CAN</li>
+          <li class="kw">Motion Planning</li>
+          <li class="kw">Computer Vision</li>
+          <li class="kw">KiCad</li>
+          <li class="kw">SLAM</li>
+        </ul>
       </div>
     </div>
-  </fieldset>
 
-  <!-- ===== QUICK STATS ===== -->
-  <fieldset>
-    <legend><span class="legend-text">cd ~/stats</span></legend>
-    <div class="mini-grid">
-      <div class="mini-card">
-        <p class="mini-label">School</p>
-        <p class="mini-value">UIUC '28</p>
-      </div>
-      <div class="mini-card">
-        <p class="mini-label">Major</p>
-        <p class="mini-value">Computer Eng + CS Minor</p>
-      </div>
-      <div class="mini-card">
-        <p class="mini-label">Focus</p>
-        <p class="mini-value">Embedded · Vision · Control</p>
-      </div>
-      <div class="mini-card">
-        <p class="mini-label">From</p>
-        <p class="mini-value">Upstate New York</p>
-      </div>
+    <!-- demo wall: four looping clips, each a door into the detail pages -->
+    <div class="demo-wall reveal" style="--d: 120ms;" aria-label="Project demos">
+      <a class="demo-tile" href="work.html#kodiak" aria-label="Kodiak AI motion planning, lane change simulation">
+        <video data-lazy autoplay muted loop playsinline preload="metadata" poster="Assets/hero_kodiak.jpg" src="Assets/hero_kodiak.mp4" tabindex="-1" aria-hidden="true"></video>
+        <span class="demo-tag">Internship</span>
+        <span class="demo-cap">
+          <span class="demo-cap-title">Kodiak AI<span class="demo-cap-sub">Lane change planning, Class 8 truck</span></span>
+          <span class="demo-arrow" aria-hidden="true">&rarr;</span>
+        </span>
+      </a>
+      <a class="demo-tile" href="projects.html#actathon" aria-label="Autonomous excavator, Act-Athon hackathon">
+        <video data-lazy autoplay muted loop playsinline preload="metadata" poster="Assets/hero_excavator.jpg" src="Assets/hero_excavator.mp4" tabindex="-1" aria-hidden="true"></video>
+        <span class="demo-tag">Hackathon</span>
+        <span class="demo-cap">
+          <span class="demo-cap-title">Autonomous Excavator<span class="demo-cap-sub">&pi;0.7 policy + DAgger on real hardware</span></span>
+          <span class="demo-arrow" aria-hidden="true">&rarr;</span>
+        </span>
+      </a>
+      <a class="demo-tile" href="projects.html#autonomous-drone" aria-label="Autonomous drone flight test">
+        <video data-lazy autoplay muted loop playsinline preload="metadata" poster="Assets/hero_drone.jpg" src="Assets/hero_drone.mp4" tabindex="-1" aria-hidden="true"></video>
+        <span class="demo-tag">Project</span>
+        <span class="demo-cap">
+          <span class="demo-cap-title">Autonomous Drone<span class="demo-cap-sub">Custom ESP32 flight controller PCB</span></span>
+          <span class="demo-arrow" aria-hidden="true">&rarr;</span>
+        </span>
+      </a>
+      <a class="demo-tile" href="projects.html#3d-detection" aria-label="Waymo Open Dataset perception tooling">
+        <video data-lazy autoplay muted loop playsinline preload="metadata" poster="Assets/hero_waymo.jpg" src="Assets/hero_waymo.mp4" tabindex="-1" aria-hidden="true"></video>
+        <span class="demo-tag">Project</span>
+        <span class="demo-cap">
+          <span class="demo-cap-title">Waymo Perception Tooling<span class="demo-cap-sub">5 cameras + 360&deg; LiDAR in BEV</span></span>
+          <span class="demo-arrow" aria-hidden="true">&rarr;</span>
+        </span>
+      </a>
     </div>
-  </fieldset>
+  </section>
 
-  <!-- ===== WAVE DECORATION ===== -->
-  <div class="wave-decoration">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,80 C100,60 180,50 280,45 C380,40 420,25 460,18 C500,10 520,6 535,15 C550,24 540,40 510,52
-               C480,64 460,72 490,76 C520,80 570,74 640,78 C710,82 780,70 850,76 C920,82 990,74 1060,78
-               C1130,82 1200,76 1280,80 C1360,84 1420,78 1440,80"
-            fill="none" stroke="#1a2744" stroke-width="2" opacity="0.5"/>
-      <path d="M0,90 C150,82 300,100 450,85 C600,70 750,95 900,88 C1050,81 1200,95 1440,88"
-            fill="none" stroke="#3b6fa0" stroke-width="1.5" opacity="0.3"/>
-      <!-- Foam dots -->
-      <circle cx="530" cy="12" r="2.5" fill="#1a2744" opacity="0.3"/>
-      <circle cx="520" cy="8" r="2" fill="#1a2744" opacity="0.25"/>
-      <circle cx="542" cy="16" r="1.5" fill="#1a2744" opacity="0.2"/>
-      <circle cx="515" cy="14" r="1.5" fill="#1a2744" opacity="0.2"/>
-      <circle cx="548" cy="20" r="1.5" fill="#1a2744" opacity="0.15"/>
-    </svg>
-  </div>
+  <!-- ===== PROOF STRIP ===== -->
+  <section class="proof reveal" aria-label="Highlights">
+    <a class="proof-item" href="work.html#kodiak">
+      <p class="proof-num">Class 8</p>
+      <p class="proof-cap"><strong>Driverless trucks.</strong> Behavior and trajectory planning on the Kodiak Driver.</p>
+    </a>
+    <a class="proof-item" href="work.html#asme">
+      <p class="proof-num">6-DOF</p>
+      <p class="proof-cap"><strong>Robotic 3D printer.</strong> Led ROS multi-axis control and custom CAN boards.</p>
+    </a>
+    <a class="proof-item" href="work.html#blink">
+      <p class="proof-num">4-DOF</p>
+      <p class="proof-cap"><strong>Robot arm.</strong> Full embedded stack: STM32/ESP32 firmware, ROS 2, drivers.</p>
+    </a>
+    <a class="proof-item" href="work.html#bioinfo">
+      <p class="proof-num">1<sup>st</sup> author</p>
+      <p class="proof-cap"><strong>IEEE paper.</strong> Deep learning nuclei segmentation, Systems Council honorable mention.</p>
+    </a>
+  </section>
 
   <!-- ===== EXPERIENCE ===== -->
-  <fieldset>
+  <fieldset id="experience">
     <legend><span class="legend-text">cd ~/experience</span></legend>
-    <p style="margin: 0 0 16px 0;">the professional part of this page</p>
-    <div style="display: flex; flex-direction: column; gap: 16px;">
+    <div class="section-head reveal">
+      <h2>Where I have <em>shipped</em></h2>
+      <p>One line each. Every row opens the full write-up.</p>
+    </div>
+    <ul class="exp-index">
 
-      <!-- Kodiak AI -->
-      <div class="exp-card">
-        <span class="star-badge"></span>
-        <div class="exp-card-inner">
-          <img src="Assets/kodiak_truck.jpg" alt="Kodiak AI" class="exp-thumb" />
-          <div class="exp-info">
-            <div class="exp-header">
-              <div>
-                <p class="exp-company" style="display:flex;align-items:center;gap:8px;"><img src="Assets/kodiak-mark.svg" alt="" style="width:20px;height:20px;flex:0 0 20px;" />Kodiak AI</p>
-                <p class="exp-role">Motion Planning Intern</p>
-              </div>
-              <p class="exp-date">Fall 2026 – Present</p>
-            </div>
-            <p class="exp-location">Mountain View, CA</p>
-            <p class="exp-desc">Working on the motion planning stack of the Kodiak Driver — the autonomy system behind driverless Class 8 tractor-trailers. Behavior &amp; trajectory planning for lane changes, merges, and traffic interactions under heavy-vehicle constraints.</p>
-            <div class="exp-tags">
-              <span class="exp-tag">Motion Planning</span>
-              <span class="exp-tag">C++</span>
-              <span class="exp-tag">Python</span>
-              <span class="exp-tag">Autonomous Vehicles</span>
-              <span class="exp-tag">Simulation</span>
-            </div>
-            <div class="exp-chips">
-              <a href="work.html#kodiak" class="chip chip-sm">details</a>
-            </div>
+      <li class="reveal">
+        <a class="exp-row" href="work.html#kodiak">
+          <img class="exp-logo svg-tile" src="Assets/kodiak-mark.svg" alt="" />
+          <div class="exp-who">
+            <p class="exp-company">Kodiak AI <span class="star" aria-hidden="true">&#9733;</span></p>
+            <p class="exp-role">Motion Planning Intern</p>
           </div>
-        </div>
-      </div>
-
-      <!-- Fab2 -->
-      <div class="exp-card">
-        <span class="star-badge"></span>
-        <div class="exp-card-inner">
-          <img src="Assets/Atomic.jpeg" alt="Fab2" class="exp-thumb" />
-          <div class="exp-info">
-            <div class="exp-header">
-              <div>
-                <p class="exp-company">Fab2 <span style="font-weight:400;opacity:0.6;">(FKA Atomic Semi)</span></p>
-                <p class="exp-role">Automation Software Engineering Intern</p>
-              </div>
-              <p class="exp-date">May 2026 – Aug 2026</p>
-            </div>
-            <p class="exp-location">San Francisco, CA</p>
-            <p class="exp-desc">Worked on computer vision applications and robotic systems in C/Rust for a novel chip fabrication platform at a semiconductor startup.</p>
-            <div class="exp-tags">
-              <span class="exp-tag">Computer Vision</span>
-              <span class="exp-tag">Robotics</span>
-              <span class="exp-tag">C</span>
-              <span class="exp-tag">Rust</span>
-              <span class="exp-tag">Semiconductors</span>
-            </div>
-            <div class="exp-chips">
-              <a href="work.html#atomic" class="chip chip-sm">details</a>
-            </div>
+          <div class="exp-what">
+            <p class="exp-line">Behavior and trajectory planning for lane changes, merges, and traffic interactions on the Kodiak Driver, under heavy-vehicle constraints.</p>
+            <div class="exp-tags"><span class="exp-tag">Motion Planning</span><span class="exp-tag">C++</span><span class="exp-tag">Simulation</span></div>
           </div>
-        </div>
-      </div>
-
-      <!-- Blink Robotics -->
-      <div class="exp-card">
-        <span class="star-badge"></span>
-        <div class="exp-card-inner">
-          <img src="Assets/blink_arm.jpg" alt="Blink Robotics" class="exp-thumb" />
-          <div class="exp-info">
-            <div class="exp-header">
-              <div>
-                <p class="exp-company">Blink Robotics</p>
-                <p class="exp-role">Mechatronics Engineer</p>
-              </div>
-              <p class="exp-date">2025 – Present</p>
-            </div>
-            <p class="exp-location">Champaign, IL</p>
-            <p class="exp-desc">Designed full embedded stack for 4-DOF robotic arm (STM32/ESP32, ROS2, motor & sensor drivers). Integrated depth camera with NVIDIA Orin for mapping & state estimation.</p>
-            <div class="exp-tags">
-              <span class="exp-tag">STM32</span>
-              <span class="exp-tag">ESP32</span>
-              <span class="exp-tag">FreeRTOS</span>
-              <span class="exp-tag">ROS2</span>
-              <span class="exp-tag">CAN</span>
-              <span class="exp-tag">C/C++</span>
-            </div>
-            <div class="exp-chips">
-              <a href="work.html#blink" class="chip chip-sm">details</a>
-            </div>
+          <div class="exp-meta">
+            <span>Fall 2026 – Present</span>
+            <span class="where">Mountain View, CA</span>
+            <span class="exp-more">details &rarr;</span>
           </div>
-        </div>
-      </div>
+        </a>
+      </li>
 
-      <!-- ASME -->
-      <div class="exp-card">
-        <span class="star-badge"></span>
-        <div class="exp-card-inner">
-          <img src="Assets/novoprint.JPG" alt="ASME" class="exp-thumb" />
-          <div class="exp-info">
-            <div class="exp-header">
-              <div>
-                <p class="exp-company">ASME – Additive Manufacturing</p>
-                <p class="exp-role">Research Lead</p>
-              </div>
-              <p class="exp-date">2024 – 2025</p>
-            </div>
-            <p class="exp-location">UIUC</p>
-            <p class="exp-desc">Directed development of a 6-DOF robotic 3D printer with ROS-based multi-axis control. Built custom control boards and synchronized CAN bus networks for accurate toolpath execution.</p>
-            <div class="exp-tags">
-              <span class="exp-tag">ROS</span>
-              <span class="exp-tag">CAN</span>
-              <span class="exp-tag">Kinematics</span>
-              <span class="exp-tag">Custom Boards</span>
-            </div>
-            <div class="exp-chips">
-              <a href="work.html#asme" class="chip chip-sm">details</a>
-            </div>
+      <li class="reveal" style="--d: 60ms;">
+        <a class="exp-row" href="work.html#atomic">
+          <img class="exp-logo" src="Assets/Atomic.jpeg" alt="" />
+          <div class="exp-who">
+            <p class="exp-company">Fab2 <span class="fka">formerly Atomic Semi</span></p>
+            <p class="exp-role">Automation Software Engineering Intern</p>
           </div>
-        </div>
-      </div>
+          <div class="exp-what">
+            <p class="exp-line">Computer vision and robotic automation in C and Rust for a new chip fabrication platform at a semiconductor startup.</p>
+            <div class="exp-tags"><span class="exp-tag">Computer Vision</span><span class="exp-tag">C</span><span class="exp-tag">Rust</span></div>
+          </div>
+          <div class="exp-meta">
+            <span>May – Aug 2026</span>
+            <span class="where">San Francisco, CA</span>
+            <span class="exp-more">details &rarr;</span>
+          </div>
+        </a>
+      </li>
 
+      <li class="reveal" style="--d: 120ms;">
+        <a class="exp-row" href="work.html#blink">
+          <img class="exp-logo" src="Assets/blink_arm_thumb.jpg" alt="" />
+          <div class="exp-who">
+            <p class="exp-company">Blink Robotics</p>
+            <p class="exp-role">Mechatronics Engineer</p>
+          </div>
+          <div class="exp-what">
+            <p class="exp-line">Full embedded stack for a 4-DOF arm: STM32/ESP32 firmware, ROS 2, motor and sensor drivers, and a depth camera on NVIDIA Orin for mapping.</p>
+            <div class="exp-tags"><span class="exp-tag">STM32</span><span class="exp-tag">ROS 2</span><span class="exp-tag">CAN</span><span class="exp-tag">FreeRTOS</span></div>
+          </div>
+          <div class="exp-meta">
+            <span>2025 – Present</span>
+            <span class="where">Champaign, IL</span>
+            <span class="exp-more">details &rarr;</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="reveal" style="--d: 180ms;">
+        <a class="exp-row" href="work.html#asme">
+          <img class="exp-logo" src="Assets/novoprint_thumb.jpg" alt="" />
+          <div class="exp-who">
+            <p class="exp-company">ASME Additive Manufacturing</p>
+            <p class="exp-role">Research Lead</p>
+          </div>
+          <div class="exp-what">
+            <p class="exp-line">Led a 6-DOF robotic 3D printer: ROS multi-axis control, custom control boards, and a synchronized CAN bus for accurate toolpaths.</p>
+            <div class="exp-tags"><span class="exp-tag">ROS</span><span class="exp-tag">MoveIt</span><span class="exp-tag">CAN</span><span class="exp-tag">Custom PCBs</span></div>
+          </div>
+          <div class="exp-meta">
+            <span>2024 – 2025</span>
+            <span class="where">UIUC</span>
+            <span class="exp-more">details &rarr;</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="reveal" style="--d: 240ms;">
+        <a class="exp-row" href="work.html#miteout">
+          <img class="exp-logo" src="Assets/miteout_thumb.jpg" alt="" />
+          <div class="exp-who">
+            <p class="exp-company">MiteOut Precision Technologies</p>
+            <p class="exp-role">Co-Founder, Embedded Systems</p>
+          </div>
+          <div class="exp-what">
+            <p class="exp-line">ESP32 sensor nodes for year-round beehive monitoring: robust power, OTA serviceability, and modular boards for quick pilot spins.</p>
+            <div class="exp-tags"><span class="exp-tag">ESP32</span><span class="exp-tag">Low Power</span><span class="exp-tag">RF</span><span class="exp-tag">PCB</span></div>
+          </div>
+          <div class="exp-meta">
+            <span>2024 – Present</span>
+            <span class="where">AgTech</span>
+            <span class="exp-more">details &rarr;</span>
+          </div>
+        </a>
+      </li>
+
+    </ul>
+    <div style="display:flex; justify-content:flex-end; margin-top: 14px;">
+      <a class="chip chip-sm" href="work.html">all work, awards, and skills &rarr;</a>
     </div>
   </fieldset>
 
   <!-- ===== PROJECTS ===== -->
-  <fieldset>
+  <fieldset id="projects">
     <legend><span class="legend-text">cd ~/projects</span></legend>
-    <p style="margin: 0 0 16px 0;">things I've built</p>
-    <div style="display: flex; flex-direction: column; gap: 16px;">
+    <div class="section-head reveal">
+      <h2>Things I have <em>built</em></h2>
+      <p>Hardware, perception, and control. Hover to play, click for the write-up.</p>
+    </div>
+    <div class="proj-grid">
 
-      <!-- Act-Athon -->
-      <div class="project-card">
-        <div class="project-inner">
-          <div class="project-media">
-            <video src="Assets/actathon_2.mp4" autoplay loop muted playsinline preload="metadata"></video>
-          </div>
-          <div class="project-info">
-            <p class="project-name">Autonomous Excavator &ndash; Act-Athon</p>
-            <p class="project-desc">Hackathon by Actor Labs, sponsored by Physical Intelligence. A real mini excavator that picks up and places objects, driven by a fine-tuned build of the unreleased &pi;0.7 model and improved with DAgger.</p>
-            <div class="exp-tags">
-              <span class="exp-tag">&pi;0.7</span>
-              <span class="exp-tag">DAgger</span>
-              <span class="exp-tag">Imitation Learning</span>
-              <span class="exp-tag">OAK-D</span>
-            </div>
-            <div class="exp-chips">
-              <a href="projects.html#actathon" class="chip chip-sm">details</a>
-            </div>
+      <a class="proj-card reveal" href="projects.html#actathon">
+        <div class="proj-media">
+          <span class="proj-badge">Physical Intelligence &pi;0.7</span>
+          <video data-lazy autoplay muted loop playsinline preload="metadata" poster="Assets/hero_excavator.jpg" src="Assets/hero_excavator.mp4" tabindex="-1" aria-hidden="true"></video>
+        </div>
+        <div class="proj-body">
+          <p class="proj-name">Autonomous Excavator (Act-Athon)</p>
+          <p class="proj-line">A real mini excavator doing language-conditioned pick-and-place with a fine-tuned &pi;0.7 policy, improved with DAgger.</p>
+          <div class="proj-foot">
+            <div class="exp-tags"><span class="exp-tag">Imitation Learning</span><span class="exp-tag">OAK-D</span></div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- 3D Object Detection -->
-      <div class="project-card">
-        <div class="project-inner">
-          <div class="project-media">
-            <video src="Assets/waymo_dual_pane.mp4" autoplay loop muted playsinline preload="metadata"></video>
-          </div>
-          <div class="project-info">
-            <p class="project-name" style="display:flex;align-items:center;gap:8px;"><img src="Assets/waymo-logo.svg" alt="" style="width:20px;height:20px;flex:0 0 20px;" />Waymo Open Dataset Perception Tooling</p>
-            <p class="project-desc">Frame loader and calibration tooling: decodes TFRecords, time-aligns 5 cameras with 360&deg; LiDAR, and renders ground-truth 3D boxes in BEV. In progress.</p>
-            <div class="exp-tags">
-              <span class="exp-tag">Python</span>
-              <span class="exp-tag">LiDAR</span>
-              <span class="exp-tag">BEV</span>
-              <span class="exp-tag">protobuf</span>
-            </div>
-            <div class="exp-chips">
-              <a href="projects.html#3d-detection" class="chip chip-sm">details</a>
-            </div>
+      <a class="proj-card reveal" style="--d: 60ms;" href="projects.html#3d-detection">
+        <div class="proj-media">
+          <span class="proj-badge">In progress</span>
+          <video data-lazy autoplay muted loop playsinline preload="metadata" poster="Assets/hero_waymo.jpg" src="Assets/hero_waymo.mp4" tabindex="-1" aria-hidden="true"></video>
+        </div>
+        <div class="proj-body">
+          <p class="proj-name"><img src="Assets/waymo-logo.svg" alt="" />Waymo Open Dataset Tooling</p>
+          <p class="proj-line">Decodes TFRecords, time-aligns five cameras with 360&deg; LiDAR, and renders ground-truth 3D boxes in bird's-eye view.</p>
+          <div class="proj-foot">
+            <div class="exp-tags"><span class="exp-tag">Python</span><span class="exp-tag">LiDAR</span><span class="exp-tag">BEV</span></div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- Drone -->
-      <div class="project-card">
-        <span class="star-badge"></span>
-        <div class="project-inner">
-          <div class="project-media">
-            <img src="Assets/Drone_final_optimized.jpg" alt="Autonomous Drone" loading="eager" />
-          </div>
-          <div class="project-info">
-            <p class="project-name">Autonomous Drone Navigation System</p>
-            <p class="project-desc">Custom flight controller PCB (ESP32), integrating power management, sensor interfaces, and motor control. Pi handles vision: stereo depth & object detection feeding obstacle avoidance.</p>
-            <div class="exp-tags">
-              <span class="exp-tag">ESP32</span>
-              <span class="exp-tag">FreeRTOS</span>
-              <span class="exp-tag">Raspberry Pi</span>
-              <span class="exp-tag">SLAM</span>
-              <span class="exp-tag">PID</span>
-              <span class="exp-tag">KiCAD</span>
-            </div>
-            <div class="exp-chips">
-              <a href="projects.html#autonomous-drone" class="chip chip-sm">details</a>
-            </div>
+      <a class="proj-card reveal" style="--d: 120ms;" href="projects.html#autonomous-drone">
+        <div class="proj-media">
+          <span class="proj-badge">Custom PCB</span>
+          <video data-lazy autoplay muted loop playsinline preload="metadata" poster="Assets/hero_drone.jpg" src="Assets/hero_drone.mp4" tabindex="-1" aria-hidden="true"></video>
+        </div>
+        <div class="proj-body">
+          <p class="proj-name">Autonomous Drone Navigation</p>
+          <p class="proj-line">ESP32 flight-controller board with power, sensors, and motor control. A Pi runs stereo depth and object detection for obstacle avoidance.</p>
+          <div class="proj-foot">
+            <div class="exp-tags"><span class="exp-tag">ESP32</span><span class="exp-tag">FreeRTOS</span><span class="exp-tag">KiCad</span></div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- 3D Arm Viewer -->
-      <div class="project-card">
-        <div class="project-inner">
-          <div class="project-media">
-            <model-viewer
-              src="Assets/ARM.gltf"
-              alt="4-DOF Robotic Arm"
-              camera-controls
-              auto-rotate
-              shadow-intensity="1"
-              exposure="1.2"
-              style="width: 100%; height: 100%;">
-            </model-viewer>
-          </div>
-          <div class="project-info">
-            <p class="project-name">4-DOF Robotic Arm – Interactive 3D</p>
-            <p class="project-desc">Full mechanical and electrical design of a 4 degree-of-freedom robotic arm. Drag to rotate the model.</p>
-            <div class="exp-tags">
-              <span class="exp-tag">SolidWorks</span>
-              <span class="exp-tag">STM32</span>
-              <span class="exp-tag">Motor Control</span>
-            </div>
-            <div class="exp-chips">
-              <a href="work.html#blink" class="chip chip-sm">full write-up</a>
-            </div>
+      <a class="proj-card reveal" style="--d: 180ms;" href="work.html#blink">
+        <div class="proj-media">
+          <span class="proj-badge">Interactive 3D</span>
+          <model-viewer
+            src="Assets/ARM.gltf"
+            poster="Assets/arm_poster.jpg"
+            alt="4-DOF robotic arm, 3D model"
+            loading="lazy"
+            camera-controls
+            auto-rotate
+            interaction-prompt="none"
+            shadow-intensity="1"
+            exposure="1.2">
+          </model-viewer>
+        </div>
+        <div class="proj-body">
+          <p class="proj-name">4-DOF Robotic Arm</p>
+          <p class="proj-line">Mechanical and electrical design of the Blink arm, plus the STM32 motor control underneath. Drag the model to rotate it.</p>
+          <div class="proj-foot">
+            <div class="exp-tags"><span class="exp-tag">SolidWorks</span><span class="exp-tag">STM32</span><span class="exp-tag">Motor Control</span></div>
           </div>
         </div>
-      </div>
+      </a>
 
+      <a class="proj-card reveal" style="--d: 240ms;" href="projects.html#stereo-vision">
+        <div class="proj-media">
+          <span class="proj-badge">Perception</span>
+          <img src="Assets/tsukuba.gif" alt="" loading="lazy" />
+        </div>
+        <div class="proj-body">
+          <p class="proj-name">Real-Time Stereo Depth</p>
+          <p class="proj-line">Calibration, rectification, StereoSGBM disparity, and post-filtering on cheap webcams, benchmarked against Middlebury.</p>
+          <div class="proj-foot">
+            <div class="exp-tags"><span class="exp-tag">OpenCV</span><span class="exp-tag">Calibration</span><span class="exp-tag">Python</span></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="proj-card reveal" style="--d: 300ms;" href="work.html#bioinfo">
+        <div class="proj-media">
+          <span class="proj-badge">IEEE, first author</span>
+          <img src="Assets/Nuclei1.png" alt="" loading="lazy" />
+        </div>
+        <div class="proj-body">
+          <p class="proj-name">Hyperspectral Nuclei Segmentation</p>
+          <p class="proj-line">Deep learning pipeline for nuclei segmentation on hyperspectral imaging, raising accuracy to around 85%. IEEE Systems Council honorable mention.</p>
+          <div class="proj-foot">
+            <div class="exp-tags"><span class="exp-tag">Deep Learning</span><span class="exp-tag">Hyperspectral</span></div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    <div style="display:flex; justify-content:flex-end; margin-top: 16px;">
+      <a class="chip chip-sm" href="projects.html">all projects &rarr;</a>
     </div>
   </fieldset>
 
-  <!-- ===== LINKS ===== -->
-  <fieldset>
-    <legend><span class="legend-text">cd ~/links</span></legend>
-    <ul style="list-style: none; padding: 0; margin: 0; columns: 2; gap: 8px;">
-      <li style="margin-bottom: 6px;"><a href="mailto:hgusain2@illinois.edu">Email</a></li>
-      <li style="margin-bottom: 6px;"><a href="https://github.com/AnshuGusain1" target="_blank">GitHub</a></li>
-      <li style="margin-bottom: 6px;"><a href="https://www.linkedin.com/in/hridaanshugusain/" target="_blank">LinkedIn</a></li>
-      <li style="margin-bottom: 6px;"><a href="https://instagram.com/anshu.gusainn" target="_blank">Instagram</a></li>
-    </ul>
-  </fieldset>
+  <!-- ===== BEYOND ENGINEERING (compact) ===== -->
+  <section class="beyond reveal" aria-label="About me">
+    <img src="Assets/About.jpeg" alt="Anshu Gusain" />
+    <div class="beyond-text">
+      <p>Off the bench I shoot photos on a Sony a6400, follow F1, and spend as much time outdoors as I can. Upstate New York, now Champaign.</p>
+      <p class="mini">Photography · Gym · F1 · The Weeknd · exploring the outdoors</p>
+    </div>
+    <div class="beyond-links">
+      <a class="chip" href="about.html">About me</a>
+      <a class="chip" href="mailto:hgusain2@illinois.edu">Email</a>
+    </div>
+  </section>
 
-  <!-- Footer -->
   <footer class="site-footer">
-    <p>&copy; 2025 Hridaanshu Gusain</p>
+    <p>&copy; 2026 Hridaanshu Gusain</p>
   </footer>
 
 </main>
 
 <!-- ===== CONTACT MODAL ===== -->
 <div class="modal-overlay" id="contactModal">
-  <div class="modal">
-    <button class="close-button" onclick="closeModal()">×</button>
-    <h2>get in touch</h2>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+    <button class="close-button" type="button" onclick="closeModal()" aria-label="Close">×</button>
+    <h2 id="contact-title">get in touch</h2>
     <ul class="contact-list">
       <li class="contact-item email">
         <a href="mailto:hgusain2@illinois.edu">
-          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           hgusain2@illinois.edu
         </a>
       </li>
       <li class="contact-item">
-        <a href="https://github.com/AnshuGusain1" target="_blank">
-          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
+        <a href="https://www.linkedin.com/in/hridaanshugusain/" target="_blank" rel="noopener">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </li>
+      <li class="contact-item">
+        <a href="https://github.com/AnshuGusain1" target="_blank" rel="noopener">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
           GitHub
         </a>
       </li>
       <li class="contact-item">
-        <a href="https://instagram.com/anshu.gusainn" target="_blank">
-          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
+        <a href="https://instagram.com/anshu.gusainn" target="_blank" rel="noopener">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           Instagram
-        </a>
-      </li>
-      <li class="contact-item">
-        <a href="https://www.linkedin.com/in/hridaanshugusain/" target="_blank">
-          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-          LinkedIn
         </a>
       </li>
     </ul>
@@ -1027,18 +1029,45 @@
 </div>
 
 <script>
-  function openModal() {
-    document.getElementById('contactModal').classList.add('active');
-  }
-  function closeModal() {
-    document.getElementById('contactModal').classList.remove('active');
-  }
-  document.getElementById('contactModal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
-  });
+  // Contact modal
+  function openModal() { document.getElementById('contactModal').classList.add('active'); }
+  function closeModal() { document.getElementById('contactModal').classList.remove('active'); }
+  document.getElementById('contactModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+  // Reveal on scroll. Elements start hidden only when JS is present (html.js),
+  // so a no-JS visitor still sees everything.
+  (function() {
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(function(el) { el.classList.add('is-in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(en) {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function(el) { io.observe(el); });
+  })();
+
+  // Only run the clips that are on screen; saves CPU and battery on long pages.
+  (function() {
+    var vids = document.querySelectorAll('video[data-lazy]');
+    if (!vids.length || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(en) {
+        var v = en.target;
+        if (en.isIntersecting) {
+          var p = v.play();
+          if (p && p.catch) p.catch(function() {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { rootMargin: '120px 0px', threshold: 0.1 });
+    vids.forEach(function(v) { io.observe(v); });
+  })();
 </script>
 
 </body>
