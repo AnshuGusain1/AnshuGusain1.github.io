@@ -357,6 +357,70 @@
     .proof-cap { margin-top: 8px; font-size: 0.82rem; line-height: 1.4; color: var(--muted); }
     .proof-cap strong { color: var(--text); font-weight: 600; }
 
+    /* ============ EDUCATION BAND ============ */
+    .edu {
+      display: grid;
+      grid-template-columns: 1fr;
+      border: 1px solid var(--border-strong);
+      background: var(--panel);
+      box-shadow: 5px 5px 0 var(--shadow);
+      overflow: hidden;
+    }
+
+    @media (min-width: 760px) {
+      .edu { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+    }
+
+    .edu-photo {
+      position: relative;
+      min-height: 170px;
+      background: #1a2744;
+    }
+
+    .edu-photo img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+
+    .edu-photo-tag {
+      position: absolute; left: 10px; bottom: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 8px;
+      background: rgba(255, 251, 240, 0.92);
+      color: #1a2744;
+      border: 1px solid rgba(26, 39, 68, 0.3);
+    }
+
+    .edu-body { padding: 18px 20px 20px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+
+    .edu-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .edu-school {
+      font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+      line-height: 1.15; letter-spacing: -0.015em; font-weight: 700;
+    }
+
+    .edu-school .block-i {
+      display: inline-grid; place-items: center;
+      width: 1.15em; height: 1.15em; margin-right: 0.35em;
+      vertical-align: -0.2em;
+      background: #e84a27; color: #fff;
+      font-family: 'Playfair Display', serif; font-weight: 800; font-size: 0.78em;
+      border: 2px solid #13294b;
+    }
+
+    .edu-degree { font-size: 0.98rem; line-height: 1.45; }
+    .edu-degree strong { font-weight: 600; }
+
+    .edu-facts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+
+    .edu-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 8px; }
+
     /* ============ SECTION FRAMES ============ */
     fieldset {
       border: none;
@@ -664,7 +728,7 @@
   <!-- ===== HERO ===== -->
   <section class="hero" aria-labelledby="hero-title">
     <div>
-      <p class="hero-eyebrow reveal">Computer Engineering · UIUC '28 · Embedded &amp; Robotics</p>
+      <p class="hero-eyebrow reveal">University of Illinois Urbana-Champaign · Computer Engineering · Class of 2028</p>
       <h2 id="hero-title" class="hero-title reveal" style="--d: 60ms;">
         I build the stack that makes robots <em>move</em>, from the PCB to the planner.
       </h2>
@@ -754,6 +818,29 @@
       <p class="proof-num">1<sup>st</sup> author</p>
       <p class="proof-cap"><strong>IEEE paper.</strong> Deep learning nuclei segmentation, Systems Council honorable mention.</p>
     </a>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section class="edu reveal" aria-labelledby="edu-title">
+    <div class="edu-photo">
+      <img src="Assets/UIUC_optimized.jpg" alt="Aerial view of the UIUC main quad" loading="lazy" />
+      <span class="edu-photo-tag">Urbana-Champaign, IL</span>
+    </div>
+    <div class="edu-body">
+      <p class="edu-eyebrow">Education</p>
+      <h2 id="edu-title" class="edu-school"><span class="block-i" aria-hidden="true">I</span>University of Illinois Urbana-Champaign</h2>
+      <p class="edu-degree"><strong>B.S. Computer Engineering</strong>, minor in Computer Science &middot; Class of 2028</p>
+      <div class="edu-facts">
+        <span class="exp-tag">Embedded Systems</span>
+        <span class="exp-tag">Robotics</span>
+        <span class="exp-tag">Computer Vision</span>
+        <span class="exp-tag">Control</span>
+      </div>
+      <div class="edu-foot">
+        <span class="exp-tag" style="background: var(--panel); border-color: var(--border-strong);"><span class="star" aria-hidden="true">&#9733;</span> EOH Distinguished Technology, 2025</span>
+        <a class="chip chip-sm" href="work.html#asme">campus research &rarr;</a>
+      </div>
+    </div>
   </section>
 
   <!-- ===== EXPERIENCE ===== -->
