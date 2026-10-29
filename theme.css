@@ -1,0 +1,194 @@
+/* ============ DARK MODE + THEME TOGGLE ============ */
+
+/* Night palette for the shared page tokens (home, work, projects) */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1626;
+  --text: #e8dcc8;
+  --muted: rgba(232, 220, 200, 0.64);
+  --border: rgba(232, 220, 200, 0.18);
+  --border-strong: rgba(232, 220, 200, 0.55);
+  --panel: #17213a;
+  --panel-soft: #1e2a46;
+  --shadow: rgba(0, 0, 0, 0.45);
+  --shadow-strong: rgba(169, 193, 224, 0.28);
+  --wave-blue: #8fb6dd;
+  --indigo: #a9c1e0;
+  --indigo-dark: #e8dcc8;
+  --accent-red: #e0705f;
+  --cream: #17213a;
+  --foam: #17213a;
+  --link: #a9c1e0;
+  background: var(--bg);
+}
+
+html[data-theme="dark"] .chip-nav:hover {
+  color: var(--panel);
+}
+
+html[data-theme="dark"] .toc-card:hover .toc-sub {
+  color: rgba(23, 33, 58, 0.72);
+}
+
+/* About page keeps its dark header, footer and buttons */
+html[data-theme="dark"] .about-page {
+  --indigo-dark: #0b1322;
+  --indigo: #2d4a7a;
+  --wave-blue: #3b6fa0;
+  --foam: #e8dcc8;
+  --cream: #faf3e0;
+  --paper: #0f1626;
+  --text-dark: #e8dcc8;
+  --text-muted: #9aa8bd;
+}
+
+html[data-theme="dark"] .about-page .hero-banner {
+  background: linear-gradient(180deg, #24365a 0%, #1d2d4d 40%, #16233d 75%, #0f1626 100%);
+}
+
+html[data-theme="dark"] .about-page .hero-banner h1,
+html[data-theme="dark"] .about-page .content-section h2,
+html[data-theme="dark"] .about-page .stat-number {
+  color: var(--text-dark);
+}
+
+html[data-theme="dark"] .about-page .hero-intro {
+  color: #c9d3e0;
+  background: rgba(23, 33, 58, 0.85);
+  border-color: rgba(232, 220, 200, 0.12);
+}
+
+html[data-theme="dark"] .about-page .content-section {
+  background: #17213a;
+  border-color: rgba(232, 220, 200, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="dark"] .about-page .content-section p {
+  color: #c3cbd8;
+}
+
+html[data-theme="dark"] .about-page .music-albums,
+html[data-theme="dark"] .about-page .stat-item {
+  background: rgba(232, 220, 200, 0.04);
+  border-color: rgba(232, 220, 200, 0.08);
+}
+
+html[data-theme="dark"] .about-page .music-albums li {
+  border-bottom-color: rgba(232, 220, 200, 0.08);
+}
+
+html[data-theme="dark"] .about-page .back-link {
+  border: 1px solid rgba(232, 220, 200, 0.25);
+}
+
+html[data-theme="dark"] .about-page .globe-legend {
+  background: rgba(23, 33, 58, 0.92);
+  border-color: rgba(232, 220, 200, 0.12);
+  color: var(--text-dark);
+}
+
+/* ============ TOGGLE SWITCH ============ */
+.theme-toggle {
+  --toggle-track: #cfe0f0;
+  --toggle-knob: #fffbf0;
+  --toggle-border: rgba(26, 39, 68, 0.85);
+  --toggle-shadow: rgba(26, 39, 68, 0.45);
+  --toggle-sun: #d4a017;
+  --toggle-moon: #5a6b82;
+
+  position: relative;
+  flex-shrink: 0;
+  width: 60px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--toggle-border);
+  border-radius: 999px;
+  background: var(--toggle-track);
+  box-shadow: 2px 2px 0 var(--toggle-shadow);
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--toggle-sun);
+  outline-offset: 3px;
+}
+
+.theme-toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--toggle-knob);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.theme-toggle svg {
+  position: absolute;
+  top: 7px;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.theme-toggle .icon-sun {
+  left: 7px;
+  color: var(--toggle-sun);
+}
+
+.theme-toggle .icon-moon {
+  right: 7px;
+  color: var(--toggle-moon);
+}
+
+html[data-theme="dark"] .theme-toggle {
+  --toggle-track: #1a2744;
+  --toggle-knob: #e8dcc8;
+  --toggle-border: rgba(232, 220, 200, 0.55);
+  --toggle-shadow: rgba(169, 193, 224, 0.28);
+  --toggle-sun: #8a8f7a;
+  --toggle-moon: #1a2744;
+}
+
+html[data-theme="dark"] .theme-toggle-knob {
+  transform: translateX(28px);
+}
+
+/* Toggle sits in the top-right corner of the top bar */
+.top-bar {
+  position: relative;
+  padding-right: 76px;
+}
+
+.top-bar .theme-toggle {
+  position: absolute;
+  top: 2px;
+  right: 0;
+}
+
+/* On phones only the name row needs room for the toggle */
+@media (max-width: 639px) {
+  .top-bar {
+    padding-right: 0;
+  }
+  .top-bar h1 {
+    padding-right: 76px;
+  }
+}
+
+/* About page header is already dark */
+.header .theme-toggle {
+  --toggle-border: rgba(255, 251, 240, 0.35);
+  --toggle-shadow: rgba(0, 0, 0, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-toggle-knob {
+    transition: none;
+  }
+}
