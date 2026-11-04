@@ -3,8 +3,8 @@
 //   GA4 Measurement ID: analytics.google.com > Admin > Data streams > your stream (looks like "G-XXXXXXXXXX")
 //   Clarity Project ID: clarity.microsoft.com > your project > Settings > Overview (looks like "abc123xyz")
 (function () {
-  var GA_MEASUREMENT_ID = "";
-  var CLARITY_PROJECT_ID = "";
+  var GA_MEASUREMENT_ID = "G-8L2B9XX8X7";
+  var CLARITY_PROJECT_ID = "z84y65uhmb";
 
   // Skip tracking when previewing the site locally.
   var host = location.hostname;
