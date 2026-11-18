@@ -296,6 +296,33 @@
       font-weight: 500;
     }
 
+    /* Tiles that link somewhere */
+    .mini-card-link {
+      display: block;
+      color: var(--text);
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+    }
+
+    .mini-card-link .mini-label::after {
+      content: ' \2192';
+      opacity: 0.5;
+      transition: opacity 0.15s;
+    }
+
+    .mini-card-link:hover,
+    .mini-card-link:focus-visible {
+      color: var(--text);
+      border-color: var(--border-strong);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--shadow-strong);
+    }
+
+    .mini-card-link:hover .mini-label::after,
+    .mini-card-link:focus-visible .mini-label::after {
+      opacity: 1;
+    }
+
     /* ============ EXPERIENCE CARDS ============ */
     .exp-card {
       position: relative;
@@ -480,6 +507,52 @@
       margin-top: 6px;
       line-height: 1.6;
       color: var(--text);
+    }
+
+    /* ============ CLICKABLE CARDS ============ */
+    /* The card's details link stretches over the whole card */
+    .exp-card,
+    .project-card {
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+    }
+
+    .card-link::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .card-link:focus-visible {
+      outline: none;
+    }
+
+    .exp-card:hover,
+    .project-card:hover,
+    .exp-card:focus-within,
+    .project-card:focus-within {
+      border-color: var(--border-strong);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--shadow-strong);
+    }
+
+    .exp-card:hover .card-link,
+    .project-card:hover .card-link,
+    .card-link:focus-visible {
+      background: var(--indigo-dark);
+      color: var(--panel);
+    }
+
+    /* Keep the 3D model draggable above the card link */
+    .project-media-interactive {
+      position: relative;
+      z-index: 2;
+      cursor: grab;
+    }
+
+    .star-badge {
+      z-index: 2;
     }
 
     /* ============ WAVE SCENE (subtle decoration) ============ */
@@ -674,22 +747,22 @@
         <a href="projects.html" class="chip chip-nav" style="justify-content: flex-start;">All Projects</a>
       </div>
       <div class="mini-grid" style="margin-top: 4px;">
-        <div class="mini-card">
+        <a class="mini-card mini-card-link" href="about.html#photography">
           <p class="mini-label">Camera</p>
           <p class="mini-value">Sony a6400</p>
-        </div>
-        <div class="mini-card">
+        </a>
+        <a class="mini-card mini-card-link" href="about.html#photography">
           <p class="mini-label">Hobbies</p>
           <p class="mini-value">Photography · Gym · F1</p>
-        </div>
-        <div class="mini-card">
+        </a>
+        <a class="mini-card mini-card-link" href="about.html#music">
           <p class="mini-label">Favorite Artist</p>
           <p class="mini-value">The Weeknd</p>
-        </div>
-        <div class="mini-card">
+        </a>
+        <a class="mini-card mini-card-link" href="about.html#nature">
           <p class="mini-label">Happy Place</p>
           <p class="mini-value">Exploring the Outdoors</p>
-        </div>
+        </a>
       </div>
     </div>
   </fieldset>
@@ -764,7 +837,7 @@
               <span class="exp-tag">Simulation</span>
             </div>
             <div class="exp-chips">
-              <a href="work.html#kodiak" class="chip chip-sm">details</a>
+              <a href="work.html#kodiak" class="chip chip-sm card-link">details</a>
             </div>
           </div>
         </div>
@@ -793,7 +866,7 @@
               <span class="exp-tag">Semiconductors</span>
             </div>
             <div class="exp-chips">
-              <a href="work.html#atomic" class="chip chip-sm">details</a>
+              <a href="work.html#atomic" class="chip chip-sm card-link">details</a>
             </div>
           </div>
         </div>
@@ -823,7 +896,7 @@
               <span class="exp-tag">C/C++</span>
             </div>
             <div class="exp-chips">
-              <a href="work.html#blink" class="chip chip-sm">details</a>
+              <a href="work.html#blink" class="chip chip-sm card-link">details</a>
             </div>
           </div>
         </div>
@@ -851,7 +924,7 @@
               <span class="exp-tag">Custom Boards</span>
             </div>
             <div class="exp-chips">
-              <a href="work.html#asme" class="chip chip-sm">details</a>
+              <a href="work.html#asme" class="chip chip-sm card-link">details</a>
             </div>
           </div>
         </div>
@@ -882,7 +955,7 @@
               <span class="exp-tag">OAK-D</span>
             </div>
             <div class="exp-chips">
-              <a href="projects.html#actathon" class="chip chip-sm">details</a>
+              <a href="projects.html#actathon" class="chip chip-sm card-link">details</a>
             </div>
           </div>
         </div>
@@ -904,7 +977,7 @@
               <span class="exp-tag">protobuf</span>
             </div>
             <div class="exp-chips">
-              <a href="projects.html#3d-detection" class="chip chip-sm">details</a>
+              <a href="projects.html#3d-detection" class="chip chip-sm card-link">details</a>
             </div>
           </div>
         </div>
@@ -929,7 +1002,7 @@
               <span class="exp-tag">KiCAD</span>
             </div>
             <div class="exp-chips">
-              <a href="projects.html#autonomous-drone" class="chip chip-sm">details</a>
+              <a href="projects.html#autonomous-drone" class="chip chip-sm card-link">details</a>
             </div>
           </div>
         </div>
@@ -938,7 +1011,7 @@
       <!-- 3D Arm Viewer -->
       <div class="project-card">
         <div class="project-inner">
-          <div class="project-media">
+          <div class="project-media project-media-interactive">
             <model-viewer
               src="Assets/ARM.gltf"
               alt="4-DOF Robotic Arm"
@@ -958,7 +1031,7 @@
               <span class="exp-tag">Motor Control</span>
             </div>
             <div class="exp-chips">
-              <a href="work.html#blink" class="chip chip-sm">full write-up</a>
+              <a href="work.html#blink" class="chip chip-sm card-link">full write-up</a>
             </div>
           </div>
         </div>

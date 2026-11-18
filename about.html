@@ -252,6 +252,11 @@
       overflow: hidden;
     }
 
+    /* Keep linked sections clear of the fixed header (extra room for the fade-in offset) */
+    .content-section[id] {
+      scroll-margin-top: 112px;
+    }
+
     .content-section::before {
       content: '';
       position: absolute;
@@ -720,7 +725,7 @@
   <div class="main-content">
 
     <!-- Travel & 3D Globe Section -->
-    <section class="content-section">
+    <section id="travel" class="content-section">
       <h2><span class="section-icon">🗺️</span> Where I've Been</h2>
       <p>I love exploring new places and cultures. From hiking through nearly every US National Park to traveling across countries, each journey shapes how I see the world. Drag the globe to explore.</p>
       <div class="map-section">
@@ -755,7 +760,7 @@
     </section>
 
     <!-- Photography Section -->
-    <section class="content-section">
+    <section id="photography" class="content-section">
       <h2><span class="section-icon">📸</span> Photography & Videography</h2>
       <div class="flex-row">
         <div>
@@ -768,7 +773,7 @@
     </section>
 
     <!-- Music Section -->
-    <section class="content-section">
+    <section id="music" class="content-section">
       <h2><span class="section-icon">🎵</span> Music Lover</h2>
       <div class="music-content">
         <div class="music-text">
@@ -804,7 +809,7 @@
     </section>
 
     <!-- Nature Section -->
-    <section class="content-section">
+    <section id="nature" class="content-section">
       <h2><span class="section-icon">🌲</span> Growing Up in Nature</h2>
       <div class="flex-row">
         <div>
@@ -818,13 +823,13 @@
     </section>
 
     <!-- Fitness Section -->
-    <section class="content-section center-section">
+    <section id="fitness" class="content-section center-section">
       <h2 style="justify-content: center;"><span class="section-icon">🏋️‍♂️</span> Gym & Fitness Journey</h2>
       <p>I've become absolutely addicted to the gym over the past couple of years. Through consistent training and dedication, I've gained 20 pounds in two years and have completely transformed my body. Fitness has become a huge part of my life, and I'm proud of the progress I've made!</p>
     </section>
 
     <!-- F1 Section -->
-    <section class="content-section center-section">
+    <section id="f1" class="content-section center-section">
       <h2 style="justify-content: center;"><span class="section-icon">🏎️</span> Formula One Fan</h2>
       <p>I love watching Formula One, and my favorite drivers are Lewis Hamilton and Daniel Ricciardo. Race weekends are always great.</p>
       <div class="concert-img-wrapper" style="margin-top: 24px;">
